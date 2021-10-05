@@ -30,7 +30,7 @@ namespace provaider
             dataGridView1.Rows.Clear();
 
             SqlConnection conn = new SqlConnection();
-            sql = "SELECT * From [contract]";
+            sql = "Select [id],[last_name],[first_name],[patronymic], [telephone], [city],[street], [house],FORMAT(contract.data_birth, 'dd/MM/yyyy', 'de-de' ), [flat],[passport_series], [passport_number] ,FORMAT(contract.date_conclusion, 'dd/MM/yyyy', 'de-de' ) FROM [contract]";
             SqlCommand cmd = new SqlCommand(sql, conn);
 
             conn.ConnectionString = provaider.Properties.Resources.conn_string;
@@ -100,6 +100,11 @@ namespace provaider
             int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
            Form_customers_edit customers_edit_form = new Form_customers_edit(id);
             customers_edit_form.Show();
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

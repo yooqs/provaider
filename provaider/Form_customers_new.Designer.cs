@@ -54,6 +54,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.comboBox_street = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // comboBox_city
@@ -320,11 +321,22 @@
             this.panel1.Size = new System.Drawing.Size(10, 355);
             this.panel1.TabIndex = 159;
             // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.maskedTextBox1.Location = new System.Drawing.Point(280, 363);
+            this.maskedTextBox1.Mask = "+7(000)-00-00";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(221, 26);
+            this.maskedTextBox1.TabIndex = 193;
+            this.maskedTextBox1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
+            // 
             // Form_customers_new
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(512, 450);
+            this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.comboBox_street);
             this.Controls.Add(this.textBox_flat);
             this.Controls.Add(this.label9);
@@ -388,5 +400,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboBox_street;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
     }
 }

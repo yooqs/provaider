@@ -56,6 +56,7 @@
             this.comboBox_city = new System.Windows.Forms.ComboBox();
             this.date_conclusion = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // comboBox_street
@@ -186,7 +187,7 @@
             // textBox_telephone
             // 
             this.textBox_telephone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox_telephone.Location = new System.Drawing.Point(278, 320);
+            this.textBox_telephone.Location = new System.Drawing.Point(434, 322);
             this.textBox_telephone.Multiline = true;
             this.textBox_telephone.Name = "textBox_telephone";
             this.textBox_telephone.Size = new System.Drawing.Size(221, 26);
@@ -339,11 +340,21 @@
             this.label13.TabIndex = 191;
             this.label13.Text = "Дата заключения договора";
             // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.maskedTextBox1.Location = new System.Drawing.Point(275, 322);
+            this.maskedTextBox1.Mask = "+7(000)-00-00";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(221, 26);
+            this.maskedTextBox1.TabIndex = 192;
+            // 
             // Form_customers_edit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(508, 450);
+            this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.date_conclusion);
             this.Controls.Add(this.comboBox_street);
@@ -410,5 +421,6 @@
         private System.Windows.Forms.ComboBox comboBox_city;
         private System.Windows.Forms.DateTimePicker date_conclusion;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
     }
 }

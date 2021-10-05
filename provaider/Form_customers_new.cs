@@ -121,7 +121,7 @@ namespace provaider
                 command.Parameters.AddWithValue("@last_name", textBox_first_name.Text);
                 command.Parameters.AddWithValue("@first_name", textBox_middle_name.Text);
                 command.Parameters.AddWithValue("@patronymic", textBox_last_name.Text);
-                command.Parameters.AddWithValue("@telephone", textBox_telephone.Text);
+                command.Parameters.AddWithValue("@telephone", maskedTextBox1.Text.Where(char.IsDigit).ToArray());
                 command.Parameters.AddWithValue("@city", comboBox_city.Text);
                 command.Parameters.AddWithValue("@street", comboBox_street.Text);
                 command.Parameters.AddWithValue("@house", textBox_house.Text);
@@ -150,6 +150,11 @@ namespace provaider
         private void Form_customers_new_FormClosed(object sender, FormClosedEventArgs e)
         {
             
+        }
+
+        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
     

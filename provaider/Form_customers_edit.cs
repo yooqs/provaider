@@ -51,7 +51,7 @@ namespace provaider
                     textBox_last_name.Text = row[1];
                     textBox_first_name.Text = row[2];
                     textBox_patronymic.Text = row[3];
-                    textBox_telephone.Text = row[4];
+                    maskedTextBox1.Text = row[4];
                     comboBox_city.Text = row[5];
                     comboBox_street.Text = row[6];
                     textBox_house.Text = row[7];
@@ -74,7 +74,34 @@ namespace provaider
         }
         private void button_user_new_Click(object sender, EventArgs e)
         {
+            SqlConnection conn = new SqlConnection();
+            //conn.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Дмитрий\Desktop\1234\basa.mdf;Integrated Security=True;Connect Timeout=30";
+            conn.ConnectionString = Properties.Resources.conn_string;
 
+
+            
+            SqlCommand command = new SqlCommand("UPDATE [contract] SET last_name = @last_name, first_name = @first_name,patronymic = @patronymic, telephone = @telephone, city = @city,street = @street, house = @house,data_birth = convert(varchar, convert(datetime, '" + textBox_birth_date.Text + "', 104), 121), flat = @flat,passport_series = @passport_series, passport_number = @passport_number, date_conclusion = convert(varchar, convert(datetime, '" + textBox_birth_date.Text + "', 104), 121) where [id] = "+id, conn);
+            command.Parameters.AddWithValue("@last_name", textBox_last_name.Text);
+            command.Parameters.AddWithValue("@first_name", textBox_first_name.Text);
+            command.Parameters.AddWithValue("@patronymic", textBox_patronymic.Text); 
+            command.Parameters.AddWithValue("@telephone", maskedTextBox1.Text.Where(char.IsDigit).ToArray());
+            command.Parameters.AddWithValue("@city", comboBox_city.Text);
+            command.Parameters.AddWithValue("@street", comboBox_street.Text);
+            command.Parameters.AddWithValue("@house", textBox_house.Text);
+            command.Parameters.AddWithValue("@flat", textBox_flat.Text);
+            command.Parameters.AddWithValue("@passport_series", textBox_passport_series.Text);
+            command.Parameters.AddWithValue("@passport_number", textBox_passport_number.Text);
+            //command.Parameters.AddWithValue("@birth_date", textBox_birth_date.Text);
+
+
+            command.Connection.Open();
+            command.ExecuteNonQuery();
+
+
+            command.Connection.Close();
+
+
+            this.Close();
         }
 
         private async void Form_customers_edit_Load(object sender, EventArgs e)
