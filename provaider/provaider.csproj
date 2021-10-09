@@ -70,6 +70,24 @@
     <Compile Include="Form_customers_new.Designer.cs">
       <DependentUpon>Form_customers_new.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_employee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_employee.Designer.cs">
+      <DependentUpon>Form_employee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_employee_edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_employee_edit.Designer.cs">
+      <DependentUpon>Form_employee_edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_employee_new.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_employee_new.Designer.cs">
+      <DependentUpon>Form_employee_new.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +107,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_customers_new.resx">
       <DependentUpon>Form_customers_new.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_employee.resx">
+      <DependentUpon>Form_employee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_employee_edit.resx">
+      <DependentUpon>Form_employee_edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_employee_new.resx">
+      <DependentUpon>Form_employee_new.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>

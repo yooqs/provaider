@@ -80,7 +80,7 @@ namespace provaider
 
 
             
-            SqlCommand command = new SqlCommand("UPDATE [contract] SET last_name = @last_name, first_name = @first_name,patronymic = @patronymic, telephone = @telephone, city = @city,street = @street, house = @house,data_birth = convert(varchar, convert(datetime, '" + textBox_birth_date.Text + "', 104), 121), flat = @flat,passport_series = @passport_series, passport_number = @passport_number, date_conclusion = convert(varchar, convert(datetime, '" + textBox_birth_date.Text + "', 104), 121) where [id] = "+id, conn);
+            SqlCommand command = new SqlCommand("UPDATE [contract] SET last_name = @last_name, first_name = @first_name,patronymic = @patronymic, telephone = @telephone, city = @city,street = @street, house = @house,data_birth = convert(varchar, convert(datetime, '" + textBox_birth_date.Text + "', 104), 121), flat = @flat,passport_series = @passport_series, passport_number = @passport_number, date_conclusion = convert(varchar, convert(datetime, '" + date_conclusion.Text + "', 104), 121) where [id] = "+id, conn);
             command.Parameters.AddWithValue("@last_name", textBox_last_name.Text);
             command.Parameters.AddWithValue("@first_name", textBox_first_name.Text);
             command.Parameters.AddWithValue("@patronymic", textBox_patronymic.Text); 

@@ -11,3 +11,6 @@ C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.For
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_customers.resources
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_customers_new.resources
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_customers_edit.resources
+C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_employee.resources
+C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_employee_new.resources
+C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_employee_edit.resources

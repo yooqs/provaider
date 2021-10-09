@@ -1,6 +1,6 @@
 ﻿namespace provaider
 {
-    partial class Form_customers
+    partial class Form_employee
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView_employee = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.last_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.first_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,22 +39,23 @@
             this.passport_series = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passport_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date_conclusion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button_customers_new = new System.Windows.Forms.Button();
-            this.button_customers_edit = new System.Windows.Forms.Button();
-            this.button_customers_delete = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.button_employee_delete = new System.Windows.Forms.Button();
+            this.button_employee_edit = new System.Windows.Forms.Button();
+            this.button_employee_new = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_employee)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridView_employee
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataGridView_employee.AllowUserToAddRows = false;
+            this.dataGridView_employee.AllowUserToDeleteRows = false;
+            this.dataGridView_employee.AllowUserToOrderColumns = true;
+            this.dataGridView_employee.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView_employee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_employee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_employee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.last_name,
             this.first_name,
@@ -65,10 +66,10 @@
             this.passport_series,
             this.passport_number,
             this.date_conclusion});
-            this.dataGridView1.Location = new System.Drawing.Point(2, 117);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1135, 165);
-            this.dataGridView1.TabIndex = 1;
+            this.dataGridView_employee.Location = new System.Drawing.Point(12, 123);
+            this.dataGridView_employee.Name = "dataGridView_employee";
+            this.dataGridView_employee.Size = new System.Drawing.Size(1216, 165);
+            this.dataGridView_employee.TabIndex = 27;
             // 
             // id
             // 
@@ -148,74 +149,72 @@
             this.date_conclusion.Name = "date_conclusion";
             this.date_conclusion.Width = 102;
             // 
-            // button_customers_new
+            // button_employee_delete
             // 
-            this.button_customers_new.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button_customers_new.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.button_customers_new.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
-            this.button_customers_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_customers_new.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_customers_new.Location = new System.Drawing.Point(244, 293);
-            this.button_customers_new.Name = "button_customers_new";
-            this.button_customers_new.Size = new System.Drawing.Size(165, 39);
-            this.button_customers_new.TabIndex = 24;
-            this.button_customers_new.Text = "Добавить";
-            this.button_customers_new.UseVisualStyleBackColor = true;
-            this.button_customers_new.Click += new System.EventHandler(this.button_customers_new_Click_1);
+            this.button_employee_delete.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button_employee_delete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.button_employee_delete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            this.button_employee_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_employee_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_employee_delete.Location = new System.Drawing.Point(690, 294);
+            this.button_employee_delete.Name = "button_employee_delete";
+            this.button_employee_delete.Size = new System.Drawing.Size(165, 39);
+            this.button_employee_delete.TabIndex = 30;
+            this.button_employee_delete.Text = "Удалить";
+            this.button_employee_delete.UseVisualStyleBackColor = true;
+            this.button_employee_delete.Click += new System.EventHandler(this.button_employee_delete_Click);
             // 
-            // button_customers_edit
+            // button_employee_edit
             // 
-            this.button_customers_edit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button_customers_edit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.button_customers_edit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
-            this.button_customers_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_customers_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_customers_edit.Location = new System.Drawing.Point(444, 293);
-            this.button_customers_edit.Name = "button_customers_edit";
-            this.button_customers_edit.Size = new System.Drawing.Size(165, 39);
-            this.button_customers_edit.TabIndex = 25;
-            this.button_customers_edit.Text = "Изменить";
-            this.button_customers_edit.UseVisualStyleBackColor = true;
-            this.button_customers_edit.Click += new System.EventHandler(this.button_customers_edit_Click);
+            this.button_employee_edit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button_employee_edit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.button_employee_edit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            this.button_employee_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_employee_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_employee_edit.Location = new System.Drawing.Point(495, 294);
+            this.button_employee_edit.Name = "button_employee_edit";
+            this.button_employee_edit.Size = new System.Drawing.Size(165, 39);
+            this.button_employee_edit.TabIndex = 29;
+            this.button_employee_edit.Text = "Изменить";
+            this.button_employee_edit.UseVisualStyleBackColor = true;
+            this.button_employee_edit.Click += new System.EventHandler(this.button_employee_edit_Click);
             // 
-            // button_customers_delete
+            // button_employee_new
             // 
-            this.button_customers_delete.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button_customers_delete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.button_customers_delete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
-            this.button_customers_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_customers_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_customers_delete.Location = new System.Drawing.Point(639, 293);
-            this.button_customers_delete.Name = "button_customers_delete";
-            this.button_customers_delete.Size = new System.Drawing.Size(165, 39);
-            this.button_customers_delete.TabIndex = 26;
-            this.button_customers_delete.Text = "Удалить";
-            this.button_customers_delete.UseVisualStyleBackColor = true;
-            this.button_customers_delete.Click += new System.EventHandler(this.button_customers_delete_Click);
+            this.button_employee_new.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button_employee_new.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.button_employee_new.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            this.button_employee_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_employee_new.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_employee_new.Location = new System.Drawing.Point(295, 294);
+            this.button_employee_new.Name = "button_employee_new";
+            this.button_employee_new.Size = new System.Drawing.Size(165, 39);
+            this.button_employee_new.TabIndex = 28;
+            this.button_employee_new.Text = "Добавить";
+            this.button_employee_new.UseVisualStyleBackColor = true;
+            this.button_employee_new.Click += new System.EventHandler(this.button_employee_new_Click);
             // 
-            // Form_customers
+            // Form_employee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1136, 344);
-            this.Controls.Add(this.button_customers_delete);
-            this.Controls.Add(this.button_customers_edit);
-            this.Controls.Add(this.button_customers_new);
-            this.Controls.Add(this.dataGridView1);
-            this.Name = "Form_customers";
-            this.Text = "Form_customers";
-            this.Activated += new System.EventHandler(this.Form_customers_Activated);
-            this.Load += new System.EventHandler(this.Form_customers_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.ClientSize = new System.Drawing.Size(1240, 450);
+            this.Controls.Add(this.dataGridView_employee);
+            this.Controls.Add(this.button_employee_delete);
+            this.Controls.Add(this.button_employee_edit);
+            this.Controls.Add(this.button_employee_new);
+            this.Name = "Form_employee";
+            this.Text = "Form_employee";
+            this.Activated += new System.EventHandler(this.Form_employee_Activated);
+            this.Load += new System.EventHandler(this.Form_employee_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_employee)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button_customers_new;
-        private System.Windows.Forms.Button button_customers_edit;
-        private System.Windows.Forms.Button button_customers_delete;
+
+        private System.Windows.Forms.DataGridView dataGridView_employee;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn last_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn first_name;
@@ -226,5 +225,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn passport_series;
         private System.Windows.Forms.DataGridViewTextBoxColumn passport_number;
         private System.Windows.Forms.DataGridViewTextBoxColumn date_conclusion;
+        private System.Windows.Forms.Button button_employee_delete;
+        private System.Windows.Forms.Button button_employee_edit;
+        private System.Windows.Forms.Button button_employee_new;
     }
 }

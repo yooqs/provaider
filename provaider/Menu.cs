@@ -35,8 +35,22 @@ namespace provaider
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void button_customers_new_Click(object sender, EventArgs e)
+        {
             Form_customers customers_form = new Form_customers();
+            customers_form.StartPosition = FormStartPosition.CenterScreen;
             customers_form.Show();
+        }
+
+        private void button_employees_Click(object sender, EventArgs e)
+        {
+            Form_employee employee_form = new Form_employee();
+            employee_form.StartPosition = FormStartPosition.CenterScreen;
+            employee_form.Show();
+
         }
     }
 }

@@ -68,6 +68,7 @@ namespace provaider
         private void button_customers_new_Click_1(object sender, EventArgs e)
         {
             Form_customers_new customers_new_form = new Form_customers_new();
+            customers_new_form.StartPosition = FormStartPosition.CenterScreen;
             customers_new_form.Show();
         }
 
@@ -88,7 +89,7 @@ namespace provaider
 
         private void Form_customers_Activated(object sender, EventArgs e)
         {
-            if (Form_customers.Data_table_load == true)
+            if (Data_table_load == true)
             {
                 table_contract_load();
                 Data_table_load = false;
@@ -99,6 +100,7 @@ namespace provaider
         {
             int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
            Form_customers_edit customers_edit_form = new Form_customers_edit(id);
+            customers_edit_form.StartPosition = FormStartPosition.CenterScreen;
             customers_edit_form.Show();
 
         }
