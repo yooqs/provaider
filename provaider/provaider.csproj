@@ -76,6 +76,30 @@
     <Compile Include="Form_directory_adress.Designer.cs">
       <DependentUpon>Form_directory_adress.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_directory_adress_city_edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_directory_adress_city_edit.Designer.cs">
+      <DependentUpon>Form_directory_adress_city_edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_directory_adress_city_new.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_directory_adress_city_new.Designer.cs">
+      <DependentUpon>Form_directory_adress_city_new.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_directory_adress_street_edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_directory_adress_street_edit.Designer.cs">
+      <DependentUpon>Form_directory_adress_street_edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_directory_adress_street_new.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_directory_adress_street_new.Designer.cs">
+      <DependentUpon>Form_directory_adress_street_new.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_employee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +140,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_directory_adress.resx">
       <DependentUpon>Form_directory_adress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_directory_adress_city_edit.resx">
+      <DependentUpon>Form_directory_adress_city_edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_directory_adress_city_new.resx">
+      <DependentUpon>Form_directory_adress_city_new.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_directory_adress_street_edit.resx">
+      <DependentUpon>Form_directory_adress_street_edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_directory_adress_street_new.resx">
+      <DependentUpon>Form_directory_adress_street_new.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_employee.resx">
       <DependentUpon>Form_employee.cs</DependentUpon>
