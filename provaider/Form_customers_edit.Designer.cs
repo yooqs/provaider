@@ -320,6 +320,7 @@
             this.comboBox_city.Name = "comboBox_city";
             this.comboBox_city.Size = new System.Drawing.Size(219, 26);
             this.comboBox_city.TabIndex = 164;
+            this.comboBox_city.Leave += new System.EventHandler(this.comboBox_city_Leave);
             // 
             // date_conclusion
             // 

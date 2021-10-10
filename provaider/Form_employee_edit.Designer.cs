@@ -337,6 +337,7 @@
             this.comboBox_city.Name = "comboBox_city";
             this.comboBox_city.Size = new System.Drawing.Size(219, 26);
             this.comboBox_city.TabIndex = 228;
+            this.comboBox_city.Leave += new System.EventHandler(this.comboBox_city_Leave);
             // 
             // Form_employee_edit
             // 

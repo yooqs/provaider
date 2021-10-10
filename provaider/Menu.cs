@@ -52,5 +52,12 @@ namespace provaider
             employee_form.Show();
 
         }
+
+        private void button_directory_Click(object sender, EventArgs e)
+        {
+            Form_directory_adress directory_adress_form = new Form_directory_adress();
+            directory_adress_form.StartPosition = FormStartPosition.CenterScreen;
+            directory_adress_form.Show();
+        }
     }
 }

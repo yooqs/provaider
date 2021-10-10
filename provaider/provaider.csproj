@@ -70,6 +70,12 @@
     <Compile Include="Form_customers_new.Designer.cs">
       <DependentUpon>Form_customers_new.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_directory_adress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_directory_adress.Designer.cs">
+      <DependentUpon>Form_directory_adress.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_employee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_customers_new.resx">
       <DependentUpon>Form_customers_new.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_directory_adress.resx">
+      <DependentUpon>Form_directory_adress.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_employee.resx">
       <DependentUpon>Form_employee.cs</DependentUpon>

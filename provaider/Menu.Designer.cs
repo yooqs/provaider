@@ -35,7 +35,7 @@
             this.button_customers = new System.Windows.Forms.Button();
             this.button_customers_new = new System.Windows.Forms.Button();
             this.button_employees = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.button_directory = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -110,19 +110,20 @@
             this.button_employees.UseVisualStyleBackColor = true;
             this.button_employees.Click += new System.EventHandler(this.button_employees_Click);
             // 
-            // button2
+            // button_directory
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(320, 285);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(165, 39);
-            this.button2.TabIndex = 27;
-            this.button2.Text = "Справочники";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button_directory.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button_directory.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.button_directory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            this.button_directory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_directory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_directory.Location = new System.Drawing.Point(320, 285);
+            this.button_directory.Name = "button_directory";
+            this.button_directory.Size = new System.Drawing.Size(165, 39);
+            this.button_directory.TabIndex = 27;
+            this.button_directory.Text = "Справочники";
+            this.button_directory.UseVisualStyleBackColor = true;
+            this.button_directory.Click += new System.EventHandler(this.button_directory_Click);
             // 
             // button3
             // 
@@ -189,7 +190,7 @@
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button_directory);
             this.Controls.Add(this.button_employees);
             this.Controls.Add(this.button_customers_new);
             this.Controls.Add(this.button_customers);
@@ -212,7 +213,7 @@
         private System.Windows.Forms.Button button_customers;
         private System.Windows.Forms.Button button_customers_new;
         private System.Windows.Forms.Button button_employees;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button_directory;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;

@@ -19,6 +19,72 @@ namespace provaider
             this.id = id;
             InitializeComponent();
         }
+        public async void Textbox_street_update()
+        {
+            comboBox_street.Items.Clear();
+            //получение id города
+
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = provaider.Properties.Resources.conn_string;
+            await conn.OpenAsync();
+            SqlCommand cmd = new SqlCommand("SELECT [id] FROM [city] WHERE [name]='" + comboBox_city.Text + "'", conn);
+            SqlDataReader reader = await cmd.ExecuteReaderAsync();
+            reader.ReadAsync();
+            if (reader.HasRows)
+            {
+                int id = (int)reader.GetValue(0);
+                reader.Close();
+                //заполнение текст бокса
+
+                cmd.CommandText = "SELECT [name] FROM [street] WHERE [id_city]='" + id + "'";
+
+
+                using (reader = await cmd.ExecuteReaderAsync())
+                {
+
+
+                    while (reader.Read())
+                    {
+
+                        string row = reader.GetValue(0).ToString().Trim();
+
+
+
+                        comboBox_street.Items.Add(row);
+                    }
+                    reader.Close();
+                }
+            }
+            conn.Close();
+        }
+        public void Textbox_city_update()
+        {
+
+            SqlConnection conn = new SqlConnection();
+            SqlCommand cmd = new SqlCommand("SELECT [name] FROM [city] ", conn);
+
+            conn.ConnectionString = provaider.Properties.Resources.conn_string;
+            conn.Open();
+
+
+
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                comboBox_city.Items.Clear();
+                while (reader.Read())
+                {
+
+                    string row = reader.GetValue(0).ToString().Trim();
+
+
+
+                    comboBox_city.Items.Add(row);
+                }
+                reader.Close();
+            }
+            conn.Close();
+        }
         private async Task date_contract_loadAsync()
         {
             string[] row;
@@ -79,6 +145,12 @@ namespace provaider
         private void Form_employee_edit_Load(object sender, EventArgs e)
         {
             date_contract_loadAsync();
+            Textbox_city_update();
+        }
+
+        private void comboBox_city_Leave(object sender, EventArgs e)
+        {
+            Textbox_street_update();
         }
     }
 }
