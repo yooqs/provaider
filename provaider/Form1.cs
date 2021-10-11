@@ -126,5 +126,10 @@ namespace provaider
                 conn.Close();
             }
         }
+
+        private void Form_login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
