@@ -40,7 +40,6 @@
             this.textBox_passport_series = new System.Windows.Forms.MaskedTextBox();
             this.textBox_birth_date = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox_telephone = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox_house = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -183,15 +182,6 @@
             this.label10.Size = new System.Drawing.Size(61, 20);
             this.label10.TabIndex = 178;
             this.label10.Text = "Город";
-            // 
-            // textBox_telephone
-            // 
-            this.textBox_telephone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox_telephone.Location = new System.Drawing.Point(434, 322);
-            this.textBox_telephone.Multiline = true;
-            this.textBox_telephone.Name = "textBox_telephone";
-            this.textBox_telephone.Size = new System.Drawing.Size(221, 26);
-            this.textBox_telephone.TabIndex = 177;
             // 
             // label11
             // 
@@ -345,7 +335,7 @@
             // 
             this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.maskedTextBox1.Location = new System.Drawing.Point(275, 322);
-            this.maskedTextBox1.Mask = "+7(000)-00-00";
+            this.maskedTextBox1.Mask = "+7(000)-000-00-00";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(221, 26);
             this.maskedTextBox1.TabIndex = 192;
@@ -370,7 +360,6 @@
             this.Controls.Add(this.textBox_passport_series);
             this.Controls.Add(this.textBox_birth_date);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox_telephone);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.textBox_house);
             this.Controls.Add(this.label12);
@@ -406,7 +395,6 @@
         private System.Windows.Forms.MaskedTextBox textBox_passport_series;
         private System.Windows.Forms.DateTimePicker textBox_birth_date;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox_telephone;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox_house;
         private System.Windows.Forms.Label label12;

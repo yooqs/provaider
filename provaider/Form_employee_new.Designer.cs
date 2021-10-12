@@ -62,7 +62,7 @@
             // 
             this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.maskedTextBox1.Location = new System.Drawing.Point(282, 316);
-            this.maskedTextBox1.Mask = "+7(000)-00-00";
+            this.maskedTextBox1.Mask = "+7(000)-000-00-00";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(221, 26);
             this.maskedTextBox1.TabIndex = 11;

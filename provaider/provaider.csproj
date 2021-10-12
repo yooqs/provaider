@@ -64,6 +64,12 @@
     <Compile Include="Form_applications_new.Designer.cs">
       <DependentUpon>Form_applications_new.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_application_archive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_application_archive.Designer.cs">
+      <DependentUpon>Form_application_archive.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_customers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_applications_new.resx">
       <DependentUpon>Form_applications_new.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_application_archive.resx">
+      <DependentUpon>Form_application_archive.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_customers.resx">
       <DependentUpon>Form_customers.cs</DependentUpon>

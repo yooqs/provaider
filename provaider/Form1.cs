@@ -117,7 +117,7 @@ namespace provaider
                     }
                     conn.Close();
                     this.Hide();
-                    Menu form_menu = new Menu();
+                    Form_menu form_menu = new Form_menu();
                     form_menu.StartPosition = FormStartPosition.CenterScreen;
                     form_menu.Show();
                 }

@@ -116,8 +116,10 @@ namespace provaider
 
                 
                 command.ExecuteNonQuery();
-                
+                Form_menu.application_update = true;
             }
+            
+            this.Close();
         }
     }
 }

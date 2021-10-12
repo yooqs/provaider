@@ -136,6 +136,7 @@ namespace provaider
             //обновление
             Form_customers.Data_table_load = true;
             
+            
         }
         private void button_user_new_Click(object sender, EventArgs e)
         {
@@ -149,7 +150,7 @@ namespace provaider
             command.Parameters.AddWithValue("@last_name", textBox_last_name.Text);
             command.Parameters.AddWithValue("@first_name", textBox_first_name.Text);
             command.Parameters.AddWithValue("@patronymic", textBox_patronymic.Text); 
-            command.Parameters.AddWithValue("@telephone", maskedTextBox1.Text.Where(char.IsDigit).ToArray());
+            command.Parameters.AddWithValue("@telephone", maskedTextBox1.Text);
             command.Parameters.AddWithValue("@city", comboBox_city.Text);
             command.Parameters.AddWithValue("@street", comboBox_street.Text);
             command.Parameters.AddWithValue("@house", textBox_house.Text);

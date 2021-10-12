@@ -18,6 +18,115 @@ namespace provaider
         {
             InitializeComponent();
         }
+        public async void table_combobox_last_name()
+        {
+            String sql = "SELECT DISTINCT [last_name] FROM [employee]";
+            String str_conn = Properties.Resources.conn_string;
+            using (SqlConnection conn = new SqlConnection(str_conn))
+            {
+                conn.Open();
+                SqlCommand comand = new SqlCommand(sql, conn);
+                SqlDataReader reader = comand.ExecuteReader();
+                while (reader.Read())
+                {
+                    comboBox_last_name.Items.Add(reader.GetValue(0).ToString().Trim());
+                }
+            }
+        }
+        public void Textbox_city_update()
+        {
+
+            SqlConnection conn = new SqlConnection();
+            SqlCommand cmd = new SqlCommand("SELECT [name] FROM [city] ", conn);
+
+            conn.ConnectionString = provaider.Properties.Resources.conn_string;
+            conn.Open();
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                comboBox_city.Items.Clear();
+                while (reader.Read())
+                {
+                    string row = reader.GetValue(0).ToString().Trim();
+                    comboBox_city.Items.Add(row);
+                }
+                reader.Close();
+            }
+            conn.Close();
+        }
+        public async void Textbox_street_update()
+        {
+            comboBox_street.Items.Clear();
+            //получение id города
+
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = provaider.Properties.Resources.conn_string;
+            await conn.OpenAsync();
+            SqlCommand cmd = new SqlCommand("SELECT [id] FROM [city] WHERE [name]='" + comboBox_city.Text + "'", conn);
+            SqlDataReader reader = await cmd.ExecuteReaderAsync();
+            reader.ReadAsync();
+            if (reader.HasRows)
+            {
+                int id = (int)reader.GetValue(0);
+                reader.Close();
+                //заполнение текст бокса
+                cmd.CommandText = "SELECT [name] FROM [street] WHERE [id_city]='" + id + "'";
+                using (reader = await cmd.ExecuteReaderAsync())
+                {
+                    while (reader.Read())
+                    {
+                        string row = reader.GetValue(0).ToString().Trim();
+                        comboBox_street.Items.Add(row);
+                    }
+                    reader.Close();
+                }
+            }
+            conn.Close();
+        }
+        public async Task table_updateAsync()
+        {
+            String sql;
+            dataGridView_employee.Rows.Clear();
+
+            SqlConnection conn = new SqlConnection();
+            sql = "Select [id],[last_name],[first_name],[patronymic], [telephone], [city],[street], [house],FORMAT(employee.date_conclusion, 'dd/MM/yyyy', 'de-de' ), [flat],[passport_series], [passport_number] ,FORMAT(employee.date_birth, 'dd/MM/yyyy', 'de-de' ) FROM [employee] WHERE [id] IS NOT NULL";
+            if (checkBox_city.Checked) sql += $" AND [city] = '{comboBox_city.Text}'";
+            if (checkBox_street.Checked) sql += $" AND [street] = '{comboBox_street.Text}'";
+            if (checkBox_house.Checked) sql += $" AND [house] = '{ textBox_house.Text}'";
+            if (checkBox_flat.Checked) sql += $" AND [flat] = '{ textBox_flat.Text}'";
+            if (checkBox_telephone.Checked) sql += $" AND [telephone] = '{maskedTextBox_telephone.Text}'";
+            if (checkBox_passport_series.Checked) sql += " AND [passport_series] = " + textBox_passport_series.Text;
+            if (checkBox_passport_number.Checked) sql += " AND [passport_number] = " + textBox_passport_number.Text;
+            if (checkBox_date_conclusion.Checked) sql += " AND [date_conclusion] = convert(varchar, convert(datetime, '" + date_conclusions.Text + "', 104), 121)";
+
+
+            conn.ConnectionString = provaider.Properties.Resources.conn_string;
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+            {
+                while (reader.Read())
+                {
+                    string[] row = {reader.GetValue(0).ToString().Trim(),
+                                    reader.GetValue(1).ToString().Trim(),
+                                    reader.GetValue(2).ToString().Trim(),
+                                    reader.GetValue(3).ToString().Trim(),
+                                    reader.GetValue(4).ToString().Trim(),
+                                    reader.GetValue(5).ToString().Trim()+", "+ reader.GetValue(6).ToString().Trim()+", "+reader.GetValue(7).ToString().Trim()+", "+reader.GetValue(9).ToString().Trim(),
+
+                                    reader.GetValue(8).ToString().Trim(),
+
+                                    reader.GetValue(10).ToString().Trim(),
+                                    reader.GetValue(11).ToString().Trim(),
+                                    reader.GetValue(12).ToString().Trim(),
+
+                                    };
+
+                    dataGridView_employee.Rows.Add(row);
+                }
+                reader.Close();
+            }
+            conn.Close();
+        }
         public static bool Data_table_employee_load = false;
         public async void table_employee_load()
         {
@@ -58,7 +167,10 @@ namespace provaider
         }
             private void Form_employee_Load(object sender, EventArgs e)
         {
-            table_employee_load();
+            // table_employee_load();
+            table_updateAsync();
+            table_combobox_last_name();
+            Textbox_city_update();
         }
 
         private void button_employee_edit_Click(object sender, EventArgs e)
@@ -81,7 +193,7 @@ namespace provaider
             //обновление таблицы при активации
             if (Data_table_employee_load == true)
             {
-                table_employee_load();
+                table_updateAsync();
                 Data_table_employee_load = false;
             }
         }
@@ -98,8 +210,50 @@ namespace provaider
                 SqlCommand command = new SqlCommand("DELETE FROM [employee] WHERE id='" + (string)dataGridView_employee.CurrentRow.Cells[0].Value + "'", conn);
                 command.ExecuteNonQuery();
                 command.Connection.Close();
-                table_employee_load();
+                table_updateAsync();
             }
+        }
+
+        private void comboBox_last_name_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_user_search_Click(object sender, EventArgs e)
+        {
+            Boolean flag = false;
+            dataGridView_employee.ClearSelection();
+            for (int counter = 0; counter < (dataGridView_employee.Rows.Count); counter++)
+            {
+                string last_name = (String)dataGridView_employee.Rows[counter].Cells[1].Value;
+                if (comboBox_last_name.Text.ToLower() == last_name.ToLower())
+                {
+                    dataGridView_employee.Rows[counter].Selected = true;
+                    dataGridView_employee.CurrentCell = dataGridView_employee.Rows[counter].Cells[0];
+                    flag = true;
+                }
+                dataGridView_employee.FirstDisplayedScrollingRowIndex = counter;
+
+            }
+            if (flag == false)
+            {
+                MessageBox.Show("Фамилия не найдена", "Предупреждение");
+            }
+        }
+
+        private void comboBox_city_Leave(object sender, EventArgs e)
+        {
+            Textbox_street_update();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            table_updateAsync();
         }
     }
 }

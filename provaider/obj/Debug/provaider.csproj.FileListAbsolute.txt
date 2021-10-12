@@ -6,7 +6,6 @@ C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Pro
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.csproj.GenerateResource.cache
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.exe
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.pdb
-C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Menu.resources
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_login.resources
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_customers.resources
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_customers_new.resources
@@ -21,3 +20,5 @@ C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.For
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_directory_adress_street_new.resources
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_applications_contract.resources
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_applications_new.resources
+C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_menu.resources
+C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_application_archive.resources

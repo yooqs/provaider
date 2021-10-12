@@ -43,24 +43,24 @@
             this.button_user_search = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.checkBox_date5 = new System.Windows.Forms.CheckBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.comboBox_post = new System.Windows.Forms.ComboBox();
-            this.checkBox_post = new System.Windows.Forms.CheckBox();
-            this.checkBox_date3 = new System.Windows.Forms.CheckBox();
-            this.checkBox_date1 = new System.Windows.Forms.CheckBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.date_conclusions = new System.Windows.Forms.DateTimePicker();
+            this.maskedTextBox_telephone = new System.Windows.Forms.MaskedTextBox();
+            this.checkBox_date_conclusion = new System.Windows.Forms.CheckBox();
             this.textBox_passport_number = new System.Windows.Forms.MaskedTextBox();
+            this.checkBox_telephone = new System.Windows.Forms.CheckBox();
             this.textBox_passport_series = new System.Windows.Forms.MaskedTextBox();
+            this.checkBox_passport_number = new System.Windows.Forms.CheckBox();
+            this.checkBox_passport_series = new System.Windows.Forms.CheckBox();
+            this.comboBox_street = new System.Windows.Forms.ComboBox();
+            this.checkBox_house = new System.Windows.Forms.CheckBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.comboBox_city = new System.Windows.Forms.ComboBox();
+            this.checkBox_flat = new System.Windows.Forms.CheckBox();
+            this.checkBox_street = new System.Windows.Forms.CheckBox();
+            this.checkBox_city = new System.Windows.Forms.CheckBox();
             this.comboBox_last_name = new System.Windows.Forms.ComboBox();
+            this.textBox_house = new System.Windows.Forms.TextBox();
+            this.textBox_flat = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -216,40 +216,138 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.dateTimePicker1);
-            this.panel1.Controls.Add(this.maskedTextBox1);
-            this.panel1.Controls.Add(this.checkBox4);
+            this.panel1.Controls.Add(this.textBox_flat);
+            this.panel1.Controls.Add(this.textBox_house);
+            this.panel1.Controls.Add(this.date_conclusions);
+            this.panel1.Controls.Add(this.maskedTextBox_telephone);
+            this.panel1.Controls.Add(this.checkBox_date_conclusion);
             this.panel1.Controls.Add(this.textBox_passport_number);
-            this.panel1.Controls.Add(this.checkBox1);
+            this.panel1.Controls.Add(this.checkBox_telephone);
             this.panel1.Controls.Add(this.textBox_passport_series);
-            this.panel1.Controls.Add(this.checkBox2);
-            this.panel1.Controls.Add(this.checkBox3);
-            this.panel1.Controls.Add(this.comboBox4);
-            this.panel1.Controls.Add(this.comboBox3);
-            this.panel1.Controls.Add(this.comboBox2);
-            this.panel1.Controls.Add(this.checkBox_date5);
+            this.panel1.Controls.Add(this.checkBox_passport_number);
+            this.panel1.Controls.Add(this.checkBox_passport_series);
+            this.panel1.Controls.Add(this.comboBox_street);
+            this.panel1.Controls.Add(this.checkBox_house);
             this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.comboBox_post);
-            this.panel1.Controls.Add(this.checkBox_post);
-            this.panel1.Controls.Add(this.checkBox_date3);
-            this.panel1.Controls.Add(this.checkBox_date1);
+            this.panel1.Controls.Add(this.comboBox_city);
+            this.panel1.Controls.Add(this.checkBox_flat);
+            this.panel1.Controls.Add(this.checkBox_street);
+            this.panel1.Controls.Add(this.checkBox_city);
             this.panel1.Location = new System.Drawing.Point(343, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(812, 110);
             this.panel1.TabIndex = 56;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // checkBox_date5
+            // date_conclusions
             // 
-            this.checkBox_date5.AutoSize = true;
-            this.checkBox_date5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox_date5.Location = new System.Drawing.Point(420, 5);
-            this.checkBox_date5.Name = "checkBox_date5";
-            this.checkBox_date5.Size = new System.Drawing.Size(90, 21);
-            this.checkBox_date5.TabIndex = 40;
-            this.checkBox_date5.Text = "Квартира";
-            this.checkBox_date5.UseVisualStyleBackColor = true;
-            this.checkBox_date5.CheckedChanged += new System.EventHandler(this.checkBox_date5_CheckedChanged);
+            this.date_conclusions.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.date_conclusions.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.date_conclusions.Location = new System.Drawing.Point(418, 80);
+            this.date_conclusions.Name = "date_conclusions";
+            this.date_conclusions.Size = new System.Drawing.Size(202, 24);
+            this.date_conclusions.TabIndex = 227;
+            // 
+            // maskedTextBox_telephone
+            // 
+            this.maskedTextBox_telephone.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.maskedTextBox_telephone.Location = new System.Drawing.Point(650, 24);
+            this.maskedTextBox_telephone.Mask = "+7(000)-000-00-00";
+            this.maskedTextBox_telephone.Name = "maskedTextBox_telephone";
+            this.maskedTextBox_telephone.Size = new System.Drawing.Size(153, 24);
+            this.maskedTextBox_telephone.TabIndex = 226;
+            // 
+            // checkBox_date_conclusion
+            // 
+            this.checkBox_date_conclusion.AutoSize = true;
+            this.checkBox_date_conclusion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox_date_conclusion.Location = new System.Drawing.Point(419, 59);
+            this.checkBox_date_conclusion.Name = "checkBox_date_conclusion";
+            this.checkBox_date_conclusion.Size = new System.Drawing.Size(209, 21);
+            this.checkBox_date_conclusion.TabIndex = 55;
+            this.checkBox_date_conclusion.Text = "Дата заключения договора";
+            this.checkBox_date_conclusion.UseVisualStyleBackColor = true;
+            this.checkBox_date_conclusion.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
+            // 
+            // textBox_passport_number
+            // 
+            this.textBox_passport_number.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_passport_number.Location = new System.Drawing.Point(215, 81);
+            this.textBox_passport_number.Mask = "000000";
+            this.textBox_passport_number.Name = "textBox_passport_number";
+            this.textBox_passport_number.Size = new System.Drawing.Size(187, 24);
+            this.textBox_passport_number.TabIndex = 225;
+            this.textBox_passport_number.ValidatingType = typeof(int);
+            // 
+            // checkBox_telephone
+            // 
+            this.checkBox_telephone.AutoSize = true;
+            this.checkBox_telephone.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox_telephone.Location = new System.Drawing.Point(650, 6);
+            this.checkBox_telephone.Name = "checkBox_telephone";
+            this.checkBox_telephone.Size = new System.Drawing.Size(87, 21);
+            this.checkBox_telephone.TabIndex = 51;
+            this.checkBox_telephone.Text = "Телефон";
+            this.checkBox_telephone.UseVisualStyleBackColor = true;
+            this.checkBox_telephone.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // textBox_passport_series
+            // 
+            this.textBox_passport_series.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_passport_series.Location = new System.Drawing.Point(9, 81);
+            this.textBox_passport_series.Mask = "0000";
+            this.textBox_passport_series.Name = "textBox_passport_series";
+            this.textBox_passport_series.Size = new System.Drawing.Size(178, 24);
+            this.textBox_passport_series.TabIndex = 224;
+            this.textBox_passport_series.ValidatingType = typeof(int);
+            // 
+            // checkBox_passport_number
+            // 
+            this.checkBox_passport_number.AutoSize = true;
+            this.checkBox_passport_number.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox_passport_number.Location = new System.Drawing.Point(215, 61);
+            this.checkBox_passport_number.Name = "checkBox_passport_number";
+            this.checkBox_passport_number.Size = new System.Drawing.Size(136, 21);
+            this.checkBox_passport_number.TabIndex = 49;
+            this.checkBox_passport_number.Text = "Номер паспорта";
+            this.checkBox_passport_number.UseVisualStyleBackColor = true;
+            this.checkBox_passport_number.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            // 
+            // checkBox_passport_series
+            // 
+            this.checkBox_passport_series.AutoSize = true;
+            this.checkBox_passport_series.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox_passport_series.Location = new System.Drawing.Point(9, 62);
+            this.checkBox_passport_series.Name = "checkBox_passport_series";
+            this.checkBox_passport_series.Size = new System.Drawing.Size(134, 21);
+            this.checkBox_passport_series.TabIndex = 48;
+            this.checkBox_passport_series.Text = "Серия паспорта";
+            this.checkBox_passport_series.UseVisualStyleBackColor = true;
+            this.checkBox_passport_series.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            // 
+            // comboBox_street
+            // 
+            this.comboBox_street.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_street.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_street.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox_street.FormattingEnabled = true;
+            this.comboBox_street.Location = new System.Drawing.Point(215, 21);
+            this.comboBox_street.Name = "comboBox_street";
+            this.comboBox_street.Size = new System.Drawing.Size(187, 24);
+            this.comboBox_street.TabIndex = 45;
+            this.comboBox_street.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // checkBox_house
+            // 
+            this.checkBox_house.AutoSize = true;
+            this.checkBox_house.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox_house.Location = new System.Drawing.Point(420, 5);
+            this.checkBox_house.Name = "checkBox_house";
+            this.checkBox_house.Size = new System.Drawing.Size(90, 21);
+            this.checkBox_house.TabIndex = 40;
+            this.checkBox_house.Text = "Квартира";
+            this.checkBox_house.UseVisualStyleBackColor = true;
+            this.checkBox_house.CheckedChanged += new System.EventHandler(this.checkBox_date5_CheckedChanged);
             // 
             // button3
             // 
@@ -265,171 +363,54 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // comboBox_post
+            // comboBox_city
             // 
-            this.comboBox_post.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox_post.FormattingEnabled = true;
-            this.comboBox_post.Location = new System.Drawing.Point(9, 22);
-            this.comboBox_post.Name = "comboBox_post";
-            this.comboBox_post.Size = new System.Drawing.Size(178, 24);
-            this.comboBox_post.TabIndex = 36;
-            this.comboBox_post.SelectedIndexChanged += new System.EventHandler(this.comboBox_post_SelectedIndexChanged);
+            this.comboBox_city.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_city.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_city.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox_city.FormattingEnabled = true;
+            this.comboBox_city.Location = new System.Drawing.Point(9, 22);
+            this.comboBox_city.Name = "comboBox_city";
+            this.comboBox_city.Size = new System.Drawing.Size(178, 24);
+            this.comboBox_city.TabIndex = 36;
+            this.comboBox_city.SelectedIndexChanged += new System.EventHandler(this.comboBox_post_SelectedIndexChanged);
+            this.comboBox_city.Leave += new System.EventHandler(this.comboBox_city_Leave);
             // 
-            // checkBox_post
+            // checkBox_flat
             // 
-            this.checkBox_post.AutoSize = true;
-            this.checkBox_post.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox_post.Location = new System.Drawing.Point(539, 5);
-            this.checkBox_post.Name = "checkBox_post";
-            this.checkBox_post.Size = new System.Drawing.Size(55, 21);
-            this.checkBox_post.TabIndex = 30;
-            this.checkBox_post.Text = "Дом";
-            this.checkBox_post.UseVisualStyleBackColor = true;
-            this.checkBox_post.CheckedChanged += new System.EventHandler(this.checkBox_post_CheckedChanged);
+            this.checkBox_flat.AutoSize = true;
+            this.checkBox_flat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox_flat.Location = new System.Drawing.Point(539, 5);
+            this.checkBox_flat.Name = "checkBox_flat";
+            this.checkBox_flat.Size = new System.Drawing.Size(55, 21);
+            this.checkBox_flat.TabIndex = 30;
+            this.checkBox_flat.Text = "Дом";
+            this.checkBox_flat.UseVisualStyleBackColor = true;
+            this.checkBox_flat.CheckedChanged += new System.EventHandler(this.checkBox_post_CheckedChanged);
             // 
-            // checkBox_date3
+            // checkBox_street
             // 
-            this.checkBox_date3.AutoSize = true;
-            this.checkBox_date3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox_date3.Location = new System.Drawing.Point(215, 2);
-            this.checkBox_date3.Name = "checkBox_date3";
-            this.checkBox_date3.Size = new System.Drawing.Size(68, 21);
-            this.checkBox_date3.TabIndex = 32;
-            this.checkBox_date3.Text = "Улица";
-            this.checkBox_date3.UseVisualStyleBackColor = true;
-            this.checkBox_date3.CheckedChanged += new System.EventHandler(this.checkBox_date3_CheckedChanged);
+            this.checkBox_street.AutoSize = true;
+            this.checkBox_street.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox_street.Location = new System.Drawing.Point(215, 2);
+            this.checkBox_street.Name = "checkBox_street";
+            this.checkBox_street.Size = new System.Drawing.Size(68, 21);
+            this.checkBox_street.TabIndex = 32;
+            this.checkBox_street.Text = "Улица";
+            this.checkBox_street.UseVisualStyleBackColor = true;
+            this.checkBox_street.CheckedChanged += new System.EventHandler(this.checkBox_date3_CheckedChanged);
             // 
-            // checkBox_date1
+            // checkBox_city
             // 
-            this.checkBox_date1.AutoSize = true;
-            this.checkBox_date1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox_date1.Location = new System.Drawing.Point(9, 3);
-            this.checkBox_date1.Name = "checkBox_date1";
-            this.checkBox_date1.Size = new System.Drawing.Size(67, 21);
-            this.checkBox_date1.TabIndex = 28;
-            this.checkBox_date1.Text = "Город";
-            this.checkBox_date1.UseVisualStyleBackColor = true;
-            this.checkBox_date1.CheckedChanged += new System.EventHandler(this.checkBox_date1_CheckedChanged);
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(215, 21);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(187, 24);
-            this.comboBox2.TabIndex = 45;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(420, 23);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(100, 24);
-            this.comboBox3.TabIndex = 46;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(540, 23);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(80, 24);
-            this.comboBox4.TabIndex = 47;
-            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox1.Location = new System.Drawing.Point(650, 6);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(87, 21);
-            this.checkBox1.TabIndex = 51;
-            this.checkBox1.Text = "Телефон";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox2.Location = new System.Drawing.Point(215, 61);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(136, 21);
-            this.checkBox2.TabIndex = 49;
-            this.checkBox2.Text = "Номер паспорта";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox3.Location = new System.Drawing.Point(9, 62);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(134, 21);
-            this.checkBox3.TabIndex = 48;
-            this.checkBox3.Text = "Серия паспорта";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox4.Location = new System.Drawing.Point(419, 59);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(209, 21);
-            this.checkBox4.TabIndex = 55;
-            this.checkBox4.Text = "Дата заключения договора";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Enabled = false;
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(418, 80);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(202, 24);
-            this.dateTimePicker1.TabIndex = 227;
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Enabled = false;
-            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(650, 24);
-            this.maskedTextBox1.Mask = "+7(000)-000-00-00";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(153, 24);
-            this.maskedTextBox1.TabIndex = 226;
-            // 
-            // textBox_passport_number
-            // 
-            this.textBox_passport_number.Enabled = false;
-            this.textBox_passport_number.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox_passport_number.Location = new System.Drawing.Point(215, 81);
-            this.textBox_passport_number.Mask = "000000";
-            this.textBox_passport_number.Name = "textBox_passport_number";
-            this.textBox_passport_number.Size = new System.Drawing.Size(187, 24);
-            this.textBox_passport_number.TabIndex = 225;
-            this.textBox_passport_number.ValidatingType = typeof(int);
-            // 
-            // textBox_passport_series
-            // 
-            this.textBox_passport_series.Enabled = false;
-            this.textBox_passport_series.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox_passport_series.Location = new System.Drawing.Point(9, 81);
-            this.textBox_passport_series.Mask = "0000";
-            this.textBox_passport_series.Name = "textBox_passport_series";
-            this.textBox_passport_series.Size = new System.Drawing.Size(178, 24);
-            this.textBox_passport_series.TabIndex = 224;
-            this.textBox_passport_series.ValidatingType = typeof(int);
+            this.checkBox_city.AutoSize = true;
+            this.checkBox_city.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox_city.Location = new System.Drawing.Point(9, 3);
+            this.checkBox_city.Name = "checkBox_city";
+            this.checkBox_city.Size = new System.Drawing.Size(67, 21);
+            this.checkBox_city.TabIndex = 28;
+            this.checkBox_city.Text = "Город";
+            this.checkBox_city.UseVisualStyleBackColor = true;
+            this.checkBox_city.CheckedChanged += new System.EventHandler(this.checkBox_date1_CheckedChanged);
             // 
             // comboBox_last_name
             // 
@@ -441,6 +422,22 @@
             this.comboBox_last_name.Name = "comboBox_last_name";
             this.comboBox_last_name.Size = new System.Drawing.Size(198, 26);
             this.comboBox_last_name.TabIndex = 225;
+            // 
+            // textBox_house
+            // 
+            this.textBox_house.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_house.Location = new System.Drawing.Point(420, 22);
+            this.textBox_house.Name = "textBox_house";
+            this.textBox_house.Size = new System.Drawing.Size(96, 24);
+            this.textBox_house.TabIndex = 228;
+            // 
+            // textBox_flat
+            // 
+            this.textBox_flat.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_flat.Location = new System.Drawing.Point(539, 22);
+            this.textBox_flat.Name = "textBox_flat";
+            this.textBox_flat.Size = new System.Drawing.Size(81, 24);
+            this.textBox_flat.TabIndex = 229;
             // 
             // Form_applications_contract
             // 
@@ -456,6 +453,7 @@
             this.Name = "Form_applications_contract";
             this.Text = "Form_applications_contract";
             this.Load += new System.EventHandler(this.Form_applications_contract_Load);
+            this.Leave += new System.EventHandler(this.Form_applications_contract_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -481,23 +479,23 @@
         private System.Windows.Forms.Button button_user_search;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.CheckBox checkBox_date5;
+        private System.Windows.Forms.CheckBox checkBox_date_conclusion;
+        private System.Windows.Forms.CheckBox checkBox_telephone;
+        private System.Windows.Forms.CheckBox checkBox_passport_number;
+        private System.Windows.Forms.CheckBox checkBox_passport_series;
+        private System.Windows.Forms.ComboBox comboBox_street;
+        private System.Windows.Forms.CheckBox checkBox_house;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ComboBox comboBox_post;
-        private System.Windows.Forms.CheckBox checkBox_post;
-        private System.Windows.Forms.CheckBox checkBox_date3;
-        private System.Windows.Forms.CheckBox checkBox_date1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.ComboBox comboBox_city;
+        private System.Windows.Forms.CheckBox checkBox_flat;
+        private System.Windows.Forms.CheckBox checkBox_street;
+        private System.Windows.Forms.CheckBox checkBox_city;
+        private System.Windows.Forms.DateTimePicker date_conclusions;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox_telephone;
         private System.Windows.Forms.MaskedTextBox textBox_passport_number;
         private System.Windows.Forms.MaskedTextBox textBox_passport_series;
         private System.Windows.Forms.ComboBox comboBox_last_name;
+        private System.Windows.Forms.TextBox textBox_flat;
+        private System.Windows.Forms.TextBox textBox_house;
     }
 }

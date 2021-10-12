@@ -1,6 +1,6 @@
 ﻿namespace provaider
 {
-    partial class Menu
+    partial class Form_menu
     {
         /// <summary>
         /// Required designer variable.
@@ -127,6 +127,7 @@
             this.button4.TabIndex = 29;
             this.button4.Text = "Вылненена";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -141,6 +142,7 @@
             this.button5.TabIndex = 30;
             this.button5.Text = "Отмена";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -155,6 +157,7 @@
             this.button6.TabIndex = 31;
             this.button6.Text = "Архив заявок";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // dataGridView1
             // 
@@ -293,7 +296,7 @@
             this.справочникToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
             this.справочникToolStripMenuItem.Text = "Справочник";
             // 
-            // Menu
+            // Form_menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -311,7 +314,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(400, 280);
-            this.Name = "Menu";
+            this.Name = "Form_menu";
             this.Text = "Menu";
             this.Activated += new System.EventHandler(this.Menu_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Menu_FormClosed);
