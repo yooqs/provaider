@@ -98,15 +98,27 @@ namespace provaider
         private void Menu_Load(object sender, EventArgs e)
         {
             table_applications_load();
+            Timer timer = new Timer();
+            timer.Interval = 1000;
+            timer.Enabled = true;
+            timer.Tick += new EventHandler(timer_Tick);
 
         }
-
+        void timer_Tick(object sender, EventArgs e)
+        {
+            label_timer.Text = DateTime.Now.ToShortDateString() + ", " + DateTime.Now.ToLongTimeString();
+        }
         private void button_applications_new_Click_1(object sender, EventArgs e)
         {
 
             Form_applications_contract applications_contract_form = new Form_applications_contract();
             applications_contract_form.StartPosition = FormStartPosition.CenterScreen;
             applications_contract_form.Show();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -17,6 +17,21 @@ namespace provaider
         {
             InitializeComponent();
         }
+        public async void table_combobox_last_name()
+        {
+            String sql = "SELECT DISTINCT [last_name] FROM [contract]";
+            String str_conn = Properties.Resources.conn_string;
+            using (SqlConnection conn = new SqlConnection(str_conn))
+            {
+                conn.Open();
+                SqlCommand comand = new SqlCommand(sql, conn);
+                SqlDataReader reader = comand.ExecuteReader();
+                while (reader.Read())
+                {
+                    comboBox_last_name.Items.Add(reader.GetValue(0).ToString().Trim());
+                }
+            }
+        }
         public async void table_contract_load()
         {
             String sql;
@@ -56,6 +71,7 @@ namespace provaider
         private void Form_applications_contract_Load(object sender, EventArgs e)
         {
             table_contract_load();
+            table_combobox_last_name();
         }
 
         private void button_customers_new_Click(object sender, EventArgs e)
@@ -77,6 +93,131 @@ namespace provaider
             applications_new_form.StartPosition = FormStartPosition.CenterScreen;
             applications_new_form.Show();
             this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button_user_search_Click(object sender, EventArgs e)
+        {
+            Boolean flag = false;
+            dataGridView1.ClearSelection();
+            for (int counter = 0; counter < (dataGridView1.Rows.Count - 1); counter++)
+            {
+                string last_name = (String)dataGridView1.Rows[counter].Cells[1].Value;
+                if (comboBox_last_name.Text.ToLower() == last_name.ToLower())
+                {
+                    dataGridView1.Rows[counter].Selected = true;
+                    flag = true;
+                }
+                dataGridView1.FirstDisplayedScrollingRowIndex = counter;
+            }
+            if (flag == false)
+            {
+                MessageBox.Show("Фамилия не найдена", "Предупреждение");
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox_date5_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox_post_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox_post_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox_date3_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox_date1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox7_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox8_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
