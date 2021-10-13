@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_directory_adress_city_new));
             this.button4 = new System.Windows.Forms.Button();
             this.textBox_city = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -56,6 +57,7 @@
             this.textBox_city.Name = "textBox_city";
             this.textBox_city.Size = new System.Drawing.Size(221, 26);
             this.textBox_city.TabIndex = 171;
+            this.textBox_city.TextChanged += new System.EventHandler(this.textBox_city_TextChanged);
             // 
             // label3
             // 
@@ -66,6 +68,7 @@
             this.label3.Size = new System.Drawing.Size(61, 20);
             this.label3.TabIndex = 170;
             this.label3.Text = "Город";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // Form_directory_adress_city_new
             // 
@@ -75,8 +78,9 @@
             this.Controls.Add(this.button4);
             this.Controls.Add(this.textBox_city);
             this.Controls.Add(this.label3);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_directory_adress_city_new";
-            this.Text = "Form_directory_adress_city_new";
+            this.Text = "Добавить";
             this.Load += new System.EventHandler(this.Form_directory_adress_city_new_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

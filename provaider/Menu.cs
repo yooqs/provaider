@@ -172,5 +172,33 @@ namespace provaider
             application_archive_form.StartPosition = FormStartPosition.CenterScreen;
             application_archive_form.Show();
         }
+
+        private void заявкиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_application_archive application_archive_form = new Form_application_archive();
+            application_archive_form.StartPosition = FormStartPosition.CenterScreen;
+            application_archive_form.Show();
+        }
+
+        private void клиентыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_applications_contract applications_contract_form = new Form_applications_contract();
+            applications_contract_form.StartPosition = FormStartPosition.CenterScreen;
+            applications_contract_form.Show();
+        }
+
+        private void сотрудникиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_employee employee_form = new Form_employee();
+            employee_form.StartPosition = FormStartPosition.CenterScreen;
+            employee_form.Show();
+        }
+
+        private void справочникToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_directory_adress directory_adress_form = new Form_directory_adress();
+            directory_adress_form.StartPosition = FormStartPosition.CenterScreen;
+            directory_adress_form.Show();
+        }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_directory_adress_city_edit));
             this.textBox_city = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
@@ -77,8 +78,9 @@
             this.Controls.Add(this.button4);
             this.Controls.Add(this.textBox_city);
             this.Controls.Add(this.label3);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_directory_adress_city_edit";
-            this.Text = "Form_directory_adress_city_edit";
+            this.Text = "Изменить";
             this.Load += new System.EventHandler(this.Form_directory_adress_city_edit_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

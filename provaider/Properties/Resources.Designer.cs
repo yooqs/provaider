@@ -61,7 +61,7 @@ namespace provaider.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Data Source=PC\;Initial Catalog=provaider_basa;Integrated Security=True.
+        ///   Ищет локализованную строку, похожую на Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\provaider_basa.mdf;Integrated Security=True;Connect Timeout=30.
         /// </summary>
         internal static string conn_string {
             get {

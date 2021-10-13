@@ -58,9 +58,9 @@ namespace provaider
                 conn.ConnectionString = Properties.Resources.conn_string;
                 conn.Open();
                 SqlCommand command = new SqlCommand("UPDATE [city] SET  name='" + textBox_city.Text + "' WHERE id=" + id, conn);
-                command.BeginExecuteNonQuery();
+                command.ExecuteNonQuery();
                 Form_directory_adress.update_table_city = true;
-                Form_directory_adress.update_table_city = true;
+                //Form_directory_adress.update_table_city = true;
                 this.Close();
             }
         }

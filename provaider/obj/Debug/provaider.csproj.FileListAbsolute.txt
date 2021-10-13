@@ -22,3 +22,7 @@ C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.For
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_applications_new.resources
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_menu.resources
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_application_archive.resources
+C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_type_edit.resources
+C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_type_new.resources
+C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\Interop.Microsoft.Office.Core.dll
+C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.csproj.ResolveComReference.cache

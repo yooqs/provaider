@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace provaider
 {
@@ -97,7 +98,7 @@ namespace provaider
 
 
         }
-
+        public string id;
         private void button_user_new_Click(object sender, EventArgs e)
         {
             string string_connection = provaider.Properties.Resources.conn_string;
@@ -109,17 +110,62 @@ namespace provaider
                 command.Parameters.AddWithValue("@description", textBox_description.Text);
                 command.Parameters.AddWithValue("@id_contract", data_contract[0]);
                 command.Parameters.AddWithValue("@id_employee", comboBox2.SelectedValue);
-                command.Parameters.AddWithValue("@type", comboBox1.SelectedValue);
-               
-                
-
-
-                
+                command.Parameters.AddWithValue("@type", comboBox1.SelectedValue);                                            
                 command.ExecuteNonQuery();
                 Form_menu.application_update = true;
             }
-            
-            this.Close();
+
+
+            DialogResult dialogResult = MessageBox.Show("Распечатать договор об указание услуг?", "Предупреждение", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                
+                using (SqlConnection conn = new SqlConnection(string_connection))
+                {
+                    conn.Open();
+
+                    SqlCommand command = new SqlCommand("SELECT IDENT_CURRENT('contract')", conn);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read()) {
+                        id = reader.GetValue(0).ToString(); }
+                  
+                }
+               // string s = date_receipt.Text;
+                //string[] city = s.Split(new char[] { ' ' });
+                try
+                {
+                    var WordApp = new Microsoft.Office.Interop.Word.Application();
+                    WordApp.Visible = false;
+                    string woo = Path.Combine(Application.StartupPath);
+                    woo = woo + @"\dogovor_uslugi.dotx";
+                   // string woo = @"C:\Users\Дмитрий\Desktop\12\dogovor_uslugi.dotx";
+                    //  woo = woo + @"\prikaz_na_otpusk.dotx";
+                    // var WordDocument = WordApp.Documents.Open(@"C:\Users\Дмитрий\Documents\sql_S\Basa_sql\Basa_sql\prikaz_na_otpusk.dotx");
+                    var WordDocument = WordApp.Documents.Open(woo);
+                    var range = WordDocument.Content;
+                    range.Find.ClearFormatting();
+                    range.Find.Execute(FindText: "{number}", ReplaceWith: id);
+                    range = WordDocument.Content;
+                    range.Find.ClearFormatting();
+                    range.Find.Execute(FindText: "{date}", ReplaceWith: date_receipt.Text);
+                    range.Find.ClearFormatting();
+                    range = WordDocument.Content;
+                    range.Find.Execute(FindText: "{name}", ReplaceWith: textBox_last_name.Text+" "+textBox_first_name.Text+" "+textBox_patronymic.Text);
+                    range.Find.ClearFormatting();
+                    range = WordDocument.Content;
+                    range.Find.Execute(FindText: "{type}", ReplaceWith: comboBox1.Text);
+                    range.Find.ClearFormatting();
+                    range = WordDocument.Content;
+
+
+                    WordApp.Visible = true;
+                }
+                catch
+                {
+                    MessageBox.Show("Произошла ошибка");
+                }
+            }
+                this.Close();
         }
     }
 }

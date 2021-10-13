@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_applications_new));
             this.date_conclusion = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
@@ -109,7 +110,7 @@
             this.button_user_new.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button_user_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_user_new.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_user_new.Location = new System.Drawing.Point(221, 514);
+            this.button_user_new.Location = new System.Drawing.Point(201, 514);
             this.button_user_new.Name = "button_user_new";
             this.button_user_new.Size = new System.Drawing.Size(170, 34);
             this.button_user_new.TabIndex = 214;
@@ -398,8 +399,9 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox_last_name);
             this.Controls.Add(this.label3);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_applications_new";
-            this.Text = "Form_applications_new";
+            this.Text = "Новая заявка";
             this.Load += new System.EventHandler(this.Form_applications_new_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -185,5 +185,10 @@ namespace provaider
         {
             Textbox_street_update();
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

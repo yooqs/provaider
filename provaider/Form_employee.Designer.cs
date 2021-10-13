@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_employee));
             this.dataGridView_employee = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.last_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -474,8 +475,9 @@
             this.Controls.Add(this.button_employee_delete);
             this.Controls.Add(this.button_employee_edit);
             this.Controls.Add(this.button_employee_new);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_employee";
-            this.Text = "Form_employee";
+            this.Text = "Сотрудники";
             this.Activated += new System.EventHandler(this.Form_employee_Activated);
             this.Load += new System.EventHandler(this.Form_employee_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_employee)).EndInit();

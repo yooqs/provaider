@@ -11,16 +11,11 @@ using System.Windows.Forms;
 
 namespace provaider
 {
-    public partial class Form_directory_adress_city_new : Form
+    public partial class Form_type_new : Form
     {
-        public Form_directory_adress_city_new()
+        public Form_type_new()
         {
             InitializeComponent();
-        }
-
-        private void Form_directory_adress_city_new_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -30,24 +25,14 @@ namespace provaider
             {
                 conn.Open();   // открываем подключение
 
-                SqlCommand comand = new SqlCommand("INSERT INTO [city] VALUES (@city)", conn);
+                SqlCommand comand = new SqlCommand("INSERT INTO [type_application] VALUES (@city)", conn);
                 comand.Parameters.AddWithValue("@city", textBox_city.Text);
                 comand.ExecuteNonQuery();
-                Form_directory_adress.update_table_city = true;
+                Form_directory_adress.update_table_type= true;
                 this.Close();
-                
+
 
             }
-        }
-
-        private void textBox_city_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

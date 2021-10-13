@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_customers));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.last_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,6 +64,7 @@
             this.comboBox_last_name = new System.Windows.Forms.ComboBox();
             this.button_user_search = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -177,7 +179,7 @@
             this.button_customers_new.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button_customers_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_customers_new.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_customers_new.Location = new System.Drawing.Point(244, 299);
+            this.button_customers_new.Location = new System.Drawing.Point(353, 299);
             this.button_customers_new.Name = "button_customers_new";
             this.button_customers_new.Size = new System.Drawing.Size(165, 39);
             this.button_customers_new.TabIndex = 24;
@@ -192,7 +194,7 @@
             this.button_customers_edit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button_customers_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_customers_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_customers_edit.Location = new System.Drawing.Point(444, 299);
+            this.button_customers_edit.Location = new System.Drawing.Point(537, 299);
             this.button_customers_edit.Name = "button_customers_edit";
             this.button_customers_edit.Size = new System.Drawing.Size(165, 39);
             this.button_customers_edit.TabIndex = 25;
@@ -207,7 +209,7 @@
             this.button_customers_delete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button_customers_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_customers_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_customers_delete.Location = new System.Drawing.Point(639, 299);
+            this.button_customers_delete.Location = new System.Drawing.Point(733, 299);
             this.button_customers_delete.Name = "button_customers_delete";
             this.button_customers_delete.Size = new System.Drawing.Size(165, 39);
             this.button_customers_delete.TabIndex = 26;
@@ -458,11 +460,27 @@
             this.label1.TabIndex = 226;
             this.label1.Text = "Поиск по фамилии";
             // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Location = new System.Drawing.Point(169, 299);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(165, 39);
+            this.button1.TabIndex = 229;
+            this.button1.Text = "Печать";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form_customers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1136, 350);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox_last_name);
             this.Controls.Add(this.button_user_search);
             this.Controls.Add(this.label1);
@@ -471,8 +489,9 @@
             this.Controls.Add(this.button_customers_edit);
             this.Controls.Add(this.button_customers_new);
             this.Controls.Add(this.dataGridView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_customers";
-            this.Text = "Form_customers";
+            this.Text = "Клиенты";
             this.Activated += new System.EventHandler(this.Form_customers_Activated);
             this.Load += new System.EventHandler(this.Form_customers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -519,5 +538,6 @@
         private System.Windows.Forms.ComboBox comboBox_last_name;
         private System.Windows.Forms.Button button_user_search;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }

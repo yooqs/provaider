@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_applications_contract));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.last_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +44,8 @@
             this.button_user_search = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox_flat = new System.Windows.Forms.TextBox();
+            this.textBox_house = new System.Windows.Forms.TextBox();
             this.date_conclusions = new System.Windows.Forms.DateTimePicker();
             this.maskedTextBox_telephone = new System.Windows.Forms.MaskedTextBox();
             this.checkBox_date_conclusion = new System.Windows.Forms.CheckBox();
@@ -59,8 +62,6 @@
             this.checkBox_street = new System.Windows.Forms.CheckBox();
             this.checkBox_city = new System.Windows.Forms.CheckBox();
             this.comboBox_last_name = new System.Windows.Forms.ComboBox();
-            this.textBox_house = new System.Windows.Forms.TextBox();
-            this.textBox_flat = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -238,6 +239,22 @@
             this.panel1.Size = new System.Drawing.Size(812, 110);
             this.panel1.TabIndex = 56;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // textBox_flat
+            // 
+            this.textBox_flat.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_flat.Location = new System.Drawing.Point(539, 22);
+            this.textBox_flat.Name = "textBox_flat";
+            this.textBox_flat.Size = new System.Drawing.Size(81, 24);
+            this.textBox_flat.TabIndex = 229;
+            // 
+            // textBox_house
+            // 
+            this.textBox_house.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_house.Location = new System.Drawing.Point(420, 22);
+            this.textBox_house.Name = "textBox_house";
+            this.textBox_house.Size = new System.Drawing.Size(96, 24);
+            this.textBox_house.TabIndex = 228;
             // 
             // date_conclusions
             // 
@@ -423,22 +440,6 @@
             this.comboBox_last_name.Size = new System.Drawing.Size(198, 26);
             this.comboBox_last_name.TabIndex = 225;
             // 
-            // textBox_house
-            // 
-            this.textBox_house.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox_house.Location = new System.Drawing.Point(420, 22);
-            this.textBox_house.Name = "textBox_house";
-            this.textBox_house.Size = new System.Drawing.Size(96, 24);
-            this.textBox_house.TabIndex = 228;
-            // 
-            // textBox_flat
-            // 
-            this.textBox_flat.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox_flat.Location = new System.Drawing.Point(539, 22);
-            this.textBox_flat.Name = "textBox_flat";
-            this.textBox_flat.Size = new System.Drawing.Size(81, 24);
-            this.textBox_flat.TabIndex = 229;
-            // 
             // Form_applications_contract
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -450,8 +451,9 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button_customers_new);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_applications_contract";
-            this.Text = "Form_applications_contract";
+            this.Text = "Новая заявка";
             this.Load += new System.EventHandler(this.Form_applications_contract_Load);
             this.Leave += new System.EventHandler(this.Form_applications_contract_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

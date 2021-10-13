@@ -4,10 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Office.Core;
 
 namespace provaider
 {
@@ -248,6 +250,44 @@ namespace provaider
         private void comboBox_city_Leave(object sender, EventArgs e)
         {
             Textbox_street_update();
+        }
+        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string s = (string)dataGridView1.CurrentRow.Cells[5].Value;
+            string[] city = s.Split(new char[] { ' ' });
+            try { 
+            var WordApp = new Microsoft.Office.Interop.Word.Application();
+            WordApp.Visible = false;
+                string woo = Path.Combine(Application.StartupPath);
+                woo = woo + @"\dogovor.dotx";
+                //string woo = @"C:\Users\Дмитрий\Desktop\12\dogovor.dotx";
+           //  woo = woo + @"\prikaz_na_otpusk.dotx";
+            // var WordDocument = WordApp.Documents.Open(@"C:\Users\Дмитрий\Documents\sql_S\Basa_sql\Basa_sql\prikaz_na_otpusk.dotx");
+            var WordDocument = WordApp.Documents.Open(woo);
+            var range = WordDocument.Content;
+            range.Find.ClearFormatting();
+                range.Find.Execute(FindText: "{number}", ReplaceWith: (string)dataGridView1.CurrentRow.Cells[0].Value);
+                range = WordDocument.Content;
+                range.Find.ClearFormatting();
+                range.Find.Execute(FindText: "{date}", ReplaceWith: (string)dataGridView1.CurrentRow.Cells[6].Value);
+                range.Find.ClearFormatting();
+                range = WordDocument.Content;
+                range.Find.Execute(FindText: "{city}", ReplaceWith: city[0]);
+                range.Find.ClearFormatting();
+                range = WordDocument.Content;
+                range.Find.Execute(FindText: "{fio}", ReplaceWith: (string)dataGridView1.CurrentRow.Cells[1].Value + " " + (string)dataGridView1.CurrentRow.Cells[2].Value + " " + (string)dataGridView1.CurrentRow.Cells[3].Value);
+                range.Find.ClearFormatting();
+                range = WordDocument.Content;
+
+
+                WordApp.Visible = true;
+            }
+            catch
+            {
+                MessageBox.Show("Произошла ошибка");
+            }
+
         }
     }
 }

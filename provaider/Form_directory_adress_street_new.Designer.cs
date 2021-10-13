@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_directory_adress_street_new));
             this.button4 = new System.Windows.Forms.Button();
             this.textBox_street = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -75,8 +76,9 @@
             this.Controls.Add(this.button4);
             this.Controls.Add(this.textBox_street);
             this.Controls.Add(this.label3);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_directory_adress_street_new";
-            this.Text = "Form_directory_adress_street_new";
+            this.Text = "Добавить";
             this.ResumeLayout(false);
             this.PerformLayout();
 
