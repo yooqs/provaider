@@ -138,10 +138,10 @@ namespace provaider
                 if (checkBox_flat.Checked) sql += $" AND[contract].[flat] = '{ textBox_flat.Text}'";
                 if (checkBox_type.Checked) sql += $" AND [type_application].[name] = '{comboBox_type.Text}'";
                 if (checkBox_status.Checked) sql += $" AND [applications].[status] = '{comboBox_status.Text}'";
-                if (checkBox_date_receipt_from.Checked) sql += $" AND [applications].[date_receipt] >= CONVERT(varchar(23), '{_date_receipt_from.Text}', 121)"; 
-                if (checkBox_date_receipt_to.Checked) sql += $" AND [applications].[date_receipt] <= CONVERT(varchar(23), '{date_receipt_to.Text}', 121)";
-                if (checkBox_date_conclusion_from.Checked) sql += $" AND [applications].[date_completion] >= CONVERT(varchar(23), '{date_conclusion_from.Text}', 121)";
-                if (checkBox_date_conclusion_to.Checked) sql += $" AND [applications].[date_completion] <= CONVERT(varchar(23), '{date_conclusion_to.Text}', 121)";
+                if (checkBox_date_receipt_from.Checked) sql += $" AND [applications].[date_receipt] >= convert(varchar, convert(datetime, '" + _date_receipt_from.Text + "', 104), 121)"; 
+                if (checkBox_date_receipt_to.Checked) sql += $" AND [applications].[date_receipt] <= convert(varchar, convert(datetime, '" + date_receipt_to.Text + "', 104), 121)";
+                if (checkBox_date_conclusion_from.Checked) sql += $" AND [applications].[date_completion] >= convert(varchar, convert(datetime, '" + date_conclusion_from.Text + "', 104), 121)";
+                if (checkBox_date_conclusion_to.Checked) sql += $" AND [applications].[date_completion] <= convert(varchar, convert(datetime, '" + date_conclusion_to.Text + "', 104), 121)";
                 if (checkBox_employee.Checked)
                 {
                     string[] fio= comboBox_employee.Text.Split(new char[] { ' ' });

@@ -106,7 +106,7 @@ namespace provaider
             {
                 conn.Open();
                 
-                SqlCommand command = new SqlCommand("INSERT INTO [applications] ([status],[type],[description],[date_receipt],[id_contract],[id_employee])  VALUES('Выполняется', @type,@description,CONVERT(varchar(23), '" + date_receipt.Text+ "', 121),@id_contract,@id_employee )", conn);
+                SqlCommand command = new SqlCommand("INSERT INTO [applications] ([status],[type],[description],[date_receipt],[id_contract],[id_employee])  VALUES('Выполняется', @type,@description,convert(varchar, convert(datetime, '" + date_receipt.Text + "', 104), 121),@id_contract,@id_employee )", conn);
                 command.Parameters.AddWithValue("@description", textBox_description.Text);
                 command.Parameters.AddWithValue("@id_contract", data_contract[0]);
                 command.Parameters.AddWithValue("@id_employee", comboBox2.SelectedValue);

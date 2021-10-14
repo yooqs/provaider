@@ -138,7 +138,7 @@ namespace provaider
             {
                     string date_time = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToLongTimeString();
                     date_time = date_time.Substring(0, date_time.Length - 3);
-                    sql = $"UPDATE [applications] SET [status]='Выполнена', [date_completion]=CONVERT(varchar(23), '{date_time}', 121) WHERE id= {(string)dataGridView1.CurrentRow.Cells[0].Value}";
+                    sql = $"UPDATE [applications] SET [status]='Выполнена', [date_completion]=convert(varchar, convert(datetime, '" + date_time + "', 104), 121) WHERE id= "+(string)dataGridView1.CurrentRow.Cells[0].Value;
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 conn.Open();
                 cmd.ExecuteNonQuery();
