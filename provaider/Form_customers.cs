@@ -90,7 +90,7 @@ namespace provaider
             dataGridView1.Rows.Clear();
 
             SqlConnection conn = new SqlConnection();
-            sql = "Select [id],[last_name],[first_name],[patronymic], [telephone], [city],[street], [house],FORMAT(contract.date_conclusion, 'dd/MM/yyyy', 'de-de' ), [flat],[passport_series], [passport_number] ,FORMAT(contract.data_birth, 'dd/MM/yyyy', 'de-de' ) FROM [contract] WHERE [id] IS NOT NULL";
+            sql = "Select [id],[last_name],[first_name],[patronymic], [telephone], [city],[street], [house],FORMAT(contract.date_conclusion, 'dd/MM/yyyy', 'de-de' ), [flat],[passport_series], [passport_number] ,FORMAT(contract.data_birth, 'dd/MM/yyyy', 'de-de' ),distance,time_before FROM [contract] WHERE [id] IS NOT NULL";
             if (checkBox_city.Checked) sql += $" AND [city] = '{comboBox_city.Text}'";
             if (checkBox_street.Checked) sql += $" AND [street] = '{comboBox_street.Text}'";
             if (checkBox_house.Checked) sql += $" AND [house] = '{ textBox_house.Text}'";
@@ -120,6 +120,8 @@ namespace provaider
                                     reader.GetValue(10).ToString().Trim(),
                                     reader.GetValue(11).ToString().Trim(),
                                     reader.GetValue(12).ToString().Trim(),
+                                    reader.GetValue(13).ToString().Trim(),
+                                    reader.GetValue(14).ToString().Trim(),
 
                                     };
 
@@ -142,7 +144,7 @@ namespace provaider
             dataGridView1.Rows.Clear();
 
             SqlConnection conn = new SqlConnection();
-            sql = "Select [id],[last_name],[first_name],[patronymic], [telephone], [city],[street], [house],FORMAT(contract.data_birth, 'dd/MM/yyyy', 'de-de' ), [flat],[passport_series], [passport_number] ,FORMAT(contract.date_conclusion, 'dd/MM/yyyy', 'de-de' ) FROM [contract]";
+            sql = "Select [id],[last_name],[first_name],[patronymic], [telephone], [city],[street], [house],FORMAT(contract.data_birth, 'dd/MM/yyyy', 'de-de' ), [flat],[passport_series], [passport_number] ,FORMAT(contract.date_conclusion, 'dd/MM/yyyy', 'de-de' ),distance,time_before FROM [contract]";
             SqlCommand cmd = new SqlCommand(sql, conn);
 
             conn.ConnectionString = provaider.Properties.Resources.conn_string;
@@ -163,6 +165,8 @@ namespace provaider
                                     reader.GetValue(10).ToString().Trim(),
                                     reader.GetValue(11).ToString().Trim(),
                                     reader.GetValue(12).ToString().Trim(),
+                                    reader.GetValue(13).ToString().Trim(),
+                                    reader.GetValue(14).ToString().Trim(),
 
                                     };
 
@@ -287,6 +291,46 @@ namespace provaider
             {
                 MessageBox.Show("Произошла ошибка");
             }
+
+        }
+
+        private void date_conclusions_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox_date_conclusion_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox_house_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox_house_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox_flat_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox_flat_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void maskedTextBox_telephone_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void checkBox_telephone_CheckedChanged(object sender, EventArgs e)
+        {
 
         }
     }

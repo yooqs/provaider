@@ -117,8 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="api_string" xml:space="preserve">
+    <value>AIzaSyDB-nkD6-grQzsGAT2_BAPNxjgfbs4twGQ</value>
+  </data>
   <data name="conn_string" xml:space="preserve">
-    <value>Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\provaider_basa.mdf;Integrated Security=True;Connect Timeout=30</value>
+    <value>Data Source=PC\;Initial Catalog=provaider_basa;Integrated Security=True</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="fon" type="System.Resources.ResXFileRef, System.Windows.Forms">

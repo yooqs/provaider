@@ -4,10 +4,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace provaider
 {
@@ -259,6 +262,88 @@ namespace provaider
         private void date_conclusion_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void maskedTextBox3_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void textBox_house_Leave(object sender, EventArgs e)
+        {
+            if (comboBox_city.Text != "" && comboBox_street.Text != "")
+            {
+                //  try
+                //  {
+                string zapros = "https://maps.googleapis.com/maps/api/distancematrix/xml?origins={0}&destinations={1}&mode=driving&key=" + provaider.Properties.Resources.api_string;
+                string destinations = "Воронежская область" + comboBox_city.Text + " " + comboBox_street.Text + " " + textBox_house.Text;
+                string origins = "Воронежская область Острогожск Ленина 35";
+                string url = string.Format(zapros, Uri.EscapeDataString(destinations), Uri.EscapeDataString(origins));
+                // textBox1.Text = url;
+                //url = string.Format(zapros, Uri.EscapeDataString(origins));
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                WebResponse response = request.GetResponse();
+                Stream dataStream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(dataStream);
+                string responsreader = reader.ReadToEnd();
+                response.Close();
+                //парсинг
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.LoadXml(responsreader);
+                // label1.Text = xmlDoc.GetElementsByTagName("status")[0].ChildNodes[0].InnerText;
+                if (xmlDoc.GetElementsByTagName("status")[0].ChildNodes[0].InnerText == "OK")
+                {
+                    XmlNodeList nodes = xmlDoc.SelectNodes("//duration");
+
+                    int value = 0;
+                    string text = "";
+                    //double longtude = 0.0;
+                    foreach (XmlNode node in nodes)
+                    {
+                        value = Convert.ToInt32(node.SelectSingleNode("value").InnerText.ToString());
+                        text = node.SelectSingleNode("text").InnerText.ToString();
+                        //longtude = XmlConvert.ToDouble(node.SelectSingleNode("lng").InnerText.ToString());
+                    }
+                    text = value/60/60 +":"+ Math.Floor((double)value%3600/60) ;
+                    maskedTextBox3.Text = text;
+
+                    textBox1.Text = text;
+
+                }
+                /**
+                 zapros = "https://maps.googleapis.com/maps/api/geocode/xml?address={0}&sensor=false or false&language=ru&key=" + provaider.Properties.Resources.api_string;
+                url = string.Format(zapros, Uri.EscapeDataString("Острогожск Ленина 23"));
+                request = (HttpWebRequest)WebRequest.Create(url);
+                response = request.GetResponse();
+                dataStream = response.GetResponseStream();
+                reader = new StreamReader(dataStream);
+                responsreader = reader.ReadToEnd();
+                response.Close();
+                //парсинг
+                xmlDoc = new XmlDocument();
+                xmlDoc.LoadXml(responsreader);
+                label1.Text = xmlDoc.GetElementsByTagName("status")[0].ChildNodes[0].InnerText;
+                if (xmlDoc.GetElementsByTagName("status")[0].ChildNodes[0].InnerText == "OK")
+                {
+                    XmlNodeList nodes = xmlDoc.SelectNodes("//duration");
+                    //координаты
+                    double latitude = 0.0;
+                    double longtude = 0.0;
+                    foreach (XmlNode node in nodes)
+                    {
+                        latitude = XmlConvert.ToDouble(node.SelectSingleNode("lat").InnerText.ToString());
+                        longtude = XmlConvert.ToDouble(node.SelectSingleNode("lng").InnerText.ToString());
+                    }
+                    // }
+                    //   catch { }
+                }
+                **/
+            }
         }
     }
 }

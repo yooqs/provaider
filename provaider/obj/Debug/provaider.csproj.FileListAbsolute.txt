@@ -1,7 +1,6 @@
 C:\Users\Дмитрий\source\repos\provaider\provaider\bin\Debug\provaider.exe.config
 C:\Users\Дмитрий\source\repos\provaider\provaider\bin\Debug\provaider.exe
 C:\Users\Дмитрий\source\repos\provaider\provaider\bin\Debug\provaider.pdb
-C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.csprojAssemblyReference.cache
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Properties.Resources.resources
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.csproj.GenerateResource.cache
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.exe
@@ -26,3 +25,5 @@ C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.For
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_type_new.resources
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\Interop.Microsoft.Office.Core.dll
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.csproj.ResolveComReference.cache
+C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.csproj.AssemblyReference.cache
+C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.csproj.CoreCompileInputs.cache

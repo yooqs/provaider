@@ -33,7 +33,6 @@
             this.textBox_flat = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.button_contract_print = new System.Windows.Forms.Button();
             this.button_user_new = new System.Windows.Forms.Button();
             this.textBox_passport_number = new System.Windows.Forms.MaskedTextBox();
             this.textBox_passport_series = new System.Windows.Forms.MaskedTextBox();
@@ -56,6 +55,10 @@
             this.label13 = new System.Windows.Forms.Label();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // comboBox_street
@@ -98,27 +101,13 @@
             this.label8.TabIndex = 186;
             this.label8.Text = "Улица";
             // 
-            // button_contract_print
-            // 
-            this.button_contract_print.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.button_contract_print.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
-            this.button_contract_print.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_contract_print.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_contract_print.Location = new System.Drawing.Point(12, 348);
-            this.button_contract_print.Name = "button_contract_print";
-            this.button_contract_print.Size = new System.Drawing.Size(170, 34);
-            this.button_contract_print.TabIndex = 184;
-            this.button_contract_print.Text = " Печать";
-            this.button_contract_print.UseVisualStyleBackColor = true;
-            this.button_contract_print.Visible = false;
-            // 
             // button_user_new
             // 
             this.button_user_new.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
             this.button_user_new.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button_user_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_user_new.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_user_new.Location = new System.Drawing.Point(169, 348);
+            this.button_user_new.Location = new System.Drawing.Point(169, 401);
             this.button_user_new.Name = "button_user_new";
             this.button_user_new.Size = new System.Drawing.Size(170, 34);
             this.button_user_new.TabIndex = 183;
@@ -183,6 +172,7 @@
             this.textBox_house.Name = "textBox_house";
             this.textBox_house.Size = new System.Drawing.Size(221, 26);
             this.textBox_house.TabIndex = 175;
+            this.textBox_house.Leave += new System.EventHandler(this.textBox_house_Leave);
             // 
             // label12
             // 
@@ -327,15 +317,60 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Location = new System.Drawing.Point(253, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(2, 340);
+            this.panel2.Size = new System.Drawing.Size(2, 390);
             this.panel2.TabIndex = 193;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox1.Location = new System.Drawing.Point(19, 369);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(221, 26);
+            this.textBox1.TabIndex = 256;
+            // 
+            // maskedTextBox3
+            // 
+            this.maskedTextBox3.Enabled = false;
+            this.maskedTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.maskedTextBox3.Location = new System.Drawing.Point(270, 369);
+            this.maskedTextBox3.Mask = "90:00";
+            this.maskedTextBox3.Name = "maskedTextBox3";
+            this.maskedTextBox3.Size = new System.Drawing.Size(221, 26);
+            this.maskedTextBox3.TabIndex = 254;
+            this.maskedTextBox3.ValidatingType = typeof(System.DateTime);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Perpetua Titling MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(268, 346);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(150, 20);
+            this.label14.TabIndex = 255;
+            this.label14.Text = "Время прибытия";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Perpetua Titling MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(17, 346);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(201, 20);
+            this.label2.TabIndex = 253;
+            this.label2.Text = "Растояние до клиента";
             // 
             // Form_customers_edit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(508, 387);
+            this.ClientSize = new System.Drawing.Size(508, 438);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.maskedTextBox3);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.label13);
@@ -344,7 +379,6 @@
             this.Controls.Add(this.textBox_flat);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.button_contract_print);
             this.Controls.Add(this.button_user_new);
             this.Controls.Add(this.textBox_passport_number);
             this.Controls.Add(this.textBox_passport_series);
@@ -378,7 +412,6 @@
         private System.Windows.Forms.TextBox textBox_flat;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button_contract_print;
         private System.Windows.Forms.Button button_user_new;
         private System.Windows.Forms.MaskedTextBox textBox_passport_number;
         private System.Windows.Forms.MaskedTextBox textBox_passport_series;
@@ -401,5 +434,9 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox3;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label2;
     }
 }

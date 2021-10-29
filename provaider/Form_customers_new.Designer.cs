@@ -56,6 +56,10 @@
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.date_conclusion = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // comboBox_city
@@ -91,7 +95,7 @@
             this.button_user_new.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button_user_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_user_new.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_user_new.Location = new System.Drawing.Point(168, 370);
+            this.button_user_new.Location = new System.Drawing.Point(168, 403);
             this.button_user_new.Name = "button_user_new";
             this.button_user_new.Size = new System.Drawing.Size(170, 34);
             this.button_user_new.TabIndex = 149;
@@ -156,6 +160,7 @@
             this.textBox_house.Name = "textBox_house";
             this.textBox_house.Size = new System.Drawing.Size(221, 26);
             this.textBox_house.TabIndex = 137;
+            this.textBox_house.Leave += new System.EventHandler(this.textBox_house_Leave);
             // 
             // label12
             // 
@@ -300,7 +305,7 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Location = new System.Drawing.Point(258, 11);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(2, 340);
+            this.panel1.Size = new System.Drawing.Size(2, 380);
             this.panel1.TabIndex = 159;
             // 
             // maskedTextBox1
@@ -332,11 +337,54 @@
             this.label13.TabIndex = 194;
             this.label13.Text = "Дата заключения договора";
             // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox1.Location = new System.Drawing.Point(17, 371);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(221, 26);
+            this.textBox1.TabIndex = 256;
+            // 
+            // maskedTextBox3
+            // 
+            this.maskedTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.maskedTextBox3.Location = new System.Drawing.Point(283, 371);
+            this.maskedTextBox3.Mask = "90:00";
+            this.maskedTextBox3.Name = "maskedTextBox3";
+            this.maskedTextBox3.Size = new System.Drawing.Size(221, 26);
+            this.maskedTextBox3.TabIndex = 254;
+            this.maskedTextBox3.ValidatingType = typeof(System.DateTime);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Perpetua Titling MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(281, 348);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(150, 20);
+            this.label14.TabIndex = 255;
+            this.label14.Text = "Время прибытия";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Perpetua Titling MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(15, 348);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(201, 20);
+            this.label2.TabIndex = 253;
+            this.label2.Text = "Растояние до клиента";
+            // 
             // Form_customers_new
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(522, 409);
+            this.ClientSize = new System.Drawing.Size(522, 440);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.maskedTextBox3);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.date_conclusion);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.maskedTextBox1);
@@ -404,5 +452,9 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.DateTimePicker date_conclusion;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox3;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label2;
     }
 }

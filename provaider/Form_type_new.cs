@@ -25,8 +25,10 @@ namespace provaider
             {
                 conn.Open();   // открываем подключение
 
-                SqlCommand comand = new SqlCommand("INSERT INTO [type_application] VALUES (@city)", conn);
-                comand.Parameters.AddWithValue("@city", textBox_city.Text);
+                SqlCommand comand = new SqlCommand("INSERT INTO [type_application] VALUES (@type,@time,@price)", conn);
+                comand.Parameters.AddWithValue("@type", textBox_city.Text);
+                comand.Parameters.AddWithValue("@time", standard_time.Text);
+                comand.Parameters.AddWithValue("@price", textBox_price.Text);
                 comand.ExecuteNonQuery();
                 Form_directory_adress.update_table_type= true;
                 this.Close();

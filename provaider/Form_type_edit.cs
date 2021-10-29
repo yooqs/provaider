@@ -26,13 +26,15 @@ namespace provaider
             {
                 conn.ConnectionString = Properties.Resources.conn_string;
                 conn.Open();
-                SqlCommand command = new SqlCommand("Select [name] FROM [type_application] WHERE id=" + id, conn);
+                SqlCommand command = new SqlCommand("Select [name],[standard_time],[price] FROM [type_application] WHERE id=" + id, conn);
 
 
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     textBox_city.Text = (string)reader.GetValue(0);
+                    standard_time.Text = Convert.ToString(reader.GetValue(1));
+                    textBox_price.Text = Convert.ToString( Convert.ToDecimal(reader.GetValue(2)));
                 }
 
 
@@ -47,7 +49,7 @@ namespace provaider
                 //conn.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Дмитрий\Desktop\1234\basa.mdf;Integrated Security=True;Connect Timeout=30";
                 conn.ConnectionString = Properties.Resources.conn_string;
                 conn.Open();
-                SqlCommand command = new SqlCommand("UPDATE [type_application] SET  name='" + textBox_city.Text + "' WHERE id=" + id, conn);
+                SqlCommand command = new SqlCommand("UPDATE [type_application] SET  [name]='" + textBox_city.Text + "',[standard_time]=Convert(varchar,convert(time,'"+ standard_time.Text+"',104),121), [price] = '"+textBox_price.Text +"' WHERE id=" + id, conn);
                 command.ExecuteNonQuery();
                 
 

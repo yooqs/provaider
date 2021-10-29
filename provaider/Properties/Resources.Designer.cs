@@ -61,7 +61,16 @@ namespace provaider.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\provaider_basa.mdf;Integrated Security=True;Connect Timeout=30.
+        ///   Ищет локализованную строку, похожую на AIzaSyDB-nkD6-grQzsGAT2_BAPNxjgfbs4twGQ.
+        /// </summary>
+        internal static string api_string {
+            get {
+                return ResourceManager.GetString("api_string", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Data Source=PC\;Initial Catalog=provaider_basa;Integrated Security=True.
         /// </summary>
         internal static string conn_string {
             get {

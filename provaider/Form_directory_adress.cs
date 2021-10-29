@@ -41,7 +41,10 @@ namespace provaider
                     while (reader.Read())
                     {
                         string[] row = {reader.GetValue(0).ToString().Trim(),
-                                    reader.GetValue(1).ToString().Trim(), };
+                                    reader.GetValue(1).ToString().Trim(),
+                                    reader.GetValue(2).ToString().Trim(),
+                                    reader.GetValue(3).ToString().Trim(),
+                        };
                         dataGridView3.Rows.Add(row);
                     }
                 }
@@ -68,7 +71,9 @@ namespace provaider
                     while (reader.Read())
                     {
                         string[] row = {reader.GetValue(0).ToString().Trim(),
-                                    reader.GetValue(1).ToString().Trim(), };
+                                        reader.GetValue(1).ToString().Trim(), 
+                                        reader.GetValue(2).ToString().Trim(), 
+                                        reader.GetValue(3).ToString().Trim(), };
                         dataGridView3.Rows.Add(row);
                     }
                 }
@@ -327,6 +332,11 @@ namespace provaider
 
 
             }
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
