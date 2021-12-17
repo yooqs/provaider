@@ -14,12 +14,17 @@ namespace provaider
     public partial class Form_directory_adress_city_edit : Form
     {
         private int id;
+        private int id2;
         public Form_directory_adress_city_edit(int id)
         {
             InitializeComponent();
             this.id = id;
         }
-
+        public Form_directory_adress_city_edit(int id,int id2)
+        {
+            InitializeComponent();
+            this.id2 = id2;
+        }
         private void Form_directory_adress_city_edit_Load(object sender, EventArgs e)
         {
             using (SqlConnection conn = new SqlConnection())

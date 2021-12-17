@@ -18,6 +18,35 @@ namespace provaider
         {
             InitializeComponent();
         }
+        public class category
+        {
+            public int id { get; set; }
+            public string name { get; set; }
+        }
+        private void post_load()
+        {
+            string string_connection = Properties.Resources.conn_string;
+            using (SqlConnection conn = new SqlConnection(string_connection))
+            {
+                conn.Open();
+                SqlCommand comand = new SqlCommand("SELECT [id], [name] From [post]", conn);
+                List<category> employee_list = new List<category>();
+                employee_list.Clear();
+                SqlDataReader reader = comand.ExecuteReader();
+
+
+                while (reader.Read())
+                {
+                    employee_list.Add(new category() { id = int.Parse(reader.GetValue(0).ToString().Trim()), name = (string)reader.GetValue(1).ToString().Trim() });
+                }
+
+
+                comboBox_post.DataSource = employee_list;
+                comboBox_post.DisplayMember = "name";
+                comboBox_post.ValueMember = "id";
+
+            }
+        }
         public async void table_combobox_last_name()
         {
             String sql = "SELECT DISTINCT [last_name] FROM [employee]";
@@ -88,11 +117,12 @@ namespace provaider
             dataGridView_employee.Rows.Clear();
 
             SqlConnection conn = new SqlConnection();
-            sql = "Select [id],[last_name],[first_name],[patronymic], [telephone], [city],[street], [house],FORMAT(employee.date_conclusion, 'dd/MM/yyyy', 'de-de' ), [flat],[passport_series], [passport_number] ,FORMAT(employee.date_birth, 'dd/MM/yyyy', 'de-de' ) FROM [employee] WHERE [id] IS NOT NULL";
+            sql = "Select [employee].[id],[last_name],[first_name],[patronymic], [telephone], [city],[street], [house],FORMAT(employee.date_conclusion, 'dd/MM/yyyy', 'de-de' ), [flat],[passport_series], [passport_number] ,FORMAT(employee.date_birth, 'dd/MM/yyyy', 'de-de' ),[post].[name],[login],[password],[admin],[post].id  FROM [employee] JOIN [post] ON [post].[id]=[employee].[id_post] WHERE [employee].[id] IS NOT NULL";
             if (checkBox_city.Checked) sql += $" AND [city] = '{comboBox_city.Text}'";
             if (checkBox_street.Checked) sql += $" AND [street] = '{comboBox_street.Text}'";
             if (checkBox_house.Checked) sql += $" AND [house] = '{ textBox_house.Text}'";
             if (checkBox_flat.Checked) sql += $" AND [flat] = '{ textBox_flat.Text}'";
+            if (checkBox_post.Checked) sql += $" AND [post].[id] = '{ comboBox_post.SelectedValue}'";
             if (checkBox_telephone.Checked) sql += $" AND [telephone] = '{maskedTextBox_telephone.Text}'";
             if (checkBox_passport_series.Checked) sql += " AND [passport_series] = " + textBox_passport_series.Text;
             if (checkBox_passport_number.Checked) sql += " AND [passport_number] = " + textBox_passport_number.Text;
@@ -104,9 +134,11 @@ namespace provaider
             SqlCommand cmd = new SqlCommand(sql, conn);
             using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
             {
+                int i = 1;
                 while (reader.Read())
                 {
-                    string[] row = {reader.GetValue(0).ToString().Trim(),
+                    
+                    string [] row = {reader.GetValue(0).ToString().Trim(),
                                     reader.GetValue(1).ToString().Trim(),
                                     reader.GetValue(2).ToString().Trim(),
                                     reader.GetValue(3).ToString().Trim(),
@@ -118,10 +150,29 @@ namespace provaider
                                     reader.GetValue(10).ToString().Trim(),
                                     reader.GetValue(11).ToString().Trim(),
                                     reader.GetValue(12).ToString().Trim(),
+                                    reader.GetValue(13).ToString().Trim(),
+                                    reader.GetValue(14).ToString().Trim(),
+                                    reader.GetValue(15).ToString().Trim(),
+                                    reader.GetValue(16).ToString().Trim(),
+                                    
 
                                     };
-
                     dataGridView_employee.Rows.Add(row);
+                    /**  string flag = Convert.ToString(reader.GetValue(17));
+                      
+                      if (flag== "1")
+                      {
+                          dataGridView_employee.Rows[i].Cells[14].Value = true;
+                      }
+                      else
+                      {
+                          dataGridView_employee.Rows[i].Cells[14].Value = false;
+                      }
+                      **/
+
+
+
+
                 }
                 reader.Close();
             }
@@ -171,6 +222,7 @@ namespace provaider
             table_updateAsync();
             table_combobox_last_name();
             Textbox_city_update();
+            post_load();
         }
 
         private void button_employee_edit_Click(object sender, EventArgs e)
@@ -254,6 +306,96 @@ namespace provaider
         private void button3_Click(object sender, EventArgs e)
         {
             table_updateAsync();
+        }
+
+        private void dataGridView_employee_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void textBox_flat_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox_house_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void date_conclusions_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void maskedTextBox_telephone_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void checkBox_date_conclusion_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox_passport_number_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void checkBox_telephone_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox_passport_series_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void checkBox_passport_number_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox_passport_series_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox_street_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox_house_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox_city_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox_flat_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox_street_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox_city_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

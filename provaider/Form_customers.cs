@@ -144,7 +144,7 @@ namespace provaider
             dataGridView1.Rows.Clear();
 
             SqlConnection conn = new SqlConnection();
-            sql = "Select [id],[last_name],[first_name],[patronymic], [telephone], [city],[street], [house],FORMAT(contract.data_birth, 'dd/MM/yyyy', 'de-de' ), [flat],[passport_series], [passport_number] ,FORMAT(contract.date_conclusion, 'dd/MM/yyyy', 'de-de' ),distance,time_before FROM [contract]";
+            sql = "Select [id],[last_name],[first_name],[patronymic], [telephone], [city],[street], [house],FORMAT(contract.data_birth, 'dd/MM/yyyy', 'de-de' ), [flat],[passport_series], [passport_number] ,FORMAT(contract.date_conclusion, 'dd/MM/yyyy', 'de-de' ), FROM [contract]";
             SqlCommand cmd = new SqlCommand(sql, conn);
 
             conn.ConnectionString = provaider.Properties.Resources.conn_string;
@@ -165,8 +165,7 @@ namespace provaider
                                     reader.GetValue(10).ToString().Trim(),
                                     reader.GetValue(11).ToString().Trim(),
                                     reader.GetValue(12).ToString().Trim(),
-                                    reader.GetValue(13).ToString().Trim(),
-                                    reader.GetValue(14).ToString().Trim(),
+                                   
 
                                     };
 
@@ -255,35 +254,84 @@ namespace provaider
         {
             Textbox_street_update();
         }
-        
+        string mac;
+        string login_kab;
+        string password_kab;
+        string personal;
+        string wifi_login;
+        string wifi_password;
+        string tariff;
         private void button1_Click(object sender, EventArgs e)
         {
-            string s = (string)dataGridView1.CurrentRow.Cells[5].Value;
-            string[] city = s.Split(new char[] { ' ' });
+            String sql;
+            
+            int ids = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+            SqlConnection conn = new SqlConnection();
+            sql = "Select [contract].[mac],[contract].[login_kab],[contract].[password_kab],[contract].[personal_account],[contract].[wifi_login],[contract].[wifi_password],[tariff].[name] FROM [contract] JOIN [tariff] ON [contract].[id_tariff] = [tariff].[id]  where [contract].[id]=" + ids;
+            SqlCommand cmd = new SqlCommand(sql, conn);
+
+            conn.ConnectionString = provaider.Properties.Resources.conn_string;
+            conn.Open();
+            
+
+            using (SqlDataReader reader =  cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                     mac = reader.GetValue(0).ToString().Trim();
+                     login_kab = reader.GetValue(1).ToString().Trim();
+                     password_kab = reader.GetValue(2).ToString().Trim();
+                     personal = reader.GetValue(3).ToString().Trim();
+                     wifi_login = reader.GetValue(4).ToString().Trim();
+                     wifi_password = reader.GetValue(5).ToString().Trim();
+                    tariff = reader.GetValue(6).ToString().Trim();
+                                   
+
+
+                                    
+
+                    
+                }
+                reader.Close();
+            }
+            conn.Close();
+            
             try { 
             var WordApp = new Microsoft.Office.Interop.Word.Application();
             WordApp.Visible = false;
-                string woo = Path.Combine(Application.StartupPath);
-                woo = woo + @"\dogovor.dotx";
-                //string woo = @"C:\Users\Дмитрий\Desktop\12\dogovor.dotx";
+               // string woo = Path.Combine(Application.StartupPath);
+               // woo = woo + @"\dogovor.dotx";
+                string woo = @"C:\Users\Дмитрий\Desktop\12\abonent.dotx";
            //  woo = woo + @"\prikaz_na_otpusk.dotx";
             // var WordDocument = WordApp.Documents.Open(@"C:\Users\Дмитрий\Documents\sql_S\Basa_sql\Basa_sql\prikaz_na_otpusk.dotx");
             var WordDocument = WordApp.Documents.Open(woo);
             var range = WordDocument.Content;
             range.Find.ClearFormatting();
-                range.Find.Execute(FindText: "{number}", ReplaceWith: (string)dataGridView1.CurrentRow.Cells[0].Value);
+                range.Find.Execute(FindText: "{fio}", ReplaceWith: (string)dataGridView1.CurrentRow.Cells[1].Value + " "+ (string)dataGridView1.CurrentRow.Cells[2].Value+" "+ (string)dataGridView1.CurrentRow.Cells[3].Value);
                 range = WordDocument.Content;
                 range.Find.ClearFormatting();
-                range.Find.Execute(FindText: "{date}", ReplaceWith: (string)dataGridView1.CurrentRow.Cells[6].Value);
+                range.Find.Execute(FindText: "{adress}", ReplaceWith: (string)dataGridView1.CurrentRow.Cells[5].Value);
                 range.Find.ClearFormatting();
                 range = WordDocument.Content;
-                range.Find.Execute(FindText: "{city}", ReplaceWith: city[0]);
+                range.Find.Execute(FindText: "{ak}", ReplaceWith: personal);
                 range.Find.ClearFormatting();
                 range = WordDocument.Content;
-                range.Find.Execute(FindText: "{fio}", ReplaceWith: (string)dataGridView1.CurrentRow.Cells[1].Value + " " + (string)dataGridView1.CurrentRow.Cells[2].Value + " " + (string)dataGridView1.CurrentRow.Cells[3].Value);
+                range.Find.Execute(FindText: "{tariff}", ReplaceWith: tariff);
                 range.Find.ClearFormatting();
                 range = WordDocument.Content;
-
+                range.Find.Execute(FindText: "{login}", ReplaceWith: login_kab);
+                range.Find.ClearFormatting();
+                range = WordDocument.Content;
+                range.Find.Execute(FindText: "{password}", ReplaceWith: password_kab);
+                range.Find.ClearFormatting();
+                range = WordDocument.Content;
+                range.Find.Execute(FindText: "{login_wi-fi}", ReplaceWith: wifi_login);
+                range.Find.ClearFormatting();
+                range = WordDocument.Content;
+                range.Find.Execute(FindText: "{password_wi-fi }", ReplaceWith: wifi_password);
+                range.Find.ClearFormatting();
+                range = WordDocument.Content;
+                WordDocument.ExportAsFixedFormat(@"C:\Users\Дмитрий\Desktop\12\DocTo.pdf", Microsoft.Office.Interop.Word.WdExportFormat.wdExportFormatPDF);
 
                 WordApp.Visible = true;
             }
@@ -330,6 +378,11 @@ namespace provaider
         }
 
         private void checkBox_telephone_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }

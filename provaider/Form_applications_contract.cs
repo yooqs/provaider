@@ -67,7 +67,7 @@ namespace provaider
             dataGridView1.Rows.Clear();
 
             SqlConnection conn = new SqlConnection();
-            sql = "Select [id],[last_name],[first_name],[patronymic], [telephone], [city],[street], [house],FORMAT(contract.date_conclusion, 'dd/MM/yyyy', 'de-de' ), [flat],[passport_series], [passport_number] ,FORMAT(contract.data_birth, 'dd/MM/yyyy', 'de-de' ) FROM [contract]";
+            sql = "Select [contract].[id],[last_name],[first_name],[patronymic], [telephone], [city],[street], [house],FORMAT(contract.date_conclusion, 'dd/MM/yyyy', 'de-de' ), [flat],[passport_series], [passport_number] ,FORMAT(contract.data_birth, 'dd/MM/yyyy', 'de-de' ),distance,time_before,longtude,latitude,login_kab,[tariff].name FROM [contract] JOIN [tariff] ON [contract].[id_tariff] = [tariff].[id] ";
             SqlCommand cmd = new SqlCommand(sql, conn);
 
             conn.ConnectionString = provaider.Properties.Resources.conn_string;
@@ -88,8 +88,15 @@ namespace provaider
                                     reader.GetValue(10).ToString().Trim(),
                                     reader.GetValue(11).ToString().Trim(),
                                     reader.GetValue(12).ToString().Trim(),
+                                    reader.GetValue(13).ToString().Trim(),
+                                    reader.GetValue(14).ToString().Trim(),
+                                    reader.GetValue(15).ToString().Trim(),
+                                    reader.GetValue(16).ToString().Trim(),
+                                    reader.GetValue(17).ToString().Trim(),
+                                    reader.GetValue(18).ToString().Trim(),
 
                                     };
+
 
                     dataGridView1.Rows.Add(row);
                 }
@@ -137,7 +144,13 @@ namespace provaider
                                        (string)dataGridView1.CurrentRow.Cells[6].Value,
                                        (string)dataGridView1.CurrentRow.Cells[7].Value,
                                        (string)dataGridView1.CurrentRow.Cells[8].Value,
-                                       (string)dataGridView1.CurrentRow.Cells[9].Value
+                                       (string)dataGridView1.CurrentRow.Cells[9].Value,
+                                       (string)dataGridView1.CurrentRow.Cells[10].Value,
+                                       (string)dataGridView1.CurrentRow.Cells[11].Value,
+                                       (string)dataGridView1.CurrentRow.Cells[12].Value,
+                                       (string)dataGridView1.CurrentRow.Cells[13].Value,
+                                       (string)dataGridView1.CurrentRow.Cells[14].Value,
+                                       (string)dataGridView1.CurrentRow.Cells[15].Value
                                       }; 
                                        
             Form_applications_new applications_new_form = new Form_applications_new(data_contract);

@@ -30,16 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_applications_contract));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.last_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.first_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patronymic = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telephone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.adress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date_birth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passport_series = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passport_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date_conclusion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button_customers_new = new System.Windows.Forms.Button();
             this.button_user_search = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -62,6 +52,22 @@
             this.checkBox_street = new System.Windows.Forms.CheckBox();
             this.checkBox_city = new System.Windows.Forms.CheckBox();
             this.comboBox_last_name = new System.Windows.Forms.ComboBox();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.last_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.first_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patronymic = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telephone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.adress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_birth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passport_series = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passport_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_conclusion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -85,90 +91,18 @@
             this.date_birth,
             this.passport_series,
             this.passport_number,
-            this.date_conclusion});
+            this.date_conclusion,
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6});
             this.dataGridView1.Location = new System.Drawing.Point(12, 128);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1143, 140);
             this.dataGridView1.TabIndex = 27;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.id.FillWeight = 253.8071F;
-            this.id.HeaderText = "№ договора";
-            this.id.Name = "id";
-            this.id.Width = 86;
-            // 
-            // last_name
-            // 
-            this.last_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.last_name.FillWeight = 82.91032F;
-            this.last_name.HeaderText = "Фамилия";
-            this.last_name.Name = "last_name";
-            this.last_name.Width = 81;
-            // 
-            // first_name
-            // 
-            this.first_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.first_name.FillWeight = 82.91032F;
-            this.first_name.HeaderText = "Имя";
-            this.first_name.Name = "first_name";
-            this.first_name.Width = 54;
-            // 
-            // patronymic
-            // 
-            this.patronymic.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.patronymic.FillWeight = 82.91032F;
-            this.patronymic.HeaderText = "Отчество";
-            this.patronymic.Name = "patronymic";
-            this.patronymic.Width = 79;
-            // 
-            // telephone
-            // 
-            this.telephone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.telephone.FillWeight = 82.91032F;
-            this.telephone.HeaderText = "Телефон";
-            this.telephone.Name = "telephone";
-            this.telephone.Width = 77;
-            // 
-            // adress
-            // 
-            this.adress.FillWeight = 82.91032F;
-            this.adress.HeaderText = "Адрес";
-            this.adress.Name = "adress";
-            // 
-            // date_birth
-            // 
-            this.date_birth.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.date_birth.FillWeight = 82.91032F;
-            this.date_birth.HeaderText = "Дата заключения договора";
-            this.date_birth.Name = "date_birth";
-            this.date_birth.Width = 114;
-            // 
-            // passport_series
-            // 
-            this.passport_series.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.passport_series.FillWeight = 82.91032F;
-            this.passport_series.HeaderText = "Серия паспорта";
-            this.passport_series.Name = "passport_series";
-            this.passport_series.Width = 104;
-            // 
-            // passport_number
-            // 
-            this.passport_number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.passport_number.FillWeight = 82.91032F;
-            this.passport_number.HeaderText = "Номер паспорта";
-            this.passport_number.Name = "passport_number";
-            this.passport_number.Width = 106;
-            // 
-            // date_conclusion
-            // 
-            this.date_conclusion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.date_conclusion.FillWeight = 82.91032F;
-            this.date_conclusion.HeaderText = "Дата рождения";
-            this.date_conclusion.Name = "date_conclusion";
-            this.date_conclusion.Width = 102;
             // 
             // button_customers_new
             // 
@@ -440,6 +374,120 @@
             this.comboBox_last_name.Size = new System.Drawing.Size(198, 26);
             this.comboBox_last_name.TabIndex = 225;
             // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.id.FillWeight = 253.8071F;
+            this.id.HeaderText = "№ договора";
+            this.id.Name = "id";
+            this.id.Width = 93;
+            // 
+            // last_name
+            // 
+            this.last_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.last_name.FillWeight = 82.91032F;
+            this.last_name.HeaderText = "Фамилия";
+            this.last_name.Name = "last_name";
+            this.last_name.Width = 81;
+            // 
+            // first_name
+            // 
+            this.first_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.first_name.FillWeight = 82.91032F;
+            this.first_name.HeaderText = "Имя";
+            this.first_name.Name = "first_name";
+            this.first_name.Width = 54;
+            // 
+            // patronymic
+            // 
+            this.patronymic.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.patronymic.FillWeight = 82.91032F;
+            this.patronymic.HeaderText = "Отчество";
+            this.patronymic.Name = "patronymic";
+            this.patronymic.Width = 79;
+            // 
+            // telephone
+            // 
+            this.telephone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.telephone.FillWeight = 82.91032F;
+            this.telephone.HeaderText = "Телефон";
+            this.telephone.Name = "telephone";
+            this.telephone.Width = 77;
+            // 
+            // adress
+            // 
+            this.adress.FillWeight = 82.91032F;
+            this.adress.HeaderText = "Адрес";
+            this.adress.Name = "adress";
+            // 
+            // date_birth
+            // 
+            this.date_birth.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.date_birth.FillWeight = 82.91032F;
+            this.date_birth.HeaderText = "Дата заключения договора";
+            this.date_birth.Name = "date_birth";
+            this.date_birth.Width = 114;
+            // 
+            // passport_series
+            // 
+            this.passport_series.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.passport_series.FillWeight = 82.91032F;
+            this.passport_series.HeaderText = "Серия паспорта";
+            this.passport_series.Name = "passport_series";
+            this.passport_series.Width = 104;
+            // 
+            // passport_number
+            // 
+            this.passport_number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.passport_number.FillWeight = 82.91032F;
+            this.passport_number.HeaderText = "Номер паспорта";
+            this.passport_number.Name = "passport_number";
+            this.passport_number.Width = 106;
+            // 
+            // date_conclusion
+            // 
+            this.date_conclusion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.date_conclusion.FillWeight = 82.91032F;
+            this.date_conclusion.HeaderText = "Дата рождения";
+            this.date_conclusion.Name = "date_conclusion";
+            this.date_conclusion.Width = 102;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Column1";
+            this.Column1.Name = "Column1";
+            this.Column1.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Column2";
+            this.Column2.Name = "Column2";
+            this.Column2.Visible = false;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Column3";
+            this.Column3.Name = "Column3";
+            this.Column3.Visible = false;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Column4";
+            this.Column4.Name = "Column4";
+            this.Column4.Visible = false;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Column5";
+            this.Column5.Name = "Column5";
+            this.Column5.Visible = false;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Column6";
+            this.Column6.Name = "Column6";
+            this.Column6.Visible = false;
+            // 
             // Form_applications_contract
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -467,16 +515,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn last_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn first_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn patronymic;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telephone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn adress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn date_birth;
-        private System.Windows.Forms.DataGridViewTextBoxColumn passport_series;
-        private System.Windows.Forms.DataGridViewTextBoxColumn passport_number;
-        private System.Windows.Forms.DataGridViewTextBoxColumn date_conclusion;
         private System.Windows.Forms.Button button_customers_new;
         private System.Windows.Forms.Button button_user_search;
         private System.Windows.Forms.Label label1;
@@ -499,5 +537,21 @@
         private System.Windows.Forms.ComboBox comboBox_last_name;
         private System.Windows.Forms.TextBox textBox_flat;
         private System.Windows.Forms.TextBox textBox_house;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn last_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn first_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patronymic;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telephone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn adress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date_birth;
+        private System.Windows.Forms.DataGridViewTextBoxColumn passport_series;
+        private System.Windows.Forms.DataGridViewTextBoxColumn passport_number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date_conclusion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
     }
 }

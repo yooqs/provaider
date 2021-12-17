@@ -202,6 +202,7 @@
             this.button_user_search.TabIndex = 227;
             this.button_user_search.Text = "Поиск";
             this.button_user_search.UseVisualStyleBackColor = true;
+            this.button_user_search.Click += new System.EventHandler(this.button_user_search_Click);
             // 
             // label1
             // 

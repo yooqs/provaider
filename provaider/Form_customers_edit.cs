@@ -1,9 +1,13 @@
-﻿using System;
+﻿using GMap.NET;
+using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -102,7 +106,7 @@ namespace provaider
             {
                 while (reader.Read())
                 {
-                    row  = new string[] {reader.GetValue(0).ToString().Trim(), //last_name
+                    row  = new string[] {reader.GetValue(0).ToString().Trim(), 
                                     reader.GetValue(1).ToString().Trim(),
                                     reader.GetValue(2).ToString().Trim(),
                                     reader.GetValue(3).ToString().Trim(),
@@ -115,8 +119,17 @@ namespace provaider
                                     reader.GetValue(10).ToString().Trim(),
                                     reader.GetValue(11).ToString().Trim(),
                                     reader.GetValue(12).ToString().Trim(),
+                                    reader.GetValue(13).ToString().Trim(),
+                                    reader.GetValue(14).ToString().Trim(),
                                     reader.GetValue(15).ToString().Trim(),
                                     reader.GetValue(16).ToString().Trim(),
+                                    reader.GetValue(17).ToString().Trim(),
+                                    reader.GetValue(18).ToString().Trim(),
+                                    reader.GetValue(19).ToString().Trim(),
+                                    reader.GetValue(20).ToString().Trim(),
+                                    reader.GetValue(21).ToString().Trim(),
+                                    reader.GetValue(22).ToString().Trim(),
+                                    reader.GetValue(23).ToString().Trim(),
                     };
                     textBox_last_name.Text = row[1];
                     textBox_first_name.Text = row[2];
@@ -130,9 +143,32 @@ namespace provaider
                     textBox_passport_series.Text = row[10];
                     textBox_passport_number.Text = row[11];
                     date_conclusion.Value = Convert.ToDateTime(row[12]);
-                    textBox1.Text = row[13];
-                    maskedTextBox3.Text = row[14];
+                    textBox1.Text = row[15];
+                    maskedTextBox3.Text = row[16];
+                    textBox2.Text= row[21];
+                    maskedTextBox4.Text= row[18];
+                    textBox3.Text = row[19];
+                    textBox4.Text = row[20];
+                    textBox5.Text = row[22];
+                    textBox6.Text = row[23];
 
+
+
+                    //
+                    Double lat = Math.Round(Convert.ToDouble(row[13], CultureInfo.InvariantCulture), 6);
+                    Double lon = Math.Round(Convert.ToDouble(row[14], CultureInfo.InvariantCulture), 6);
+                    GMapOverlay markers = new GMapOverlay("markers");
+                    // Создаем метку, устанавливаем позицию и стиль
+                    // GMapMarker marker = new GMarkerGoogle(new PointLatLng(Convert.ToDouble(adress.lat), Convert.ToDouble(adress.lon)), GMarkerGoogleType.blue_pushpin);
+                    GMapMarker marker = new GMarkerGoogle(new PointLatLng(lat, lon), GMarkerGoogleType.blue_pushpin);
+                    // Добавляем маркер к слою
+                    markers.Markers.Add(marker);
+                    // Добавляем слой на карту
+                    this.gMapControl1.Overlays.Add(markers);
+
+
+                    gMapControl1.Position = new GMap.NET.PointLatLng(lat, lon);
+                    gMapControl1.Zoom = 17;
 
 
                 }
@@ -147,33 +183,7 @@ namespace provaider
         }
         private void button_user_new_Click(object sender, EventArgs e)
         {
-            double latitude = 0.0;
-            double longtude = 0.0;
-            string zapros = "https://maps.googleapis.com/maps/api/geocode/xml?address={0}&sensor=false or false&language=ru&key=" + provaider.Properties.Resources.api_string;
-            string url = string.Format(zapros, Uri.EscapeDataString("Воронежская область" + comboBox_city.Text + " " + comboBox_street.Text + " " + textBox_house.Text));
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            WebResponse response = request.GetResponse();
-            Stream dataStream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(dataStream);
-            string responsreader = reader.ReadToEnd();
-            response.Close();
-            //парсинг
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.LoadXml(responsreader);
-            label1.Text = xmlDoc.GetElementsByTagName("status")[0].ChildNodes[0].InnerText;
-            if (xmlDoc.GetElementsByTagName("status")[0].ChildNodes[0].InnerText == "OK")
-            {
-                XmlNodeList nodes = xmlDoc.SelectNodes("//location");
-                //координаты
-
-                foreach (XmlNode node in nodes)
-                {
-                    latitude = XmlConvert.ToDouble(node.SelectSingleNode("lat").InnerText.ToString());
-                    longtude = XmlConvert.ToDouble(node.SelectSingleNode("lng").InnerText.ToString());
-                }
-                // }
-                //   catch { }
-            }
+          
             SqlConnection conn = new SqlConnection();
             //conn.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Дмитрий\Desktop\1234\basa.mdf;Integrated Security=True;Connect Timeout=30";
             conn.ConnectionString = Properties.Resources.conn_string;
@@ -191,8 +201,8 @@ namespace provaider
             command.Parameters.AddWithValue("@flat", textBox_flat.Text);
             command.Parameters.AddWithValue("@passport_series", textBox_passport_series.Text);
             command.Parameters.AddWithValue("@passport_number", textBox_passport_number.Text);
-            command.Parameters.AddWithValue("@latitude", latitude);
-            command.Parameters.AddWithValue("@longtude", longtude);
+          //  command.Parameters.AddWithValue("@latitude", );
+          //  command.Parameters.AddWithValue("@longtude", );
             command.Parameters.AddWithValue("@distance", value2);
             //command.Parameters.AddWithValue("@birth_date", textBox_birth_date.Text);
 
@@ -211,6 +221,8 @@ namespace provaider
         {
             await date_contract_loadAsync();
             Textbox_city_update();
+
+           
         }
 
         private void textBox_middle_name_TextChanged(object sender, EventArgs e)
@@ -234,62 +246,46 @@ namespace provaider
 
         private void textBox_house_Leave(object sender, EventArgs e)
         {
-            string zapros = "https://maps.googleapis.com/maps/api/distancematrix/xml?origins={0}&destinations={1}&mode=driving&key=" + provaider.Properties.Resources.api_string;
-            string destinations = "Воронежская область" + comboBox_city.Text + " " + comboBox_street.Text + " " + textBox_house.Text;
-            string origins = "Воронежская область Острогожск Ленина 35";
-            string url = string.Format(zapros, Uri.EscapeDataString(destinations), Uri.EscapeDataString(origins));
-            // textBox1.Text = url;
-            //url = string.Format(zapros, Uri.EscapeDataString(origins));
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            WebResponse response = request.GetResponse();
-            Stream dataStream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(dataStream);
-            string responsreader = reader.ReadToEnd();
-            response.Close();
-            //парсинг
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.LoadXml(responsreader);
-            // label1.Text = xmlDoc.GetElementsByTagName("status")[0].ChildNodes[0].InnerText;
-            if (xmlDoc.GetElementsByTagName("status")[0].ChildNodes[0].InnerText == "OK")
-            {
-                XmlNodeList nodes = xmlDoc.SelectNodes("//duration");
+           
 
 
-                //double longtude = 0.0;
-                foreach (XmlNode node in nodes)
-                {
-                    value = Convert.ToInt32(node.SelectSingleNode("value").InnerText.ToString());
-                    text = node.SelectSingleNode("text").InnerText.ToString();
-                    //longtude = XmlConvert.ToDouble(node.SelectSingleNode("lng").InnerText.ToString());
-                }
-                TimeSpan TS;
-                if (value > 60)
-                {
-                    TS = new TimeSpan(value / 60 / 60, Convert.ToInt32(Math.Floor((double)value % 3600 / 60)), 0);
-                }
-                else
-                {
-                    TS = new TimeSpan(0, 1, 0);
-                }
-                nodes = xmlDoc.SelectNodes("//distance");
+            
+        }
 
+        private void gMapControl1_Load(object sender, EventArgs e)
+        {
 
-                //double longtude = 0.0;
-                foreach (XmlNode node in nodes)
-                {
-                    value2 = Convert.ToInt32(node.SelectSingleNode("value").InnerText.ToString());
-                    text2 = node.SelectSingleNode("text").InnerText.ToString();
-                    //longtude = XmlConvert.ToDouble(node.SelectSingleNode("lng").InnerText.ToString());
-                }
-                // Console.WriteLine(TS.ToString());
+            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerAndCache; //выбор подгрузки карты – онлайн или из ресурсов
+            gMapControl1.MapProvider = GMap.NET.MapProviders.CzechMapProvider.Instance; //какой провайдер карт используется (в нашем случае гугл) 
+            gMapControl1.MinZoom = 1; //минимальный зум
+            gMapControl1.MaxZoom = 20; //максимальный зум
+            gMapControl1.Zoom = 12; // какой используется зум при открытии
+            gMapControl1.Position = new GMap.NET.PointLatLng(50.85484, 39.06328);// точка в центре карты при открытии (центр России)
+            gMapControl1.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter; // как приближает (просто в центр карты или по положению мыши)
+            gMapControl1.CanDragMap = true; // перетаскивание карты мышью
+            gMapControl1.DragButton = MouseButtons.Left; // какой кнопкой осуществляется перетаскивание
+            gMapControl1.ShowCenter = false; //показывать или скрывать красный крестик в центре
+            gMapControl1.ShowTileGridLines = false;
+        }
 
-                // text = value / 60 / 60 + ":" + Math.Floor((double)value % 3600 / 60);
-                maskedTextBox3.Text = TS.ToString() + " " + value;
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
-                textBox1.Text = Convert.ToString(value2);
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
+        }
 
-            }
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Button button_employee = new Button();
+            Button b = (Button)sender;
+            button_employee.Text = "Пример";
+            button_employee.Width = b.Width;
+            //Размещаем ее правее (на 10px) кнопки, на которую мы нажали
+            button_employee.Location = new Point(b.Location.X + b.Width + 10, b.Location.Y);
         }
     }
 }

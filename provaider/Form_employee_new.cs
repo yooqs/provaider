@@ -20,6 +20,35 @@ namespace provaider
         {
             InitializeComponent();
         }
+        public class category
+        {
+            public int id { get; set; }
+            public string name { get; set; }
+        }
+        private void post_load ()
+        {
+            string string_connection = Properties.Resources.conn_string;
+            using (SqlConnection conn = new SqlConnection(string_connection))
+            {
+                conn.Open();
+                SqlCommand comand = new SqlCommand("SELECT [id], [name] From [post]", conn);
+                List<category> employee_list = new List<category>();
+                employee_list.Clear();
+                SqlDataReader reader = comand.ExecuteReader();
+
+                
+                while (reader.Read())
+                {
+                    employee_list.Add(new category() { id = int.Parse(reader.GetValue(0).ToString().Trim()), name = (string)reader.GetValue(1).ToString().Trim() });
+                }
+
+
+                comboBox_post.DataSource = employee_list;
+                comboBox_post.DisplayMember = "name";
+                comboBox_post.ValueMember = "id";
+
+            }
+        }
         public async void Textbox_street_update()
         {
             comboBox_street.Items.Clear();
@@ -89,6 +118,8 @@ namespace provaider
         private void Form_employee_new_Load(object sender, EventArgs e)
         {
             Textbox_city_update();
+            post_load();
+
         }
 
         private void comboBox_street_Enter(object sender, EventArgs e)
@@ -104,7 +135,7 @@ namespace provaider
                 conn.ConnectionString = provaider.Properties.Resources.conn_string;
 
                 //заполнение таблицы сотруднки
-                SqlCommand command = new SqlCommand("INSERT INTO [employee]  VALUES(@last_name, @first_name, @patronymic, @telephone, @city, @street, @house, @flat, @passport_series,convert(varchar, convert(datetime, '" + textBox_birth_date.Text + "', 104), 121), convert(varchar, convert(datetime, '" + date_conclusion.Text + "', 104), 121), @passport_number)", conn);
+                SqlCommand command = new SqlCommand("INSERT INTO [employee]  VALUES(@last_name, @first_name, @patronymic, @telephone, @city, @street, @house, @flat, @passport_series,convert(varchar, convert(datetime, '" + textBox_birth_date.Text + "', 104), 121), convert(varchar, convert(datetime, '" + date_conclusion.Text + "', 104), 121), @passport_number,@id_post,@login,@password,@admin)", conn);
                 command.Parameters.AddWithValue("@last_name", textBox_first_name.Text);
                 command.Parameters.AddWithValue("@first_name", textBox_middle_name.Text);
                 command.Parameters.AddWithValue("@patronymic", textBox_last_name.Text);
@@ -115,6 +146,11 @@ namespace provaider
                 command.Parameters.AddWithValue("@flat", textBox_flat.Text);
                 command.Parameters.AddWithValue("@passport_series", textBox_passport_series.Text);
                 command.Parameters.AddWithValue("@passport_number", textBox_passport_number.Text);
+                command.Parameters.AddWithValue("@id_post", comboBox_post.SelectedValue);
+                command.Parameters.AddWithValue("@login", textBox_login.Text);
+                command.Parameters.AddWithValue("@password", textBox_password.Text);
+                command.Parameters.AddWithValue("@admin", (bool)checkBox_admin.Checked );
+                //@id_post,@login,@password,@admin
                 //command.Parameters.AddWithValue("@birth_date", textBox_birth_date.Text);
 
 
@@ -276,45 +312,7 @@ namespace provaider
 
         private void textBox_house_Leave(object sender, EventArgs e)
         {
-            if (comboBox_city.Text != "" && comboBox_street.Text != "")
-            {
-                //  try
-                //  {
-                string zapros = "https://maps.googleapis.com/maps/api/distancematrix/xml?origins={0}&destinations={1}&mode=driving&key=" + provaider.Properties.Resources.api_string;
-                string destinations = "Воронежская область" + comboBox_city.Text + " " + comboBox_street.Text + " " + textBox_house.Text;
-                string origins = "Воронежская область Острогожск Ленина 35";
-                string url = string.Format(zapros, Uri.EscapeDataString(destinations), Uri.EscapeDataString(origins));
-                // textBox1.Text = url;
-                //url = string.Format(zapros, Uri.EscapeDataString(origins));
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-                WebResponse response = request.GetResponse();
-                Stream dataStream = response.GetResponseStream();
-                StreamReader reader = new StreamReader(dataStream);
-                string responsreader = reader.ReadToEnd();
-                response.Close();
-                //парсинг
-                XmlDocument xmlDoc = new XmlDocument();
-                xmlDoc.LoadXml(responsreader);
-                // label1.Text = xmlDoc.GetElementsByTagName("status")[0].ChildNodes[0].InnerText;
-                if (xmlDoc.GetElementsByTagName("status")[0].ChildNodes[0].InnerText == "OK")
-                {
-                    XmlNodeList nodes = xmlDoc.SelectNodes("//duration");
-
-                    int value = 0;
-                    string text = "";
-                    //double longtude = 0.0;
-                    foreach (XmlNode node in nodes)
-                    {
-                        value = Convert.ToInt32(node.SelectSingleNode("value").InnerText.ToString());
-                        text = node.SelectSingleNode("text").InnerText.ToString();
-                        //longtude = XmlConvert.ToDouble(node.SelectSingleNode("lng").InnerText.ToString());
-                    }
-                    text = value/60/60 +":"+ Math.Floor((double)value%3600/60) ;
-                    maskedTextBox3.Text = text;
-
-                    textBox1.Text = text;
-
-                }
+            
                 /**
                  zapros = "https://maps.googleapis.com/maps/api/geocode/xml?address={0}&sensor=false or false&language=ru&key=" + provaider.Properties.Resources.api_string;
                 url = string.Format(zapros, Uri.EscapeDataString("Острогожск Ленина 23"));
@@ -343,7 +341,12 @@ namespace provaider
                     //   catch { }
                 }
                 **/
-            }
+            
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

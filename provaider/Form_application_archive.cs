@@ -261,5 +261,10 @@ namespace provaider
                 table_applications_load();
             }
         }
+
+        private void button_user_search_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

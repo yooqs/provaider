@@ -37,7 +37,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button_contract_print = new System.Windows.Forms.Button();
             this.button_user_new = new System.Windows.Forms.Button();
             this.textBox_passport_number = new System.Windows.Forms.MaskedTextBox();
             this.textBox_passport_series = new System.Windows.Forms.MaskedTextBox();
@@ -56,6 +55,13 @@
             this.textBox_last_name = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox_city = new System.Windows.Forms.ComboBox();
+            this.checkBox_admin = new System.Windows.Forms.CheckBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.comboBox_post = new System.Windows.Forms.ComboBox();
+            this.textBox_password = new System.Windows.Forms.TextBox();
+            this.textBox_login = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // date_conclusion
@@ -131,22 +137,8 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Location = new System.Drawing.Point(260, 15);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(2, 335);
+            this.panel1.Size = new System.Drawing.Size(2, 446);
             this.panel1.TabIndex = 246;
-            // 
-            // button_contract_print
-            // 
-            this.button_contract_print.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.button_contract_print.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
-            this.button_contract_print.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_contract_print.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_contract_print.Location = new System.Drawing.Point(8, 363);
-            this.button_contract_print.Name = "button_contract_print";
-            this.button_contract_print.Size = new System.Drawing.Size(170, 34);
-            this.button_contract_print.TabIndex = 245;
-            this.button_contract_print.Text = " Печать";
-            this.button_contract_print.UseVisualStyleBackColor = true;
-            this.button_contract_print.Visible = false;
             // 
             // button_user_new
             // 
@@ -154,7 +146,7 @@
             this.button_user_new.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button_user_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_user_new.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_user_new.Location = new System.Drawing.Point(178, 364);
+            this.button_user_new.Location = new System.Drawing.Point(181, 470);
             this.button_user_new.Name = "button_user_new";
             this.button_user_new.Size = new System.Drawing.Size(170, 34);
             this.button_user_new.TabIndex = 244;
@@ -329,11 +321,89 @@
             this.comboBox_city.TabIndex = 228;
             this.comboBox_city.Leave += new System.EventHandler(this.comboBox_city_Leave);
             // 
+            // checkBox_admin
+            // 
+            this.checkBox_admin.AutoSize = true;
+            this.checkBox_admin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox_admin.Location = new System.Drawing.Point(280, 411);
+            this.checkBox_admin.Name = "checkBox_admin";
+            this.checkBox_admin.Size = new System.Drawing.Size(148, 24);
+            this.checkBox_admin.TabIndex = 264;
+            this.checkBox_admin.Text = "администратор";
+            this.checkBox_admin.UseVisualStyleBackColor = true;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Perpetua Titling MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(23, 411);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(104, 20);
+            this.label15.TabIndex = 263;
+            this.label15.Text = "Должность";
+            // 
+            // comboBox_post
+            // 
+            this.comboBox_post.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_post.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_post.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_post.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox_post.FormattingEnabled = true;
+            this.comboBox_post.Location = new System.Drawing.Point(27, 434);
+            this.comboBox_post.Name = "comboBox_post";
+            this.comboBox_post.Size = new System.Drawing.Size(219, 26);
+            this.comboBox_post.TabIndex = 262;
+            // 
+            // textBox_password
+            // 
+            this.textBox_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_password.Location = new System.Drawing.Point(282, 375);
+            this.textBox_password.Multiline = true;
+            this.textBox_password.Name = "textBox_password";
+            this.textBox_password.Size = new System.Drawing.Size(221, 26);
+            this.textBox_password.TabIndex = 261;
+            // 
+            // textBox_login
+            // 
+            this.textBox_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_login.Location = new System.Drawing.Point(25, 375);
+            this.textBox_login.Multiline = true;
+            this.textBox_login.Name = "textBox_login";
+            this.textBox_login.Size = new System.Drawing.Size(221, 26);
+            this.textBox_login.TabIndex = 260;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Perpetua Titling MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(278, 352);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(73, 20);
+            this.label14.TabIndex = 259;
+            this.label14.Text = "Пароль";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Perpetua Titling MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(23, 352);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 20);
+            this.label2.TabIndex = 258;
+            this.label2.Text = "Логин";
+            // 
             // Form_employee_edit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(517, 405);
+            this.ClientSize = new System.Drawing.Size(517, 512);
+            this.Controls.Add(this.checkBox_admin);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.comboBox_post);
+            this.Controls.Add(this.textBox_password);
+            this.Controls.Add(this.textBox_login);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.date_conclusion);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.maskedTextBox1);
@@ -342,7 +412,6 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button_contract_print);
             this.Controls.Add(this.button_user_new);
             this.Controls.Add(this.textBox_passport_number);
             this.Controls.Add(this.textBox_passport_series);
@@ -380,7 +449,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button_contract_print;
         private System.Windows.Forms.Button button_user_new;
         private System.Windows.Forms.MaskedTextBox textBox_passport_number;
         private System.Windows.Forms.MaskedTextBox textBox_passport_series;
@@ -399,5 +467,12 @@
         private System.Windows.Forms.TextBox textBox_last_name;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox_city;
+        private System.Windows.Forms.CheckBox checkBox_admin;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox comboBox_post;
+        private System.Windows.Forms.TextBox textBox_password;
+        private System.Windows.Forms.TextBox textBox_login;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label2;
     }
 }

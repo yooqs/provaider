@@ -18,6 +18,8 @@ namespace provaider
             InitializeComponent();
         }
         Point LastPoint;
+        string ssg = provaider.Properties.Resources.conn_string;
+        public static string sql_connect=provaider.Properties.Settings.Default.Connect_string_db;
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -72,6 +74,8 @@ namespace provaider
             label_fold_button.ForeColor = Color.Black;
         }
 
+        string fio;
+        public static int id_maneger;
         private void button_authorization_Click(object sender, EventArgs e)
         {
             string admin_user;
@@ -84,7 +88,7 @@ namespace provaider
             else
             {
 
-
+                /**
                 DataTable table = new DataTable();
                 SqlConnection conn = new SqlConnection();
                
@@ -124,12 +128,51 @@ namespace provaider
 
                 else MessageBox.Show("Пароль или логин введен не верно!");
                 conn.Close();
+            **/
+                string sqlconnection = sql_connect;
+                using (SqlConnection conn = new SqlConnection(sql_connect))
+                {
+                     SqlCommand command = new SqlCommand("SELECT [employee].[id],[employee].[last_name],[employee].[first_name],[employee].[patronymic]From [employee] JOIN [post] ON [employee].[id_post] = [post].[id] WHERE login = '" + LoginUser + "' and password = '" + PassUser + "' and [post].[name]='Менеджер'", conn);
+
+                    conn.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        
+
+
+                        reader.Read();
+                        id_maneger = (int)reader.GetValue(0);
+                        fio = reader.GetValue(1).ToString().Trim() +" "+ reader.GetValue(2).ToString().Trim()+" "+ reader.GetValue(3).ToString().Trim();
+
+                        reader.Close();
+                        conn.Close();
+                        this.Hide();
+                        Form_menu form_menu = new Form_menu(fio);
+                        form_menu.StartPosition = FormStartPosition.CenterScreen;
+                        form_menu.Show();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Пароль или логин введен не верно!");
+                    }
+                    conn.Close();
+                }
+            
             }
         }
 
         private void Form_login_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form_setting_load form_Setting = new Form_setting_load();
+            form_Setting.StartPosition = FormStartPosition.CenterScreen;
+            form_Setting.ShowDialog();
         }
     }
 }

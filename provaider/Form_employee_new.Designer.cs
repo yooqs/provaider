@@ -56,9 +56,12 @@
             this.date_conclusion = new System.Windows.Forms.DateTimePicker();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox_login = new System.Windows.Forms.TextBox();
+            this.textBox_password = new System.Windows.Forms.TextBox();
+            this.comboBox_post = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.checkBox_admin = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // maskedTextBox1
@@ -122,7 +125,7 @@
             this.button_user_new.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button_user_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_user_new.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_user_new.Location = new System.Drawing.Point(178, 407);
+            this.button_user_new.Location = new System.Drawing.Point(189, 475);
             this.button_user_new.Name = "button_user_new";
             this.button_user_new.Size = new System.Drawing.Size(170, 34);
             this.button_user_new.TabIndex = 213;
@@ -340,59 +343,92 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Location = new System.Drawing.Point(264, 11);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(2, 385);
+            this.panel2.Size = new System.Drawing.Size(2, 453);
             this.panel2.TabIndex = 247;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Perpetua Titling MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(24, 352);
+            this.label2.Location = new System.Drawing.Point(26, 355);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(201, 20);
+            this.label2.Size = new System.Drawing.Size(60, 20);
             this.label2.TabIndex = 249;
-            this.label2.Text = "Растояние до клиента";
-            // 
-            // maskedTextBox3
-            // 
-            this.maskedTextBox3.Enabled = false;
-            this.maskedTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.maskedTextBox3.Location = new System.Drawing.Point(277, 375);
-            this.maskedTextBox3.Mask = "90:00";
-            this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.Size = new System.Drawing.Size(221, 26);
-            this.maskedTextBox3.TabIndex = 250;
-            this.maskedTextBox3.ValidatingType = typeof(System.DateTime);
-            this.maskedTextBox3.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox3_MaskInputRejected);
+            this.label2.Text = "Логин";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Perpetua Titling MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(275, 352);
+            this.label14.Location = new System.Drawing.Point(277, 355);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(150, 20);
+            this.label14.Size = new System.Drawing.Size(73, 20);
             this.label14.TabIndex = 251;
-            this.label14.Text = "Время прибытия";
+            this.label14.Text = "Пароль";
             this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
-            // textBox1
+            // textBox_login
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(26, 375);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(221, 26);
-            this.textBox1.TabIndex = 252;
+            this.textBox_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_login.Location = new System.Drawing.Point(28, 378);
+            this.textBox_login.Multiline = true;
+            this.textBox_login.Name = "textBox_login";
+            this.textBox_login.Size = new System.Drawing.Size(221, 26);
+            this.textBox_login.TabIndex = 252;
+            // 
+            // textBox_password
+            // 
+            this.textBox_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_password.Location = new System.Drawing.Point(281, 378);
+            this.textBox_password.Multiline = true;
+            this.textBox_password.Name = "textBox_password";
+            this.textBox_password.Size = new System.Drawing.Size(221, 26);
+            this.textBox_password.TabIndex = 253;
+            // 
+            // comboBox_post
+            // 
+            this.comboBox_post.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_post.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_post.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_post.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox_post.FormattingEnabled = true;
+            this.comboBox_post.Location = new System.Drawing.Point(28, 437);
+            this.comboBox_post.Name = "comboBox_post";
+            this.comboBox_post.Size = new System.Drawing.Size(219, 26);
+            this.comboBox_post.TabIndex = 255;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Perpetua Titling MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(24, 414);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(104, 20);
+            this.label15.TabIndex = 256;
+            this.label15.Text = "Должность";
+            // 
+            // checkBox_admin
+            // 
+            this.checkBox_admin.AutoSize = true;
+            this.checkBox_admin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox_admin.Location = new System.Drawing.Point(279, 414);
+            this.checkBox_admin.Name = "checkBox_admin";
+            this.checkBox_admin.Size = new System.Drawing.Size(148, 24);
+            this.checkBox_admin.TabIndex = 257;
+            this.checkBox_admin.Text = "администратор";
+            this.checkBox_admin.UseVisualStyleBackColor = true;
+            this.checkBox_admin.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // Form_employee_new
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(526, 453);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.maskedTextBox3);
+            this.ClientSize = new System.Drawing.Size(526, 515);
+            this.Controls.Add(this.checkBox_admin);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.comboBox_post);
+            this.Controls.Add(this.textBox_password);
+            this.Controls.Add(this.textBox_login);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel2);
@@ -459,8 +495,11 @@
         private System.Windows.Forms.DateTimePicker date_conclusion;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox3;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_login;
+        private System.Windows.Forms.TextBox textBox_password;
+        private System.Windows.Forms.ComboBox comboBox_post;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.CheckBox checkBox_admin;
     }
 }

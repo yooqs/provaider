@@ -19,6 +19,35 @@ namespace provaider
             this.id = id;
             InitializeComponent();
         }
+        public class category
+        {
+            public int id { get; set; }
+            public string name { get; set; }
+        }
+        private void post_load()
+        {
+            string string_connection = Properties.Resources.conn_string;
+            using (SqlConnection conn = new SqlConnection(string_connection))
+            {
+                conn.Open();
+                SqlCommand comand = new SqlCommand("SELECT [id], [name] From [post]", conn);
+                List<category> employee_list = new List<category>();
+                employee_list.Clear();
+                SqlDataReader reader = comand.ExecuteReader();
+
+
+                while (reader.Read())
+                {
+                    employee_list.Add(new category() { id = int.Parse(reader.GetValue(0).ToString().Trim()), name = (string)reader.GetValue(1).ToString().Trim() });
+                }
+
+
+                comboBox_post.DataSource = employee_list;
+                comboBox_post.DisplayMember = "name";
+                comboBox_post.ValueMember = "id";
+
+            }
+        }
         public async void Textbox_street_update()
         {
             comboBox_street.Items.Clear();
@@ -85,7 +114,8 @@ namespace provaider
             }
             conn.Close();
         }
-        private async Task date_contract_loadAsync()
+       
+        private void date_contract_loadAsync()
         {
             string[] row;
             String sql;
@@ -95,11 +125,11 @@ namespace provaider
 
             conn.ConnectionString = provaider.Properties.Resources.conn_string;
             conn.Open();
-            using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+            using (SqlDataReader reader = cmd.ExecuteReader())
             {
                 while (reader.Read())
                 {
-                    row = new string[] {reader.GetValue(0).ToString().Trim(), 
+                    row = new string[] {reader.GetValue(0).ToString().Trim(),
                                     reader.GetValue(1).ToString().Trim(),
                                     reader.GetValue(2).ToString().Trim(),
                                     reader.GetValue(3).ToString().Trim(),
@@ -112,6 +142,10 @@ namespace provaider
                                     reader.GetValue(10).ToString().Trim(),
                                     reader.GetValue(11).ToString().Trim(),
                                     reader.GetValue(12).ToString().Trim(),
+                                    reader.GetValue(13).ToString().Trim(),
+                                    reader.GetValue(14).ToString().Trim(),
+                                    reader.GetValue(15).ToString().Trim(),
+                                    reader.GetValue(16).ToString().Trim(),
                     };
                     textBox_last_name.Text = row[1];
                     textBox_first_name.Text = row[2];
@@ -124,7 +158,11 @@ namespace provaider
                     textBox_flat.Text = row[8];
                     textBox_passport_series.Text = row[9];
                     textBox_passport_number.Text = row[12];
-                    date_conclusion.Value = Convert.ToDateTime(row[11]);
+                    textBox_login.Text = row[14];
+                    textBox_password.Text = row[15];
+                    comboBox_post.SelectedValue = Convert.ToInt32(row[13]);
+                    checkBox_admin.Checked = Convert.ToBoolean(row[16]);
+
 
 
 
@@ -144,6 +182,7 @@ namespace provaider
 
         private void Form_employee_edit_Load(object sender, EventArgs e)
         {
+            post_load(); 
             date_contract_loadAsync();
             Textbox_city_update();
         }

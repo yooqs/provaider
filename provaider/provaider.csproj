@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -27,6 +28,8 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -48,8 +51,39 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.Core, Version=1.7.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef" />
+    <Reference Include="GMap.NET.WindowsForms, Version=1.7.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\WindowsFormsApp2\packages\GMap.NET.WindowsForms.1.7.5\lib\net20\GMap.NET.WindowsForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.2\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite, Version=1.0.115.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.115.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.115.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.115.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.115.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,6 +95,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="application_views.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="application_views.Designer.cs">
+      <DependentUpon>application_views.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,11 +119,35 @@
     <Compile Include="Form_applications_new.Designer.cs">
       <DependentUpon>Form_applications_new.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_applications_new_products_new.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_applications_new_products_new.Designer.cs">
+      <DependentUpon>Form_applications_new_products_new.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_application_archive.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form_application_archive.Designer.cs">
       <DependentUpon>Form_application_archive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_application_confirmation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_application_confirmation.Designer.cs">
+      <DependentUpon>Form_application_confirmation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_application_edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_application_edit.Designer.cs">
+      <DependentUpon>Form_application_edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_contract_new_product.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_contract_new_product.Designer.cs">
+      <DependentUpon>Form_contract_new_product.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_customers.cs">
       <SubType>Form</SubType>
@@ -133,6 +197,12 @@
     <Compile Include="Form_directory_adress_street_new.Designer.cs">
       <DependentUpon>Form_directory_adress_street_new.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_edit_new_unit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_edit_new_unit.Designer.cs">
+      <DependentUpon>Form_edit_new_unit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_employee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +221,72 @@
     <Compile Include="Form_employee_new.Designer.cs">
       <DependentUpon>Form_employee_new.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_maps.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_maps.Designer.cs">
+      <DependentUpon>Form_maps.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_new_edit_archive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_new_edit_archive.Designer.cs">
+      <DependentUpon>Form_new_edit_archive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_nomenclature_edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_nomenclature_edit.Designer.cs">
+      <DependentUpon>Form_nomenclature_edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_nomenclature_new.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_nomenclature_new.Designer.cs">
+      <DependentUpon>Form_nomenclature_new.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_otcet_sklad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_otcet_sklad.Designer.cs">
+      <DependentUpon>Form_otcet_sklad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_post_edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_post_edit.Designer.cs">
+      <DependentUpon>Form_post_edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_post_new.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_post_new.Designer.cs">
+      <DependentUpon>Form_post_new.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_setting_load.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_setting_load.Designer.cs">
+      <DependentUpon>Form_setting_load.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_sklad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_sklad.Designer.cs">
+      <DependentUpon>Form_sklad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_tariff_edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_tariff_edit.Designer.cs">
+      <DependentUpon>Form_tariff_edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_tariff_new.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_tariff_new.Designer.cs">
+      <DependentUpon>Form_tariff_new.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_type_edit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,6 +299,24 @@
     <Compile Include="Form_type_new.Designer.cs">
       <DependentUpon>Form_type_new.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_warehouse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_warehouse.Designer.cs">
+      <DependentUpon>Form_warehouse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_warehouse_edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_warehouse_edit.Designer.cs">
+      <DependentUpon>Form_warehouse_edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_warehouse_new.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_warehouse_new.Designer.cs">
+      <DependentUpon>Form_warehouse_new.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +325,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="application_views.resx">
+      <DependentUpon>application_views.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -180,8 +337,20 @@
     <EmbeddedResource Include="Form_applications_new.resx">
       <DependentUpon>Form_applications_new.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_applications_new_products_new.resx">
+      <DependentUpon>Form_applications_new_products_new.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_application_archive.resx">
       <DependentUpon>Form_application_archive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_application_confirmation.resx">
+      <DependentUpon>Form_application_confirmation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_application_edit.resx">
+      <DependentUpon>Form_application_edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_contract_new_product.resx">
+      <DependentUpon>Form_contract_new_product.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_customers.resx">
       <DependentUpon>Form_customers.cs</DependentUpon>
@@ -207,6 +376,9 @@
     <EmbeddedResource Include="Form_directory_adress_street_new.resx">
       <DependentUpon>Form_directory_adress_street_new.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_edit_new_unit.resx">
+      <DependentUpon>Form_edit_new_unit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_employee.resx">
       <DependentUpon>Form_employee.cs</DependentUpon>
     </EmbeddedResource>
@@ -216,11 +388,53 @@
     <EmbeddedResource Include="Form_employee_new.resx">
       <DependentUpon>Form_employee_new.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_maps.resx">
+      <DependentUpon>Form_maps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_new_edit_archive.resx">
+      <DependentUpon>Form_new_edit_archive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_nomenclature_edit.resx">
+      <DependentUpon>Form_nomenclature_edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_nomenclature_new.resx">
+      <DependentUpon>Form_nomenclature_new.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_otcet_sklad.resx">
+      <DependentUpon>Form_otcet_sklad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_post_edit.resx">
+      <DependentUpon>Form_post_edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_post_new.resx">
+      <DependentUpon>Form_post_new.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_setting_load.resx">
+      <DependentUpon>Form_setting_load.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_sklad.resx">
+      <DependentUpon>Form_sklad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_tariff_edit.resx">
+      <DependentUpon>Form_tariff_edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_tariff_new.resx">
+      <DependentUpon>Form_tariff_new.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_type_edit.resx">
       <DependentUpon>Form_type_edit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_type_new.resx">
       <DependentUpon>Form_type_new.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_warehouse.resx">
+      <DependentUpon>Form_warehouse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_warehouse_edit.resx">
+      <DependentUpon>Form_warehouse_edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_warehouse_new.resx">
+      <DependentUpon>Form_warehouse_new.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
@@ -235,6 +449,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -294,4 +509,14 @@
     </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
 </Project>
