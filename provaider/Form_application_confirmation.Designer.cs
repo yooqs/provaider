@@ -74,7 +74,6 @@ namespace provaider
             this.label12 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column9 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label8 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.textBox_description = new System.Windows.Forms.TextBox();
@@ -121,7 +120,7 @@ namespace provaider
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(503, 384);
+            this.tabPage1.Size = new System.Drawing.Size(594, 384);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Информация о клиенте";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -392,10 +391,11 @@ namespace provaider
             this.tabPage3.Controls.Add(this.label8);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(503, 384);
+            this.tabPage3.Size = new System.Drawing.Size(594, 384);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Техники и оборудование";
             this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
             // button6
             // 
@@ -404,11 +404,11 @@ namespace provaider
             this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button6.Location = new System.Drawing.Point(179, 339);
+            this.button6.Location = new System.Drawing.Point(225, 339);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(149, 39);
             this.button6.TabIndex = 254;
-            this.button6.Text = "Создать";
+            this.button6.Text = "Выполнена";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
@@ -421,10 +421,11 @@ namespace provaider
             this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button16.Location = new System.Drawing.Point(367, 306);
             this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(132, 25);
+            this.button16.Size = new System.Drawing.Size(223, 25);
             this.button16.TabIndex = 253;
             this.button16.Text = "Удалить";
             this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
             // button18
             // 
@@ -435,10 +436,11 @@ namespace provaider
             this.button18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button18.Location = new System.Drawing.Point(243, 306);
             this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(116, 25);
+            this.button18.Size = new System.Drawing.Size(207, 25);
             this.button18.TabIndex = 252;
-            this.button18.Text = "Добавить";
+            this.button18.Text = "Изменить";
             this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // dataGridView_employee
             // 
@@ -465,20 +467,18 @@ namespace provaider
             this.dataGridView_employee.Location = new System.Drawing.Point(3, 129);
             this.dataGridView_employee.Name = "dataGridView_employee";
             this.dataGridView_employee.RowHeadersVisible = false;
-            this.dataGridView_employee.Size = new System.Drawing.Size(496, 171);
+            this.dataGridView_employee.Size = new System.Drawing.Size(587, 171);
             this.dataGridView_employee.TabIndex = 251;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "id";
             this.Column3.Name = "Column3";
-            this.Column3.Visible = false;
             // 
             // Column7
             // 
             this.Column7.HeaderText = "id_products";
             this.Column7.Name = "Column7";
-            this.Column7.Visible = false;
             // 
             // last_name
             // 
@@ -528,19 +528,16 @@ namespace provaider
             // 
             this.Column5.HeaderText = "id_category";
             this.Column5.Name = "Column5";
-            this.Column5.Visible = false;
             // 
             // Column6
             // 
             this.Column6.HeaderText = "id_unit";
             this.Column6.Name = "Column6";
-            this.Column6.Visible = false;
             // 
             // Column8
             // 
             this.Column8.HeaderText = "id_warehouse";
             this.Column8.Name = "Column8";
-            this.Column8.Visible = false;
             // 
             // label12
             // 
@@ -560,13 +557,13 @@ namespace provaider
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ColumnHeadersVisible = false;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column9,
-            this.Column10});
+            this.Column9});
+            this.dataGridView1.Enabled = false;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ButtonShadow;
             this.dataGridView1.Location = new System.Drawing.Point(3, 25);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(497, 78);
+            this.dataGridView1.Size = new System.Drawing.Size(588, 78);
             this.dataGridView1.TabIndex = 249;
             // 
             // Column9
@@ -576,16 +573,6 @@ namespace provaider
             this.Column9.Name = "Column9";
             this.Column9.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Column9.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Column10
-            // 
-            this.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column10.HeaderText = "Column10";
-            this.Column10.MinimumWidth = 100;
-            this.Column10.Name = "Column10";
-            this.Column10.Text = "Удалить";
-            this.Column10.ToolTipText = "Удалить";
-            this.Column10.UseColumnTextForButtonValue = true;
             // 
             // label8
             // 
@@ -610,7 +597,7 @@ namespace provaider
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(503, 384);
+            this.tabPage2.Size = new System.Drawing.Size(594, 384);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Описание проблемы";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -627,6 +614,7 @@ namespace provaider
             // 
             this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox1.Enabled = false;
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(8, 25);
@@ -637,6 +625,7 @@ namespace provaider
             // label14
             // 
             this.label14.AutoSize = true;
+            this.label14.Enabled = false;
             this.label14.Font = new System.Drawing.Font("Perpetua Titling MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(4, 2);
             this.label14.Name = "label14";
@@ -667,6 +656,7 @@ namespace provaider
             // date_receipt
             // 
             this.date_receipt.CustomFormat = "d.MM.yyyy HH:mm";
+            this.date_receipt.Enabled = false;
             this.date_receipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.date_receipt.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.date_receipt.Location = new System.Drawing.Point(266, 25);
@@ -683,7 +673,7 @@ namespace provaider
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(511, 410);
+            this.tabControl1.Size = new System.Drawing.Size(602, 410);
             this.tabControl1.TabIndex = 242;
             // 
             // panel1
@@ -697,11 +687,12 @@ namespace provaider
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(511, 410);
+            this.ClientSize = new System.Drawing.Size(602, 410);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.Name = "Form_application_confirmation";
             this.Text = "Form_application_confirmation";
+            this.Activated += new System.EventHandler(this.Form_application_confirmation_Activated);
             this.Load += new System.EventHandler(this.Form_application_confirmation_Load);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -749,6 +740,19 @@ namespace provaider
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.DataGridView dataGridView_employee;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TextBox textBox_description;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label17;
+        public System.Windows.Forms.DateTimePicker date_receipt;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn last_name;
@@ -760,19 +764,5 @@ namespace provaider
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewButtonColumn Column10;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TextBox textBox_description;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label17;
-        public System.Windows.Forms.DateTimePicker date_receipt;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.Panel panel1;
     }
 }

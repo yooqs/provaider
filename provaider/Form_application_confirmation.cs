@@ -111,12 +111,12 @@ namespace provaider
             {
 
                 conn.Open();
-                SqlCommand comand = new SqlCommand("SELECT [products].[id],[products_purchase].[id] ,[products].name,[products_categories].[name],[identifier],[products_purchase].[volume],[products_purchase].[price],[id_sklad] FROM[provaider_basa].[dbo].[products_purchase] JOIN[applications] ON[applications].id = [products_purchase].[id_applications] JOIN[products] ON[products].id = [products_purchase].[id_product] JOIN[products_categories] ON[products].[id_category] = [products_categories].id Where[applications].id="+id, conn);
+                SqlCommand comand = new SqlCommand("SELECT [products_purchase].[id] ,[products].[id],[products].name,[products_categories].[name],[identifier],[products_purchase].[volume],[products_purchase].[price],[id_sklad],[products].[id_unit],[products].[id_category],[products_purchase].[id_sklad] FROM[provaider_basa].[dbo].[products_purchase] JOIN[applications] ON[applications].id = [products_purchase].[id_applications] JOIN[products] ON[products].id = [products_purchase].[id_product] JOIN[products_categories] ON[products].[id_category] = [products_categories].id Where[applications].id=" + id, conn);
                 
                 SqlDataReader reader = comand.ExecuteReader();
                 while (reader.Read())
                 {
-                   dataGridView_employee.Rows.Add(reader.GetValue(0).ToString().Trim(), reader.GetValue(1).ToString().Trim(), reader.GetValue(2).ToString().Trim(), reader.GetValue(3).ToString().Trim(), reader.GetValue(4).ToString().Trim(), reader.GetValue(5).ToString().Trim(), reader.GetValue(6).ToString().Trim(), reader.GetValue(7).ToString().Trim()) ;
+                   dataGridView_employee.Rows.Add(reader.GetValue(0).ToString().Trim(), reader.GetValue(1).ToString().Trim(), reader.GetValue(2).ToString().Trim(), reader.GetValue(3).ToString().Trim(), reader.GetValue(4).ToString().Trim(), reader.GetValue(5).ToString().Trim(), Convert.ToDecimal(reader.GetValue(6).ToString().Trim())* Convert.ToDecimal(reader.GetValue(5).ToString().Trim()), reader.GetValue(7).ToString().Trim(), reader.GetValue(8).ToString().Trim(), reader.GetValue(9).ToString().Trim(),reader.GetValue(10).ToString().Trim()) ;
                 }
                 
 
@@ -161,7 +161,53 @@ namespace provaider
 
         private void button6_Click(object sender, EventArgs e)
         {
+            using (SqlConnection conn = new SqlConnection(Form_login.sql_connect))
+            {
+                conn.Open();
 
+               
+                SqlCommand command = new SqlCommand("UPDATE [applications] SET [status] = 'Выполнена' where [id] = " + id, conn);
+                command.ExecuteNonQuery();
+                command.Connection.Close();
+            }
+            this.Close();
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection conn = new SqlConnection(Form_login.sql_connect))
+            {
+                conn.Open();
+                int id = Convert.ToInt32(dataGridView_employee.CurrentRow.Cells[10].Value);
+                int volume = Convert.ToInt32(dataGridView_employee.CurrentRow.Cells[5].Value);
+                SqlCommand command = new SqlCommand("UPDATE [products_warehouse] SET [volume] = [volume] + " + volume + " where [id] = " + id, conn);
+                command.ExecuteNonQuery();
+                command.Connection.Close();
+            }
+            int ind = dataGridView_employee.SelectedCells[0].RowIndex;
+            dataGridView_employee.Rows.RemoveAt(ind);
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            Form_application_conf_edid form_Application_Conf_Edid = new Form_application_conf_edid(Convert.ToInt32(dataGridView_employee.CurrentRow.Cells[0].Value), Convert.ToInt32(dataGridView_employee.CurrentRow.Cells[10].Value), Convert.ToInt32(dataGridView_employee.CurrentRow.Cells[9].Value), Convert.ToInt32(dataGridView_employee.CurrentRow.Cells[8].Value), dataGridView_employee.CurrentRow.Cells[2].Value.ToString(), dataGridView_employee.CurrentRow.Cells[4].Value.ToString());
+            form_Application_Conf_Edid.StartPosition = FormStartPosition.CenterScreen;
+            form_Application_Conf_Edid.ShowDialog();
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
+        public static Boolean flag = false;
+        private void Form_application_confirmation_Activated(object sender, EventArgs e)
+        {
+            if (flag == true)
+            {
+                dataGridView_employee.Rows.Clear();
+                table_pur();
+                flag = false;
+            }
         }
     }
 }

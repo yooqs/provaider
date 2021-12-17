@@ -33,8 +33,6 @@ namespace provaider
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.button6 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
             this.dataGridView_employee = new System.Windows.Forms.DataGridView();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -112,15 +110,13 @@ namespace provaider
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.button6);
-            this.tabPage3.Controls.Add(this.button16);
-            this.tabPage3.Controls.Add(this.button18);
             this.tabPage3.Controls.Add(this.dataGridView_employee);
             this.tabPage3.Controls.Add(this.label12);
             this.tabPage3.Controls.Add(this.dataGridView1);
             this.tabPage3.Controls.Add(this.label8);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(792, 424);
+            this.tabPage3.Size = new System.Drawing.Size(510, 380);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Техники и оборудование";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -132,40 +128,12 @@ namespace provaider
             this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button6.Location = new System.Drawing.Point(324, 379);
+            this.button6.Location = new System.Drawing.Point(174, 318);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(149, 39);
+            this.button6.Size = new System.Drawing.Size(184, 43);
             this.button6.TabIndex = 254;
-            this.button6.Text = "Изменить";
+            this.button6.Text = "Печать";
             this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button16
-            // 
-            this.button16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button16.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.button16.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
-            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button16.Location = new System.Drawing.Point(367, 326);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(421, 25);
-            this.button16.TabIndex = 253;
-            this.button16.Text = "Удалить";
-            this.button16.UseVisualStyleBackColor = true;
-            // 
-            // button18
-            // 
-            this.button18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button18.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.button18.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
-            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button18.Location = new System.Drawing.Point(243, 326);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(405, 25);
-            this.button18.TabIndex = 252;
-            this.button18.Text = "Добавить";
-            this.button18.UseVisualStyleBackColor = true;
             // 
             // dataGridView_employee
             // 
@@ -192,7 +160,7 @@ namespace provaider
             this.dataGridView_employee.Location = new System.Drawing.Point(3, 129);
             this.dataGridView_employee.Name = "dataGridView_employee";
             this.dataGridView_employee.RowHeadersVisible = false;
-            this.dataGridView_employee.Size = new System.Drawing.Size(789, 211);
+            this.dataGridView_employee.Size = new System.Drawing.Size(504, 167);
             this.dataGridView_employee.TabIndex = 251;
             // 
             // Column3
@@ -287,7 +255,7 @@ namespace provaider
             this.dataGridView1.Location = new System.Drawing.Point(3, 25);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(786, 78);
+            this.dataGridView1.Size = new System.Drawing.Size(504, 78);
             this.dataGridView1.TabIndex = 249;
             // 
             // Column9
@@ -338,17 +306,17 @@ namespace provaider
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(792, 424);
+            this.tabPage2.Size = new System.Drawing.Size(510, 380);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Описание проблемы";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(9, 221);
+            this.textBox1.Location = new System.Drawing.Point(8, 233);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(490, 107);
+            this.textBox1.Size = new System.Drawing.Size(490, 139);
             this.textBox1.TabIndex = 233;
             // 
             // label9
@@ -429,7 +397,7 @@ namespace provaider
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(800, 450);
+            this.tabControl1.Size = new System.Drawing.Size(518, 406);
             this.tabControl1.TabIndex = 246;
             // 
             // tabPage1
@@ -460,7 +428,7 @@ namespace provaider
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(792, 424);
+            this.tabPage1.Size = new System.Drawing.Size(510, 380);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Информация о клиенте";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -696,11 +664,12 @@ namespace provaider
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(518, 406);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabControl1);
             this.Name = "application_views";
             this.Text = "application_views";
+            this.Load += new System.EventHandler(this.application_views_Load);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_employee)).EndInit();
@@ -720,8 +689,6 @@ namespace provaider
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Button button18;
         private System.Windows.Forms.DataGridView dataGridView_employee;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;

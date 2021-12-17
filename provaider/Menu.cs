@@ -19,6 +19,15 @@ namespace provaider
             InitializeComponent();
             this.fio = fio;
             fios = fio;
+            //dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+
+            // dataGridView1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            //dataGridView1.Columns[6].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dataGridView1.Columns[6].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            dataGridView1.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
         }
         public static string fios;
         public static bool application_update = false;
@@ -167,7 +176,7 @@ namespace provaider
         }
         private void Menu_Load(object sender, EventArgs e)
         {
-            dataGridView1.Columns[6].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            
             label_fio.Text = fio;
             table_applications_load();
             Timer timer = new Timer();
@@ -389,6 +398,13 @@ namespace provaider
             Form_application_edit form_Application_edit = new Form_application_edit(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value));
             form_Application_edit.StartPosition = FormStartPosition.CenterScreen;
             form_Application_edit.ShowDialog();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            application_views application_Views = new application_views(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value));
+            application_Views.StartPosition = FormStartPosition.CenterScreen;
+            application_Views.ShowDialog();
         }
     }
 }

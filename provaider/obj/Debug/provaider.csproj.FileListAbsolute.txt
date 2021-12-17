@@ -61,3 +61,5 @@ C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.For
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_setting_load.resources
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_otcet_sklad.resources
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_application_edit.resources
+C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.application_views.resources
+C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_application_conf_edid.resources

@@ -260,7 +260,7 @@ namespace provaider
 
 
                     //заполнение таблицы сотруднки
-                    SqlCommand command = new SqlCommand("INSERT INTO [applications] ([status],[type],[description],[date_receipt],[id_contract],[id_employee],[description_texnik]) VALUES(@status, @type, @description, convert(varchar, convert(datetime, '" + date_receipt.Text + "', 104), 121), @id_contract, @id_employee,@description_texnik)", conn);
+                    SqlCommand command = new SqlCommand("INSERT INTO [applications] ([status],[type],[description],[date_receipt],[id_contract],[id_employee],[description_texnik]) VALUES(@status, @type, @description, '"+date_receipt.Value.ToString("dd-MM-yyyy HH:mm:ss") +"', @id_contract, @id_employee,@description_texnik)", conn);
                     //@tariff, @mac,@login_kab, @password_kab, @personal_account, @wifi_login, @wifi_password
                     command.Parameters.AddWithValue("@status", "Ожидание");
                     command.Parameters.AddWithValue("@type", comboBox1.SelectedValue);
