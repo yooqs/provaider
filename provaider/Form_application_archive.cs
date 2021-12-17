@@ -17,6 +17,9 @@ namespace provaider
         public Form_application_archive()
         {
             InitializeComponent();
+            dataGridView1.Columns[6].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            dataGridView1.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
         public class type {
             public int id { get; set; }
@@ -123,13 +126,15 @@ namespace provaider
                 }
             }
         }
+        static int id_application;
         public void table_applications_load()
         {
             String sql;
             dataGridView1.Rows.Clear();
+            
             using (SqlConnection conn = new SqlConnection())
             {
-                sql = "Select [applications].[id],[applications].[description],[applications].[date_receipt],[contract].[last_name],[contract].[first_name],[contract].[patronymic],[contract].[telephone],[contract].[city],[contract].[street],[contract].[house],[contract].[flat],[employee].[last_name],[employee].[first_name],[employee].[patronymic],[type_application].[name],[applications].[status],[applications].[date_completion] FROM  [contract] JOIN [applications] ON [contract].[id] =  [applications].[id_contract]  JOIN[employee] ON [employee].[id] =  [applications].[id_employee] JOIN[type_application] ON[type_application].[id] =  [applications].[type]  where [status] != 'Ожидание' and [status] != 'Выполнение'";
+                sql = "Select [applications].[id],[applications].[description],[applications].[date_receipt],[contract].[last_name],[contract].[first_name],[contract].[patronymic],[contract].[telephone],[contract].[city],[contract].[street],[contract].[house],[contract].[flat],[employee].[last_name],[employee].[first_name],[employee].[patronymic],[type_application].[name],[applications].[status],[applications].[date_completion] FROM  [contract] JOIN [applications] ON [contract].[id] =  [applications].[id_contract]  JOIN[emp_app] ON [emp_app].[id_app] =  [applications].[id] JOIN [employee] ON [emp_app].[id_emp] = [employee].[id] JOIN[type_application] ON[type_application].[id] =  [applications].[type]  where [status] != 'Ожидание' and [status] != 'Выполнение'";
                 if (checkBox_status.Checked) sql += $" AND [applications].[status] = '{comboBox_status.Text}'";
                 //if (checkBox_type.Checked) sql += $" AND [type_application].[id] = '{comboBox_type.SelectedValue}'";
                 if (checkBox_city.Checked) sql += $" AND [contract].[city] = '{comboBox_city.Text}'";
@@ -167,22 +172,69 @@ namespace provaider
                 conn.ConnectionString = provaider.Properties.Resources.conn_string;
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
+                /* while (reader.Read())
+                 {
+                     string[] row = {reader.GetValue(0).ToString().Trim(),
+                                     reader.GetValue(3).ToString().Trim()+" "+reader.GetValue(4).ToString().Trim()+" "+reader.GetValue(5).ToString().Trim(),
+                                     reader.GetValue(6).ToString().Trim(),
+                                     reader.GetValue(7).ToString().Trim()+", "+reader.GetValue(8).ToString().Trim()+", "+reader.GetValue(9).ToString().Trim()+", "+reader.GetValue(10).ToString().Trim(),
+                                     reader.GetValue(14).ToString().Trim(),
+                                     reader.GetValue(1).ToString().Trim(),
+                                     reader.GetValue(11).ToString().Trim()+" "+reader.GetValue(12).ToString().Trim()+" "+reader.GetValue(13).ToString().Trim(),
+                                     reader.GetValue(2).ToString().Trim(),
+                                     reader.GetValue(16).ToString().Trim(),
+                                     reader.GetValue(15).ToString().Trim(),
+                                     };
+
+                     dataGridView1.Rows.Add(row);
+                 }
+                */
+               
+                 string[] table_app;
+                 table_app = new string[10];
+                 if (reader.Read()) {
+                    table_app[0] = reader.GetValue(0).ToString().Trim();
+                    table_app[1] = reader.GetValue(3).ToString().Trim() + " " + reader.GetValue(4).ToString().Trim() + " " + reader.GetValue(5).ToString().Trim();
+                    table_app[2] = reader.GetValue(6).ToString().Trim();
+                    table_app[3] = reader.GetValue(7).ToString().Trim() + ", " + reader.GetValue(8).ToString().Trim() + ", " + reader.GetValue(9).ToString().Trim() + ", " + reader.GetValue(10).ToString().Trim();
+                    table_app[4] = reader.GetValue(14).ToString().Trim();
+                    table_app[5] = reader.GetValue(1).ToString().Trim();
+                    table_app[6] = reader.GetValue(11).ToString().Trim() + " " + reader.GetValue(12).ToString().Trim() + " " + reader.GetValue(13).ToString().Trim();
+                    table_app[7] = reader.GetValue(2).ToString().Trim();
+                    table_app[8]= reader.GetValue(16).ToString().Trim();
+                    table_app[9]= reader.GetValue(15).ToString().Trim();
+
+
+
+                    id_application = Convert.ToInt32(table_app[0]);
+                }
+
                 while (reader.Read())
                 {
-                    string[] row = {reader.GetValue(0).ToString().Trim(),
-                                    reader.GetValue(3).ToString().Trim()+" "+reader.GetValue(4).ToString().Trim()+" "+reader.GetValue(5).ToString().Trim(),
-                                    reader.GetValue(6).ToString().Trim(),
-                                    reader.GetValue(7).ToString().Trim()+", "+reader.GetValue(8).ToString().Trim()+", "+reader.GetValue(9).ToString().Trim()+", "+reader.GetValue(10).ToString().Trim(),
-                                    reader.GetValue(14).ToString().Trim(),
-                                    reader.GetValue(1).ToString().Trim(),
-                                    reader.GetValue(11).ToString().Trim()+" "+reader.GetValue(12).ToString().Trim()+" "+reader.GetValue(13).ToString().Trim(),
-                                    reader.GetValue(2).ToString().Trim(),
-                                    reader.GetValue(16).ToString().Trim(),
-                                    reader.GetValue(15).ToString().Trim(),
-                                    };
+                    if (Convert.ToInt32(reader.GetValue(0)) == id_application)
+                    {
+                        table_app[6]+= "\n"+reader.GetValue(11).ToString().Trim() + " " + reader.GetValue(12).ToString().Trim() + " " + reader.GetValue(13).ToString().Trim();
+
+                    }
+                    else
+                    {
+                        dataGridView1.Rows.Add(table_app);
+                         table_app[0] = reader.GetValue(0).ToString().Trim();
+                    table_app[1] = reader.GetValue(3).ToString().Trim() + " " + reader.GetValue(4).ToString().Trim() + " " + reader.GetValue(5).ToString().Trim();
+                    table_app[2] = reader.GetValue(6).ToString().Trim();
+                    table_app[3] = reader.GetValue(7).ToString().Trim() + ", " + reader.GetValue(8).ToString().Trim() + ", " + reader.GetValue(9).ToString().Trim() + ", " + reader.GetValue(10).ToString().Trim();
+                    table_app[4] = reader.GetValue(14).ToString().Trim();
+                    table_app[5] = reader.GetValue(1).ToString().Trim();
+                    table_app[6] = reader.GetValue(11).ToString().Trim() + " " + reader.GetValue(12).ToString().Trim() + " " + reader.GetValue(13).ToString().Trim();
+                    table_app[7] = reader.GetValue(2).ToString().Trim();
+                    table_app[8]= reader.GetValue(16).ToString().Trim();
+                    table_app[9]= reader.GetValue(15).ToString().Trim();
+                        id_application = Convert.ToInt32(table_app[0]);
+                    }
                     
-                    dataGridView1.Rows.Add(row);
                 }
+                dataGridView1.Rows.Add(table_app); 
+                 
 
             }
 
@@ -265,6 +317,13 @@ namespace provaider
         private void button_user_search_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form_application_archive_open _Application_Archive_Load = new Form_application_archive_open(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString()));
+            _Application_Archive_Load.StartPosition = FormStartPosition.CenterScreen;
+            _Application_Archive_Load.ShowDialog();
         }
     }
 }
