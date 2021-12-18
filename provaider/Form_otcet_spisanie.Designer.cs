@@ -59,6 +59,7 @@ namespace provaider
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(182, 26);
             this.comboBox1.TabIndex = 250;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -83,6 +84,7 @@ namespace provaider
             this.button_employee_edit.TabIndex = 248;
             this.button_employee_edit.Text = "Печать";
             this.button_employee_edit.UseVisualStyleBackColor = true;
+            this.button_employee_edit.Click += new System.EventHandler(this.button_employee_edit_Click);
             // 
             // dataGridView_employee
             // 
@@ -170,6 +172,8 @@ namespace provaider
             this.dateTimePicker1.ShowCheckBox = true;
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 26);
             this.dateTimePicker1.TabIndex = 251;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.dateTimePicker1.EnabledChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // dateTimePicker2
             // 
@@ -180,6 +184,8 @@ namespace provaider
             this.dateTimePicker2.ShowCheckBox = true;
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 26);
             this.dateTimePicker2.TabIndex = 252;
+            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.dateTimePicker2.EnabledChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label1
             // 
@@ -216,6 +222,7 @@ namespace provaider
             this.Controls.Add(this.dataGridView_employee);
             this.Name = "Form_otcet_spisanie";
             this.Text = "Form_otcet_spisanie";
+            this.Activated += new System.EventHandler(this.Form_otcet_spisanie_Activated);
             this.Load += new System.EventHandler(this.Form_otcet_spisanie_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_employee)).EndInit();
             this.ResumeLayout(false);

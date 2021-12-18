@@ -165,11 +165,12 @@ namespace provaider
             {
                 conn.Open();
 
-               
-                SqlCommand command = new SqlCommand("UPDATE [applications] SET [status] = 'Выполнена' where [id] = " + id, conn);
+                var date = DateTime.Now;
+                SqlCommand command = new SqlCommand("UPDATE [applications] SET [status] = 'Выполнена', [date_completion] = '"+date.ToString("dd/MM/yyyy HH:mm:ss") +"' where [id] = " + id, conn);
                 command.ExecuteNonQuery();
                 command.Connection.Close();
             }
+            Form_menu.application_update = true;
             this.Close();
         }
 

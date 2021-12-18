@@ -70,6 +70,11 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this._date_receipt_from = new System.Windows.Forms.DateTimePicker();
@@ -81,11 +86,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -348,7 +348,7 @@
             this.новаяЗаявкаToolStripMenuItem,
             this.архивToolStripMenuItem});
             this.заявкиToolStripMenuItem1.Name = "заявкиToolStripMenuItem1";
-            this.заявкиToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
+            this.заявкиToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.заявкиToolStripMenuItem1.Text = "Заявки";
             // 
             // новаяЗаявкаToolStripMenuItem
@@ -369,7 +369,7 @@
             this.клиентыToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.новыйКлиентToolStripMenuItem});
             this.клиентыToolStripMenuItem1.Name = "клиентыToolStripMenuItem1";
-            this.клиентыToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
+            this.клиентыToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.клиентыToolStripMenuItem1.Text = "Клиенты";
             this.клиентыToolStripMenuItem1.Click += new System.EventHandler(this.клиентыToolStripMenuItem1_Click);
             // 
@@ -384,7 +384,7 @@
             this.сотрудникиToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.новыеСотрудникиToolStripMenuItem});
             this.сотрудникиToolStripMenuItem1.Name = "сотрудникиToolStripMenuItem1";
-            this.сотрудникиToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
+            this.сотрудникиToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.сотрудникиToolStripMenuItem1.Text = "Сотрудники";
             this.сотрудникиToolStripMenuItem1.Click += new System.EventHandler(this.сотрудникиToolStripMenuItem1_Click);
             // 
@@ -397,20 +397,20 @@
             // справочникToolStripMenuItem1
             // 
             this.справочникToolStripMenuItem1.Name = "справочникToolStripMenuItem1";
-            this.справочникToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
+            this.справочникToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.справочникToolStripMenuItem1.Text = "Справочник";
             this.справочникToolStripMenuItem1.Click += new System.EventHandler(this.справочникToolStripMenuItem1_Click);
             // 
             // складToolStripMenuItem
             // 
             this.складToolStripMenuItem.Name = "складToolStripMenuItem";
-            this.складToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.складToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.складToolStripMenuItem.Text = "Склад";
             // 
             // картаToolStripMenuItem1
             // 
             this.картаToolStripMenuItem1.Name = "картаToolStripMenuItem1";
-            this.картаToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
+            this.картаToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.картаToolStripMenuItem1.Text = "Карта";
             this.картаToolStripMenuItem1.Click += new System.EventHandler(this.картаToolStripMenuItem1_Click);
             // 
@@ -421,7 +421,7 @@
             this.поСписаннымТоварамToolStripMenuItem,
             this.выполненымЗаявкамToolStripMenuItem});
             this.отчетыToolStripMenuItem.Name = "отчетыToolStripMenuItem";
-            this.отчетыToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.отчетыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.отчетыToolStripMenuItem.Text = "Отчеты";
             // 
             // очеToolStripMenuItem
@@ -436,6 +436,7 @@
             this.поСписаннымТоварамToolStripMenuItem.Name = "поСписаннымТоварамToolStripMenuItem";
             this.поСписаннымТоварамToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.поСписаннымТоварамToolStripMenuItem.Text = "По списанным товарам";
+            this.поСписаннымТоварамToolStripMenuItem.Click += new System.EventHandler(this.поСписаннымТоварамToolStripMenuItem_Click);
             // 
             // выполненымЗаявкамToolStripMenuItem
             // 
@@ -543,6 +544,61 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(298, 346);
             this.panel1.TabIndex = 41;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(27, 163);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(192, 17);
+            this.label4.TabIndex = 256;
+            this.label4.Text = "Дата поступленя заказа по";
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox2.Location = new System.Drawing.Point(30, 257);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(101, 21);
+            this.checkBox2.TabIndex = 255;
+            this.checkBox2.Text = "Вид заявки";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(30, 277);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(254, 26);
+            this.comboBox1.TabIndex = 254;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(26, 116);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(187, 17);
+            this.label2.TabIndex = 253;
+            this.label2.Text = "Дата поступленя заказа с ";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Checked = false;
+            this.dateTimePicker1.CustomFormat = "d.MM.yyyy HH:mm";
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(27, 182);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.ShowCheckBox = true;
+            this.dateTimePicker1.Size = new System.Drawing.Size(257, 24);
+            this.dateTimePicker1.TabIndex = 252;
             // 
             // checkBox1
             // 
@@ -679,61 +735,6 @@
             this.button9.Text = "Открыть";
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Checked = false;
-            this.dateTimePicker1.CustomFormat = "d.MM.yyyy HH:mm";
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(27, 182);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.ShowCheckBox = true;
-            this.dateTimePicker1.Size = new System.Drawing.Size(257, 24);
-            this.dateTimePicker1.TabIndex = 252;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(26, 116);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(187, 17);
-            this.label2.TabIndex = 253;
-            this.label2.Text = "Дата поступленя заказа с ";
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox2.Location = new System.Drawing.Point(30, 257);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(101, 21);
-            this.checkBox2.TabIndex = 255;
-            this.checkBox2.Text = "Вид заявки";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(30, 277);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(254, 26);
-            this.comboBox1.TabIndex = 254;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(27, 163);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(192, 17);
-            this.label4.TabIndex = 256;
-            this.label4.Text = "Дата поступленя заказа по";
             // 
             // Form_menu
             // 

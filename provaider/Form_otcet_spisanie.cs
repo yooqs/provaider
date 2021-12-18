@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Word = Microsoft.Office.Interop.Word;
 
 namespace provaider
 {
@@ -32,7 +33,14 @@ namespace provaider
                 {
                     SqlString = "Select [products_purchase].[id], [products].[name],[products_categories].[name], [unit_products].name,[products_purchase].[volume],[products_purchase].[price], [products].[id_category],[products].[id_unit] FROM  [products] JOIN [products_purchase] ON [products_purchase].[id_product] =  [products].[id]  JOIN [products_categories] ON [products_categories].[id] =  [products].[id_category] JOIN [unit_products] ON [unit_products].[id] =  [products].[id_unit] JOIN [applications] ON [applications].[id] = [products_purchase].[id_applications] WHERE [applications].[date_completion] !=''    AND [products].[id_category]=" + combo_category.SelectedValue;
                 }
-
+                if (dateTimePicker1.Checked)
+                {
+                    SqlString += " AND [applications].[date_completion] >= '" + dateTimePicker1.Value.ToString("dd/MM/yyyy") + "'";
+                }
+                if (dateTimePicker2.Checked)
+                {
+                    SqlString += " AND [applications].[date_completion] <= '" + dateTimePicker2.Value.ToString("dd/MM/yyyy") + "'";
+                }
 
                 SqlCommand comand = new SqlCommand(SqlString, conn);
 
@@ -88,9 +96,122 @@ namespace provaider
 
             }
         }
+        Boolean flag_table_update;
         private void Form_otcet_spisanie_Load(object sender, EventArgs e)
         {
+            flag_table_update = true;
+        }
 
+        private void Form_otcet_spisanie_Activated(object sender, EventArgs e)
+        {
+            textbox_category_load(comboBox1);
+
+            if (flag_table_update == true)
+            {
+                table_load(dataGridView_employee, comboBox1);
+                flag_table_update = false;
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            table_load(dataGridView_employee, comboBox1);
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            table_load(dataGridView_employee, comboBox1);
+        }
+
+        private void button_employee_edit_Click(object sender, EventArgs e)
+        {
+            var application = new Word.Application();
+            Word.Document document = application.Documents.Add();
+            document.PageSetup.TopMargin = 40;
+            document.PageSetup.BottomMargin = 30;
+            document.PageSetup.RightMargin = 30;
+            document.PageSetup.LeftMargin = 40;
+
+            Word.Paragraph paragraph = document.Paragraphs.Add();
+            Word.Range range = paragraph.Range;
+
+            range.Text = "Списание товаров со склада";
+            paragraph.Range.Font.Name = "Times New Roman";
+            paragraph.Range.Font.Size = 16;
+            paragraph.Range.Font.Bold = 1;
+            paragraph.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
+            range.InsertParagraphAfter();
+
+            if (dateTimePicker1.Checked || dateTimePicker2.Checked)
+            {
+                
+                string date="";
+                string date2="";
+                if (dateTimePicker1.Checked)
+                date += "c "+ dateTimePicker1.Text;
+                if (dateTimePicker2.Checked)
+                date += "по " + dateTimePicker2.Text;
+                paragraph = document.Paragraphs.Add();
+                range = paragraph.Range;
+                range.Text = "Дата: "+ date +" "+ date2;
+                paragraph.Range.Font.Name = "Times New Roman";
+                paragraph.Range.Font.Size = 14;
+                paragraph.Range.Font.Bold = 0;
+                paragraph.Alignment = Word.WdParagraphAlignment.wdAlignParagraphLeft;
+                range.InsertParagraphAfter();
+            }
+            paragraph = document.Paragraphs.Add();
+            range = paragraph.Range;
+            range.Text = "Категория: " + comboBox1.Text;
+            paragraph.Range.Font.Name = "Times New Roman";
+            paragraph.Range.Font.Size = 14;
+            paragraph.Range.Font.Bold = 0;
+            paragraph.Alignment = Word.WdParagraphAlignment.wdAlignParagraphLeft;
+            range.InsertParagraphAfter();
+
+
+            paragraph = document.Paragraphs.Add();
+            range = paragraph.Range;
+
+            Word.Table table = document.Tables.Add(range, dataGridView_employee.Rows.Count + 1, 6);
+            table.Borders.InsideLineStyle = table.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
+            range.InsertParagraphAfter();
+
+
+            Word.Range range1;
+            range1 = table.Cell(1, 1).Range;
+            range1.Text = "Наименование";
+            range1 = table.Cell(1, 2).Range;
+            range1.Text = "Категория";
+
+            range1 = table.Cell(1, 3).Range;
+            range1.Text = "Единица измерения";
+            range1 = table.Cell(1, 4).Range;
+            range1.Text = "Количество";
+            range1 = table.Cell(1, 5).Range;
+            range1.Text = "Цена";
+            range1 = table.Cell(1, 6).Range;
+            range1.Text = "Сумма";
+            table.Columns[1].AutoFit();
+            table.Rows[1].Range.Bold = 1;
+            table.Rows[1].Range.Font.Size = 12;
+            table.Rows[1].Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+            for (int i = 0; i < dataGridView_employee.RowCount; i++)
+
+            {
+
+
+                table.Cell(i + 2, 1).Range.Text = (string)dataGridView_employee[1, i].Value;
+                table.Cell(i + 2, 2).Range.Text = (string)dataGridView_employee[2, i].Value;
+                table.Cell(i + 2, 3).Range.Text = (string)dataGridView_employee[3, i].Value;
+                table.Cell(i + 2, 4).Range.Text = (string)dataGridView_employee[4, i].Value;
+                table.Cell(i + 2, 5).Range.Text = (string)dataGridView_employee[5, i].Value;
+                table.Cell(i + 2, 6).Range.Text = Convert.ToString(Convert.ToInt32(dataGridView_employee[4, i].Value) * Convert.ToInt32(dataGridView_employee[5, i].Value));
+                table.Rows[i + 2].Range.Font.Size = 12;
+            }
+            //foreach ()
+            application.Visible = true;
         }
     }
 }

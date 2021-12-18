@@ -60,17 +60,6 @@ namespace provaider
             this.button16 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.dataGridView_employee = new System.Windows.Forms.DataGridView();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.last_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.first_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telephone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label12 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column9 = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -84,6 +73,17 @@ namespace provaider
             this.date_receipt = new System.Windows.Forms.DateTimePicker();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.last_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.first_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telephone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_employee)).BeginInit();
@@ -391,7 +391,7 @@ namespace provaider
             this.tabPage3.Controls.Add(this.label8);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(594, 384);
+            this.tabPage3.Size = new System.Drawing.Size(503, 384);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Техники и оборудование";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -404,7 +404,7 @@ namespace provaider
             this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button6.Location = new System.Drawing.Point(225, 339);
+            this.button6.Location = new System.Drawing.Point(179, 339);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(149, 39);
             this.button6.TabIndex = 254;
@@ -421,7 +421,7 @@ namespace provaider
             this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button16.Location = new System.Drawing.Point(367, 306);
             this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(223, 25);
+            this.button16.Size = new System.Drawing.Size(132, 25);
             this.button16.TabIndex = 253;
             this.button16.Text = "Удалить";
             this.button16.UseVisualStyleBackColor = true;
@@ -436,7 +436,7 @@ namespace provaider
             this.button18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button18.Location = new System.Drawing.Point(243, 306);
             this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(207, 25);
+            this.button18.Size = new System.Drawing.Size(116, 25);
             this.button18.TabIndex = 252;
             this.button18.Text = "Изменить";
             this.button18.UseVisualStyleBackColor = true;
@@ -467,77 +467,8 @@ namespace provaider
             this.dataGridView_employee.Location = new System.Drawing.Point(3, 129);
             this.dataGridView_employee.Name = "dataGridView_employee";
             this.dataGridView_employee.RowHeadersVisible = false;
-            this.dataGridView_employee.Size = new System.Drawing.Size(587, 171);
+            this.dataGridView_employee.Size = new System.Drawing.Size(496, 171);
             this.dataGridView_employee.TabIndex = 251;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "id";
-            this.Column3.Name = "Column3";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "id_products";
-            this.Column7.Name = "Column7";
-            // 
-            // last_name
-            // 
-            this.last_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.last_name.FillWeight = 82.91032F;
-            this.last_name.HeaderText = "Наименование";
-            this.last_name.Name = "last_name";
-            this.last_name.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column1.HeaderText = "Категория";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 85;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Идентификатор";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // first_name
-            // 
-            this.first_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.first_name.FillWeight = 82.91032F;
-            this.first_name.HeaderText = "Количество";
-            this.first_name.Name = "first_name";
-            this.first_name.Width = 91;
-            // 
-            // telephone
-            // 
-            this.telephone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.telephone.FillWeight = 82.91032F;
-            this.telephone.HeaderText = "Цена";
-            this.telephone.Name = "telephone";
-            this.telephone.Width = 58;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column2.HeaderText = "Сумма";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 66;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "id_category";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "id_unit";
-            this.Column6.Name = "Column6";
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "id_warehouse";
-            this.Column8.Name = "Column8";
             // 
             // label12
             // 
@@ -563,7 +494,7 @@ namespace provaider
             this.dataGridView1.Location = new System.Drawing.Point(3, 25);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(588, 78);
+            this.dataGridView1.Size = new System.Drawing.Size(497, 78);
             this.dataGridView1.TabIndex = 249;
             // 
             // Column9
@@ -597,7 +528,7 @@ namespace provaider
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(594, 384);
+            this.tabPage2.Size = new System.Drawing.Size(503, 384);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Описание проблемы";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -673,7 +604,7 @@ namespace provaider
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(602, 410);
+            this.tabControl1.Size = new System.Drawing.Size(511, 410);
             this.tabControl1.TabIndex = 242;
             // 
             // panel1
@@ -683,11 +614,85 @@ namespace provaider
             this.panel1.Size = new System.Drawing.Size(610, 2);
             this.panel1.TabIndex = 241;
             // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "id";
+            this.Column3.Name = "Column3";
+            this.Column3.Visible = false;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "id_products";
+            this.Column7.Name = "Column7";
+            this.Column7.Visible = false;
+            // 
+            // last_name
+            // 
+            this.last_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.last_name.FillWeight = 82.91032F;
+            this.last_name.HeaderText = "Наименование";
+            this.last_name.Name = "last_name";
+            this.last_name.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column1.HeaderText = "Категория";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 85;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Идентификатор";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // first_name
+            // 
+            this.first_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.first_name.FillWeight = 82.91032F;
+            this.first_name.HeaderText = "Количество";
+            this.first_name.Name = "first_name";
+            this.first_name.Width = 91;
+            // 
+            // telephone
+            // 
+            this.telephone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.telephone.FillWeight = 82.91032F;
+            this.telephone.HeaderText = "Цена";
+            this.telephone.Name = "telephone";
+            this.telephone.Width = 58;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column2.HeaderText = "Сумма";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 66;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "id_category";
+            this.Column5.Name = "Column5";
+            this.Column5.Visible = false;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "id_unit";
+            this.Column6.Name = "Column6";
+            this.Column6.Visible = false;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "id_warehouse";
+            this.Column8.Name = "Column8";
+            this.Column8.Visible = false;
+            // 
             // Form_application_confirmation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(602, 410);
+            this.ClientSize = new System.Drawing.Size(511, 410);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.Name = "Form_application_confirmation";

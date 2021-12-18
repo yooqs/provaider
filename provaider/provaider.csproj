@@ -257,6 +257,12 @@
     <Compile Include="Form_nomenclature_new.Designer.cs">
       <DependentUpon>Form_nomenclature_new.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_otcet_app.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_otcet_app.Designer.cs">
+      <DependentUpon>Form_otcet_app.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_otcet_sklad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -423,6 +429,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_nomenclature_new.resx">
       <DependentUpon>Form_nomenclature_new.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_otcet_app.resx">
+      <DependentUpon>Form_otcet_app.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_otcet_sklad.resx">
       <DependentUpon>Form_otcet_sklad.cs</DependentUpon>

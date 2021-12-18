@@ -328,11 +328,12 @@ namespace provaider
             DialogResult dialogResult = MessageBox.Show("Подтвердите отмену заявки № " + (string)dataGridView1.CurrentRow.Cells[0].Value + "!", "Предупреждение!", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
+                var date = DateTime.Now;
                 String sql;
                 String sql_conn = provaider.Properties.Resources.conn_string; ;
                 using (SqlConnection conn = new SqlConnection(sql_conn))
                 {
-                    sql = $"UPDATE [applications] SET [status]='Отменена' WHERE id= {(string)dataGridView1.CurrentRow.Cells[0].Value}";
+                    sql = $"UPDATE [applications] SET [status]='Отменена' , [date_completion] = '" + date.ToString("dd/MM/yyyy HH:mm:ss")+"' WHERE id= "+(string)dataGridView1.CurrentRow.Cells[0].Value;
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     conn.Open();
                     cmd.ExecuteNonQuery();
@@ -458,7 +459,9 @@ namespace provaider
 
         private void выполненымЗаявкамToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Form_otcet_app form_Otcet_App = new Form_otcet_app();
+            form_Otcet_App.StartPosition = FormStartPosition.CenterScreen;
+            form_Otcet_App.ShowDialog();
         }
         Boolean flag_panel = true;
         private void button8_Click(object sender, EventArgs e)
@@ -516,6 +519,13 @@ namespace provaider
         {
             dataGridView1.Rows.Clear();
             table_applications_load();
+        }
+
+        private void поСписаннымТоварамToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_otcet_spisanie spisanie = new Form_otcet_spisanie();
+            spisanie.StartPosition = FormStartPosition.CenterScreen;
+            spisanie.Show();
         }
     }
 }
