@@ -70,10 +70,22 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this._date_receipt_from = new System.Windows.Forms.DateTimePicker();
+            this.comboBox_employee = new System.Windows.Forms.ComboBox();
+            this.checkBox_employee = new System.Windows.Forms.CheckBox();
+            this.comboBox_customer = new System.Windows.Forms.ComboBox();
+            this.checkBox_customer = new System.Windows.Forms.CheckBox();
             this.button10 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -86,7 +98,7 @@
             this.button_customers_new.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button_customers_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_customers_new.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_customers_new.Location = new System.Drawing.Point(62, 365);
+            this.button_customers_new.Location = new System.Drawing.Point(94, 431);
             this.button_customers_new.Name = "button_customers_new";
             this.button_customers_new.Size = new System.Drawing.Size(141, 39);
             this.button_customers_new.TabIndex = 25;
@@ -102,7 +114,7 @@
             this.button_employees.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button_employees.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_employees.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_employees.Location = new System.Drawing.Point(184, 365);
+            this.button_employees.Location = new System.Drawing.Point(216, 431);
             this.button_employees.Name = "button_employees";
             this.button_employees.Size = new System.Drawing.Size(141, 39);
             this.button_employees.TabIndex = 26;
@@ -118,7 +130,7 @@
             this.button_directory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button_directory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_directory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_directory.Location = new System.Drawing.Point(62, 320);
+            this.button_directory.Location = new System.Drawing.Point(94, 386);
             this.button_directory.Name = "button_directory";
             this.button_directory.Size = new System.Drawing.Size(141, 39);
             this.button_directory.TabIndex = 27;
@@ -134,7 +146,7 @@
             this.button_applications_new.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button_applications_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_applications_new.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_applications_new.Location = new System.Drawing.Point(9, 376);
+            this.button_applications_new.Location = new System.Drawing.Point(9, 442);
             this.button_applications_new.Name = "button_applications_new";
             this.button_applications_new.Size = new System.Drawing.Size(147, 28);
             this.button_applications_new.TabIndex = 28;
@@ -149,7 +161,7 @@
             this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button4.Location = new System.Drawing.Point(813, 376);
+            this.button4.Location = new System.Drawing.Point(876, 442);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(146, 28);
             this.button4.TabIndex = 29;
@@ -164,7 +176,7 @@
             this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button5.Location = new System.Drawing.Point(965, 376);
+            this.button5.Location = new System.Drawing.Point(1028, 442);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(154, 28);
             this.button5.TabIndex = 30;
@@ -179,7 +191,7 @@
             this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button6.Location = new System.Drawing.Point(331, 365);
+            this.button6.Location = new System.Drawing.Point(363, 431);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(141, 39);
             this.button6.TabIndex = 31;
@@ -210,7 +222,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(9, 90);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView1.Size = new System.Drawing.Size(1110, 280);
+            this.dataGridView1.Size = new System.Drawing.Size(1173, 346);
             this.dataGridView1.TabIndex = 32;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
@@ -311,7 +323,7 @@
             this.заявкиToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1145, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1208, 24);
             this.menuStrip1.TabIndex = 35;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -439,7 +451,7 @@
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(209, 320);
+            this.button1.Location = new System.Drawing.Point(241, 386);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(141, 39);
             this.button1.TabIndex = 36;
@@ -466,7 +478,7 @@
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(331, 320);
+            this.button2.Location = new System.Drawing.Point(363, 386);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(141, 39);
             this.button2.TabIndex = 38;
@@ -482,7 +494,7 @@
             this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(653, 376);
+            this.button3.Location = new System.Drawing.Point(716, 442);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(154, 28);
             this.button3.TabIndex = 39;
@@ -497,7 +509,7 @@
             this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button7.Location = new System.Drawing.Point(493, 376);
+            this.button7.Location = new System.Drawing.Point(556, 442);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(154, 28);
             this.button7.TabIndex = 40;
@@ -512,13 +524,109 @@
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.checkBox2);
+            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.checkBox1);
+            this.panel1.Controls.Add(this.comboBox2);
+            this.panel1.Controls.Add(this._date_receipt_from);
+            this.panel1.Controls.Add(this.comboBox_employee);
+            this.panel1.Controls.Add(this.checkBox_employee);
+            this.panel1.Controls.Add(this.comboBox_customer);
+            this.panel1.Controls.Add(this.checkBox_customer);
             this.panel1.Controls.Add(this.button10);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.button8);
-            this.panel1.Location = new System.Drawing.Point(878, 90);
+            this.panel1.Location = new System.Drawing.Point(910, 90);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(267, 280);
+            this.panel1.Size = new System.Drawing.Size(298, 346);
             this.panel1.TabIndex = 41;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox1.Location = new System.Drawing.Point(30, 208);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(72, 21);
+            this.checkBox1.TabIndex = 251;
+            this.checkBox1.Text = "Cтатус";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Выполнение",
+            "Ожидание",
+            "Просрочена"});
+            this.comboBox2.Location = new System.Drawing.Point(29, 228);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(255, 26);
+            this.comboBox2.TabIndex = 250;
+            this.comboBox2.Tag = "";
+            // 
+            // _date_receipt_from
+            // 
+            this._date_receipt_from.Checked = false;
+            this._date_receipt_from.CustomFormat = "d.MM.yyyy HH:mm";
+            this._date_receipt_from.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this._date_receipt_from.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this._date_receipt_from.Location = new System.Drawing.Point(27, 136);
+            this._date_receipt_from.Name = "_date_receipt_from";
+            this._date_receipt_from.ShowCheckBox = true;
+            this._date_receipt_from.Size = new System.Drawing.Size(257, 24);
+            this._date_receipt_from.TabIndex = 247;
+            // 
+            // comboBox_employee
+            // 
+            this.comboBox_employee.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_employee.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_employee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox_employee.FormattingEnabled = true;
+            this.comboBox_employee.Location = new System.Drawing.Point(25, 89);
+            this.comboBox_employee.Name = "comboBox_employee";
+            this.comboBox_employee.Size = new System.Drawing.Size(259, 24);
+            this.comboBox_employee.TabIndex = 245;
+            // 
+            // checkBox_employee
+            // 
+            this.checkBox_employee.AutoSize = true;
+            this.checkBox_employee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox_employee.Location = new System.Drawing.Point(26, 22);
+            this.checkBox_employee.Name = "checkBox_employee";
+            this.checkBox_employee.Size = new System.Drawing.Size(73, 21);
+            this.checkBox_employee.TabIndex = 244;
+            this.checkBox_employee.Text = "Техник";
+            this.checkBox_employee.UseVisualStyleBackColor = true;
+            // 
+            // comboBox_customer
+            // 
+            this.comboBox_customer.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_customer.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_customer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox_customer.FormattingEnabled = true;
+            this.comboBox_customer.Location = new System.Drawing.Point(26, 43);
+            this.comboBox_customer.Name = "comboBox_customer";
+            this.comboBox_customer.Size = new System.Drawing.Size(258, 24);
+            this.comboBox_customer.TabIndex = 243;
+            // 
+            // checkBox_customer
+            // 
+            this.checkBox_customer.AutoSize = true;
+            this.checkBox_customer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox_customer.Location = new System.Drawing.Point(26, 68);
+            this.checkBox_customer.Name = "checkBox_customer";
+            this.checkBox_customer.Size = new System.Drawing.Size(75, 21);
+            this.checkBox_customer.TabIndex = 242;
+            this.checkBox_customer.Text = "Клиент";
+            this.checkBox_customer.UseVisualStyleBackColor = true;
             // 
             // button10
             // 
@@ -528,12 +636,13 @@
             this.button10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button10.Location = new System.Drawing.Point(69, 239);
+            this.button10.Location = new System.Drawing.Point(92, 309);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(154, 28);
             this.button10.TabIndex = 43;
             this.button10.Text = "Применить";
             this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // label1
             // 
@@ -550,7 +659,7 @@
             this.button8.Dock = System.Windows.Forms.DockStyle.Left;
             this.button8.Location = new System.Drawing.Point(0, 0);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(21, 278);
+            this.button8.Size = new System.Drawing.Size(21, 344);
             this.button8.TabIndex = 0;
             this.button8.Text = "Фильтры";
             this.button8.UseVisualStyleBackColor = true;
@@ -558,12 +667,12 @@
             // 
             // button9
             // 
-            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
             this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button9.Location = new System.Drawing.Point(171, 376);
+            this.button9.Location = new System.Drawing.Point(171, 442);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(154, 28);
             this.button9.TabIndex = 42;
@@ -571,11 +680,66 @@
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Checked = false;
+            this.dateTimePicker1.CustomFormat = "d.MM.yyyy HH:mm";
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(27, 182);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.ShowCheckBox = true;
+            this.dateTimePicker1.Size = new System.Drawing.Size(257, 24);
+            this.dateTimePicker1.TabIndex = 252;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(26, 116);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(187, 17);
+            this.label2.TabIndex = 253;
+            this.label2.Text = "Дата поступленя заказа с ";
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox2.Location = new System.Drawing.Point(30, 257);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(101, 21);
+            this.checkBox2.TabIndex = 255;
+            this.checkBox2.Text = "Вид заявки";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(30, 277);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(254, 26);
+            this.comboBox1.TabIndex = 254;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(27, 163);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(192, 17);
+            this.label4.TabIndex = 256;
+            this.label4.Text = "Дата поступленя заказа по";
+            // 
             // Form_menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1145, 412);
+            this.ClientSize = new System.Drawing.Size(1208, 478);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button7);
@@ -658,5 +822,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.ComboBox comboBox_customer;
+        private System.Windows.Forms.CheckBox checkBox_customer;
+        private System.Windows.Forms.ComboBox comboBox_employee;
+        private System.Windows.Forms.CheckBox checkBox_employee;
+        private System.Windows.Forms.DateTimePicker _date_receipt_from;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
     }
 }

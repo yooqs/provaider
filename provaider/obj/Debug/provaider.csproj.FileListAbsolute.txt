@@ -64,3 +64,4 @@ C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.For
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.application_views.resources
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_application_conf_edid.resources
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_application_archive_open.resources
+C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_otcet_spisanie.resources

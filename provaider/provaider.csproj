@@ -263,6 +263,12 @@
     <Compile Include="Form_otcet_sklad.Designer.cs">
       <DependentUpon>Form_otcet_sklad.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_otcet_spisanie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_otcet_spisanie.Designer.cs">
+      <DependentUpon>Form_otcet_spisanie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_post_edit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -420,6 +426,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_otcet_sklad.resx">
       <DependentUpon>Form_otcet_sklad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_otcet_spisanie.resx">
+      <DependentUpon>Form_otcet_spisanie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_post_edit.resx">
       <DependentUpon>Form_post_edit.cs</DependentUpon>

@@ -31,7 +31,60 @@ namespace provaider
         }
         public static string fios;
         public static bool application_update = false;
-        
+        class employee
+        {
+            public int id { get; set; }
+            public string name { get; set; }
+
+        }
+        private void table_combobox_name_contract()
+        {
+            String sql = "SELECT DISTINCT [id], [last_name],[first_name],[patronymic] FROM [employee] WHERE [id_post]=1";
+            using (SqlConnection conn = new SqlConnection(Form_login.sql_connect)) {
+                SqlCommand comand = new SqlCommand(sql,conn);
+                conn.Open();
+                List<employee> employee_list = new List<employee>();
+                SqlDataReader reader = comand.ExecuteReader();
+                while (reader.Read())
+                {
+                    employee_list.Add(new employee() { id = int.Parse(reader.GetValue(0).ToString().Trim()), name = (string)reader.GetValue(1).ToString().Trim() +" "+ (string)reader.GetValue(2).ToString().Trim()+" "+ (string)reader.GetValue(3).ToString().Trim() });
+                }
+                comboBox_customer.DataSource = employee_list;
+                comboBox_customer.DisplayMember = "name";
+                comboBox_customer.ValueMember = "id";
+            }
+            sql = "SELECT DISTINCT [id], [last_name],[first_name],[patronymic] FROM [contract]";
+            using (SqlConnection conn = new SqlConnection(Form_login.sql_connect))
+            {
+                SqlCommand comand = new SqlCommand(sql, conn);
+                conn.Open();
+                List<employee> employee_list = new List<employee>();
+                SqlDataReader reader = comand.ExecuteReader();
+                while (reader.Read())
+                {
+                    employee_list.Add(new employee() { id = int.Parse(reader.GetValue(0).ToString().Trim()), name = (string)reader.GetValue(1).ToString().Trim() + " " + (string)reader.GetValue(2).ToString().Trim() + " " + (string)reader.GetValue(3).ToString().Trim() });
+                }
+                comboBox_employee.DataSource = employee_list;
+                comboBox_employee.DisplayMember = "name";
+                comboBox_employee.ValueMember = "id";
+            }
+            sql = "SELECT [id], [name] FROM [type_application]";
+            using (SqlConnection conn = new SqlConnection(Form_login.sql_connect))
+            {
+                SqlCommand comand = new SqlCommand(sql, conn);
+                conn.Open();
+                List<employee> employee_list = new List<employee>();
+                SqlDataReader reader = comand.ExecuteReader();
+                while (reader.Read())
+                {
+                    employee_list.Add(new employee() { id = int.Parse(reader.GetValue(0).ToString().Trim()), name = (string)reader.GetValue(1).ToString().Trim()  });
+                }
+                comboBox1.DataSource = employee_list;
+                comboBox1.DisplayMember = "name";
+                comboBox1.ValueMember = "id";
+            }
+
+        }
         private void Menu_Activated(object sender, EventArgs e)
         {
            if (application_update)
@@ -79,28 +132,74 @@ namespace provaider
         }
         private void grid_color (DataGridView gridView)
         {
-            foreach (DataGridViewRow row in gridView.Rows)
+            if (dataGridView1.Rows.Count > 0 && dataGridView1.CurrentRow.Cells[8].Value != null)
             {
-                if (row.Cells[8].Value.ToString() == "Выполнение")
-                    row.DefaultCellStyle.BackColor = Color.Green;
-                if (row.Cells[8].Value.ToString() == "Ожидание")
-                    row.DefaultCellStyle.BackColor = Color.Yellow ;
-                if ((DateTime.Now-Convert.ToDateTime(row.Cells[7].Value)).Days >=2)
+                foreach (DataGridViewRow row in gridView.Rows)
                 {
-                    row.DefaultCellStyle.BackColor = Color.Red;
+                    if (row.Cells[8].Value.ToString() == "Выполнение")
+                        row.DefaultCellStyle.BackColor = Color.Green;
+                    if (row.Cells[8].Value.ToString() == "Ожидание")
+                        row.DefaultCellStyle.BackColor = Color.Yellow;
+                    if ((DateTime.Now - Convert.ToDateTime(row.Cells[7].Value)).Days >= 2)
+                    {
+                        row.DefaultCellStyle.BackColor = Color.Red;
+                    }
                 }
             }
         }
         public void table_applications_load()
         {
-            String sql;
+            String sql="";
             dataGridView1.Rows.Clear();
             string[] table_app;
             table_app = new string[9];
             using (SqlConnection conn = new SqlConnection())
             {
+                
                 //sql = "Select [applications].[id],[applications].[description],[applications].[date_receipt],[contract].[last_name],[contract].[first_name],[contract].[patronymic],[contract].[telephone],[contract].[city],[contract].[street],[contract].[house],[contract].[flat],[employee].[last_name],[employee].[first_name],[employee].[patronymic],[type_application].[name] FROM  [contract] JOIN [applications] ON [contract].[id] =  [applications].[id_contract]  JOIN[employee] ON [employee].[id] =  [applications].[id_employee] JOIN[type_application] ON[type_application].[id] =  [applications].[type]  where [status] = 'Выполняется'";
-                sql = "Select [applications].[id],[applications].[description],FORMAT([applications].[date_receipt], 'dd/MM/yyyy HH:mm:ss' ),[contract].[last_name],[contract].[first_name],[contract].[patronymic],[contract].[telephone],[contract].[city],[contract].[street],[contract].[house],[contract].[flat],[employee].[last_name],[employee].[first_name],[employee].[patronymic],[type_application].[name],[applications].status FROM  [applications] JOIN [contract] ON [contract].[id] =  [applications].[id_contract] JOIN emp_app ON applications.id = emp_app.id_app JOIN[employee] ON employee.id = emp_app.id_emp  JOIN[type_application] ON[type_application].[id] =  [applications].[type]     where [status] = 'Выполнение' OR [status] = 'Ожидание'";
+                if (checkBox1.Checked && comboBox2.Text != "Просрочена")
+                {
+                    sql = "Select [applications].[id],[applications].[description],FORMAT([applications].[date_receipt], 'dd/MM/yyyy HH:mm:ss' ),[contract].[last_name],[contract].[first_name],[contract].[patronymic],[contract].[telephone],[contract].[city],[contract].[street],[contract].[house],[contract].[flat],[employee].[last_name],[employee].[first_name],[employee].[patronymic],[type_application].[name],[applications].status FROM  [applications] JOIN [contract] ON [contract].[id] =  [applications].[id_contract] JOIN emp_app ON applications.id = emp_app.id_app JOIN[employee] ON employee.id = emp_app.id_emp  JOIN[type_application] ON[type_application].[id] =  [applications].[type]     where [applications].[id] !=0 ";
+                }
+                else 
+                {
+                    sql = "Select [applications].[id],[applications].[description],FORMAT([applications].[date_receipt], 'dd/MM/yyyy HH:mm:ss' ),[contract].[last_name],[contract].[first_name],[contract].[patronymic],[contract].[telephone],[contract].[city],[contract].[street],[contract].[house],[contract].[flat],[employee].[last_name],[employee].[first_name],[employee].[patronymic],[type_application].[name],[applications].status FROM  [applications] JOIN [contract] ON [contract].[id] =  [applications].[id_contract] JOIN emp_app ON applications.id = emp_app.id_app JOIN[employee] ON employee.id = emp_app.id_emp  JOIN[type_application] ON[type_application].[id] =  [applications].[type]     where ([status] = 'Выполнение' OR [status] = 'Ожидание') ";
+                }
+
+               if (checkBox_employee.Checked)
+                {
+                    sql += " AND [emp_app].[id_emp] =" + comboBox_customer.SelectedValue;
+                }
+                if (checkBox_customer.Checked)
+                {
+                    sql += " AND [applications].[id_contract] =" + comboBox_employee.SelectedValue;
+                }
+                if (checkBox1.Checked)
+                {
+                    var date = DateTime.Now.Subtract(new TimeSpan(2, 0, 0, 0));
+                    if (comboBox2.Text=="Просрочена")
+                    {
+                        sql += " AND [applications].[date_receipt] < '"+date.ToString("dd/MM/yyyy HH:mm:ss") +"'";
+                    }
+                    else
+                    {
+                        sql += " AND [applications].[status] ='" + comboBox2.Text+"'";
+                    }
+
+                }
+                if(checkBox2.Checked)
+                {
+                    sql += " AND [applications].[type] =" + comboBox1.SelectedValue;
+                }
+                if (_date_receipt_from.Checked)
+                {
+                    sql += " AND [applications].[date_receipt] >= '" + _date_receipt_from.Value.ToString("dd/MM/yyyy HH:mm:ss") + "'";
+                }
+                if (dateTimePicker1.Checked)
+                {
+                    sql += " AND [applications].[date_receipt] <= '" + dateTimePicker1.Value.ToString("dd/MM/yyyy HH:mm:ss") + "'";
+                }
+
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
                 conn.ConnectionString = provaider.Properties.Resources.conn_string;
@@ -176,7 +275,10 @@ namespace provaider
         }
         private void Menu_Load(object sender, EventArgs e)
         {
-            
+            comboBox2.SelectedIndex = 0;
+            table_combobox_name_contract();
+
+
             label_fio.Text = fio;
             table_applications_load();
             Timer timer = new Timer();
@@ -379,17 +481,20 @@ namespace provaider
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            if (dataGridView1.CurrentRow.Cells[8].Value.ToString()!="Ожидание")
+            if (dataGridView1.Rows.Count > 0 && dataGridView1.CurrentRow.Cells[8].Value!=null)
             {
-                button3.Enabled = false;
-                button7.Enabled = false;
-                button4.Enabled = true;
-            }
-            else
-            {
-                button3.Enabled = true;
-                button7.Enabled = true;
-                button4.Enabled = false;
+                if (dataGridView1.CurrentRow.Cells[8].Value.ToString() != "Ожидание")
+                {
+                    button3.Enabled = false;
+                    button7.Enabled = false;
+                    button4.Enabled = true;
+                }
+                else
+                {
+                    button3.Enabled = true;
+                    button7.Enabled = true;
+                    button4.Enabled = false;
+                }
             }
         }
 
@@ -405,6 +510,12 @@ namespace provaider
             application_views application_Views = new application_views(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value));
             application_Views.StartPosition = FormStartPosition.CenterScreen;
             application_Views.ShowDialog();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+            table_applications_load();
         }
     }
 }
