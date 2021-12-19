@@ -20,11 +20,20 @@ namespace provaider
         private void Form_setting_load_Load(object sender, EventArgs e)
         {
             textBox_last_name.Text = provaider.Properties.Settings.Default.Connect_string_db;
+            if (provaider.Properties.Settings.Default.Local_flag)
+            {
+                checkBox2.Checked = true;
+            }
+            else
+            {
+                checkBox2.Checked = false;
+            }
             
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
+            
             provaider.Properties.Settings.Default.Connect_string_db = textBox_last_name.Text;
             Properties.Settings.Default.Save();
             /*
@@ -58,6 +67,19 @@ namespace provaider
             {
                 textBox1.Text= OPF.FileName;
             }
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked)
+            {
+                provaider.Properties.Settings.Default.Local_flag = true;
+            }
+            else
+            {
+                provaider.Properties.Settings.Default.Local_flag = false;
+            }
+           
         }
     }
 }

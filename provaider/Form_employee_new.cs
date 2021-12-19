@@ -27,7 +27,7 @@ namespace provaider
         }
         private void post_load ()
         {
-            string string_connection = Properties.Resources.conn_string;
+            string string_connection = Form_login.sql_connect;
             using (SqlConnection conn = new SqlConnection(string_connection))
             {
                 conn.Open();
@@ -55,7 +55,7 @@ namespace provaider
             //получение id города
 
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = provaider.Properties.Resources.conn_string;
+            conn.ConnectionString = Form_login.sql_connect;
             await conn.OpenAsync();
             SqlCommand cmd = new SqlCommand("SELECT [id] FROM [city] WHERE [name]='" + comboBox_city.Text + "'", conn);
             SqlDataReader reader = await cmd.ExecuteReaderAsync();
@@ -93,7 +93,7 @@ namespace provaider
             SqlConnection conn = new SqlConnection();
             SqlCommand cmd = new SqlCommand("SELECT [name] FROM [city] ", conn);
 
-            conn.ConnectionString = provaider.Properties.Resources.conn_string;
+            conn.ConnectionString = Form_login.sql_connect;
             conn.Open();
 
 
@@ -132,7 +132,7 @@ namespace provaider
             using (SqlConnection conn = new SqlConnection())
             {
 
-                conn.ConnectionString = provaider.Properties.Resources.conn_string;
+                conn.ConnectionString = Form_login.sql_connect;
 
                 //заполнение таблицы сотруднки
                 SqlCommand command = new SqlCommand("INSERT INTO [employee]  VALUES(@last_name, @first_name, @patronymic, @telephone, @city, @street, @house, @flat, @passport_series,convert(varchar, convert(datetime, '" + textBox_birth_date.Text + "', 104), 121), convert(varchar, convert(datetime, '" + date_conclusion.Text + "', 104), 121), @passport_number,@id_post,@login,@password,@admin)", conn);

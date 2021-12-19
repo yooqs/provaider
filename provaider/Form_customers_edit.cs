@@ -32,7 +32,7 @@ namespace provaider
             //получение id города
 
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = provaider.Properties.Resources.conn_string;
+            conn.ConnectionString = Form_login.sql_connect;
             await conn.OpenAsync();
             SqlCommand cmd = new SqlCommand("SELECT [id] FROM [city] WHERE [name]='" + comboBox_city.Text + "'", conn);
             SqlDataReader reader = await cmd.ExecuteReaderAsync();
@@ -70,7 +70,7 @@ namespace provaider
             SqlConnection conn = new SqlConnection();
             SqlCommand cmd = new SqlCommand("SELECT [name] FROM [city] ", conn);
 
-            conn.ConnectionString = provaider.Properties.Resources.conn_string;
+            conn.ConnectionString = Form_login.sql_connect;
             conn.Open();
 
 
@@ -100,7 +100,7 @@ namespace provaider
             sql = "SELECT * From [contract] Where [id] ="+id;
             SqlCommand cmd = new SqlCommand(sql, conn);
 
-            conn.ConnectionString = provaider.Properties.Resources.conn_string;
+            conn.ConnectionString = Form_login.sql_connect;
             conn.Open();
             using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
             {
@@ -186,7 +186,7 @@ namespace provaider
           
             SqlConnection conn = new SqlConnection();
             //conn.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Дмитрий\Desktop\1234\basa.mdf;Integrated Security=True;Connect Timeout=30";
-            conn.ConnectionString = Properties.Resources.conn_string;
+            conn.ConnectionString = Form_login.sql_connect;
 
 
             

@@ -124,6 +124,7 @@ namespace provaider
             this.checkBox2.TabIndex = 259;
             this.checkBox2.Text = "директория программы";
             this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // Form_setting_load
             // 

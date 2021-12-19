@@ -31,7 +31,7 @@ namespace provaider
         {
             using (SqlConnection conn = new SqlConnection())
             {
-                conn.ConnectionString = Properties.Resources.conn_string;
+                conn.ConnectionString = Form_login.sql_connect;
                 conn.Open();
                 SqlCommand command = new SqlCommand("UPDATE [post] SET  name='" + textBox_city.Text + "' WHERE id=" + id, conn);
                 command.ExecuteNonQuery();

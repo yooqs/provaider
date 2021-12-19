@@ -26,7 +26,7 @@ namespace provaider
         }
         private void post_load()
         {
-            string string_connection = Properties.Resources.conn_string;
+            string string_connection = Form_login.sql_connect;
             using (SqlConnection conn = new SqlConnection(string_connection))
             {
                 conn.Open();
@@ -54,7 +54,7 @@ namespace provaider
             //получение id города
 
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = provaider.Properties.Resources.conn_string;
+            conn.ConnectionString = Form_login.sql_connect;
             await conn.OpenAsync();
             SqlCommand cmd = new SqlCommand("SELECT [id] FROM [city] WHERE [name]='" + comboBox_city.Text + "'", conn);
             SqlDataReader reader = await cmd.ExecuteReaderAsync();
@@ -92,7 +92,7 @@ namespace provaider
             SqlConnection conn = new SqlConnection();
             SqlCommand cmd = new SqlCommand("SELECT [name] FROM [city] ", conn);
 
-            conn.ConnectionString = provaider.Properties.Resources.conn_string;
+            conn.ConnectionString = Form_login.sql_connect;
             conn.Open();
 
 
@@ -123,7 +123,7 @@ namespace provaider
             sql = "SELECT * From [employee] Where [id] =" + id;
             SqlCommand cmd = new SqlCommand(sql, conn);
 
-            conn.ConnectionString = provaider.Properties.Resources.conn_string;
+            conn.ConnectionString = Form_login.sql_connect;
             conn.Open();
             using (SqlDataReader reader = cmd.ExecuteReader())
             {

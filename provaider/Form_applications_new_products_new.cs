@@ -34,7 +34,7 @@ namespace provaider
                 }
 
 
-                string string_connection = provaider.Properties.Resources.conn_string;
+                string string_connection = Form_login.sql_connect;
                 //класс заполнитть
                 Form_customers_new.products.id = Convert.ToInt32(dataGridView_employee.CurrentRow.Cells[0].Value);
                 Form_customers_new.products.id_product = (string)dataGridView_employee.CurrentRow.Cells[8].Value;
@@ -85,7 +85,7 @@ namespace provaider
 
                 else
                 {
-                    string string_connection = provaider.Properties.Resources.conn_string;
+                    string string_connection = Form_login.sql_connect;
                     //класс заполнитть
                     Form_applications_new.products_new.id = Convert.ToInt32(dataGridView_employee.CurrentRow.Cells[0].Value);
                     Form_applications_new.products_new.id_product = (string)dataGridView_employee.CurrentRow.Cells[8].Value;
@@ -136,7 +136,7 @@ namespace provaider
 
                 else
                 {
-                    string string_connection = provaider.Properties.Resources.conn_string;
+                    string string_connection = Form_login.sql_connect;
                     //класс заполнитть
                     Form_application_edit.products_new.id = Convert.ToInt32(dataGridView_employee.CurrentRow.Cells[0].Value);
                     Form_application_edit.products_new.id_product = (string)dataGridView_employee.CurrentRow.Cells[8].Value;
@@ -181,7 +181,7 @@ namespace provaider
         }
         private void table_load(DataGridView dataGrid, ComboBox combo_category)
         {
-            string string_connection = Properties.Resources.conn_string;
+            string string_connection = Form_login.sql_connect;
             using (SqlConnection conn = new SqlConnection(string_connection))
             {
                 conn.Open();
@@ -224,7 +224,7 @@ namespace provaider
         private void textbox_name_load(ComboBox combo_name, ComboBox combo_category)
         {
 
-            string string_connection = Properties.Resources.conn_string;
+            string string_connection = Form_login.sql_connect;
             using (SqlConnection conn = new SqlConnection(string_connection))
             {
                 conn.Open();
@@ -262,7 +262,7 @@ namespace provaider
         {
             
 
-            string string_connection = Properties.Resources.conn_string;
+            string string_connection = Form_login.sql_connect;
             using (SqlConnection conn = new SqlConnection(string_connection))
             {
                 conn.Open();

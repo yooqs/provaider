@@ -121,7 +121,7 @@ namespace provaider
                 //   if (checkBox_passport_number.Checked) sql += " AND [passport_number] = " + textBox_passport_number.Text;
                 // if (checkBox_date_conclusion.Checked) sql += " AND [date_conclusion] = convert(varchar, convert(datetime, '" + date_conclusions.Text + "', 104), 121)";
                 SqlCommand cmd = new SqlCommand(sql, conn);
-                conn.ConnectionString = provaider.Properties.Resources.conn_string;
+                conn.ConnectionString = Form_login.sql_connect;
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 /* while (reader.Read())

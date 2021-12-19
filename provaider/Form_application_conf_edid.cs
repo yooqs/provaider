@@ -38,7 +38,7 @@ namespace provaider
         private void Form_application_conf_edid_Load(object sender, EventArgs e)
         {
 
-            string string_connection = Properties.Resources.conn_string;
+            string string_connection = Form_login.sql_connect;
             using (SqlConnection conn = new SqlConnection(string_connection))
             {
                 conn.Open();

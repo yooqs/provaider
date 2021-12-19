@@ -202,7 +202,7 @@ namespace provaider
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
-                conn.ConnectionString = provaider.Properties.Resources.conn_string;
+                conn.ConnectionString = Form_login.sql_connect;
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 int id_application = -1;
@@ -330,7 +330,7 @@ namespace provaider
             {
                 var date = DateTime.Now;
                 String sql;
-                String sql_conn = provaider.Properties.Resources.conn_string; ;
+                String sql_conn = Form_login.sql_connect; ;
                 using (SqlConnection conn = new SqlConnection(sql_conn))
                 {
                     sql = $"UPDATE [applications] SET [status]='Отменена' , [date_completion] = '" + date.ToString("dd/MM/yyyy HH:mm:ss")+"' WHERE id= "+(string)dataGridView1.CurrentRow.Cells[0].Value;
@@ -396,7 +396,7 @@ namespace provaider
             
              if (dialogResult == DialogResult.Yes) { 
                  String sql;
-             String sql_conn = provaider.Properties.Resources.conn_string; ;
+             String sql_conn = Form_login.sql_connect; ;
              using (SqlConnection conn = new SqlConnection(sql_conn))
              {
                      DateTime date_time = DateTime.Now;

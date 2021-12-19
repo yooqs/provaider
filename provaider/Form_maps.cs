@@ -34,7 +34,7 @@ namespace provaider
                 sql = "Select [applications].[id],[applications].[description],FORMAT([applications].[date_receipt], 'MM/dd/yyyy hh:mm:ss' ),[contract].[last_name],[contract].[first_name],[contract].[patronymic],[contract].[telephone],[contract].[city],[contract].[street],[contract].[house],[contract].[flat],[employee].[last_name],[employee].[first_name],[employee].[patronymic],[type_application].[name],[applications].status FROM  [applications] JOIN [contract] ON [contract].[id] =  [applications].[id_contract] JOIN emp_app ON applications.id = emp_app.id_app JOIN[employee] ON employee.id = emp_app.id_emp  JOIN[type_application] ON[type_application].[id] =  [applications].[type] where [applications].[id]=" + id;
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
-                conn.ConnectionString = provaider.Properties.Resources.conn_string;
+                conn.ConnectionString = Form_login.sql_connect;
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 int id_application = -1;
@@ -76,7 +76,7 @@ namespace provaider
                 string sql = "Select [contract].[latitude],[contract].[longtude], [applications].[id],[applications].[description],[contract].[last_name],[contract].[first_name],[contract].[patronymic],[contract].[telephone],[contract].[city],[contract].[street],[contract].[house],[contract].[flat],[employee].[last_name],[employee].[first_name],[employee].[patronymic],[type_application].[name],[applications].status FROM  [applications] JOIN[employee] on [employee].[id]=[applications].[id_employee]  JOIN [contract] ON [contract].[id] =  [applications].[id_contract]  JOIN[type_application] ON[type_application].[id] =  [applications].[type]     where [status] = 'Выполнение'  OR [status] ='Ожидание'";
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
-                conn.ConnectionString = provaider.Properties.Resources.conn_string;
+                conn.ConnectionString = Form_login.sql_connect;
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 int id_application = -1;

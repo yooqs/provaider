@@ -22,7 +22,7 @@ namespace provaider
         public async void table_combobox_last_name()
         {
             String sql = "SELECT DISTINCT [last_name] FROM [contract]";
-            String str_conn = Properties.Resources.conn_string;
+            String str_conn = Form_login.sql_connect;
             using (SqlConnection conn = new SqlConnection(str_conn))
             {
                 conn.Open();
@@ -40,7 +40,7 @@ namespace provaider
             SqlConnection conn = new SqlConnection();
             SqlCommand cmd = new SqlCommand("SELECT [name] FROM [city] ", conn);
 
-            conn.ConnectionString = provaider.Properties.Resources.conn_string;
+            conn.ConnectionString = Form_login.sql_connect;
             conn.Open();
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
@@ -60,7 +60,7 @@ namespace provaider
             //получение id города
 
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = provaider.Properties.Resources.conn_string;
+            conn.ConnectionString = Form_login.sql_connect;
             await conn.OpenAsync();
             SqlCommand cmd = new SqlCommand("SELECT [id] FROM [city] WHERE [name]='" + comboBox_city.Text + "'", conn);
             SqlDataReader reader = await cmd.ExecuteReaderAsync();
@@ -101,7 +101,7 @@ namespace provaider
             if (checkBox_date_conclusion.Checked) sql += " AND [date_conclusion] = convert(varchar, convert(datetime, '" + date_conclusions.Text + "', 104), 121)";
 
 
-            conn.ConnectionString = provaider.Properties.Resources.conn_string;
+            conn.ConnectionString = Form_login.sql_connect;
             conn.Open();
             SqlCommand cmd = new SqlCommand(sql, conn);
             using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
@@ -147,7 +147,7 @@ namespace provaider
             sql = "Select [id],[last_name],[first_name],[patronymic], [telephone], [city],[street], [house],FORMAT(contract.data_birth, 'dd/MM/yyyy', 'de-de' ), [flat],[passport_series], [passport_number] ,FORMAT(contract.date_conclusion, 'dd/MM/yyyy', 'de-de' ), FROM [contract]";
             SqlCommand cmd = new SqlCommand(sql, conn);
 
-            conn.ConnectionString = provaider.Properties.Resources.conn_string;
+            conn.ConnectionString = Form_login.sql_connect;
             conn.Open();
             using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
             {
@@ -195,7 +195,7 @@ namespace provaider
             if (dialogResult == DialogResult.Yes)
             {
                 SqlConnection conn = new SqlConnection();
-                conn.ConnectionString = provaider.Properties.Resources.conn_string;
+                conn.ConnectionString = Form_login.sql_connect;
                 conn.Open();
                 SqlCommand command = new SqlCommand("DELETE FROM [contract] WHERE id='" + (String)dataGridView1.CurrentRow.Cells[0].Value + "'", conn);
                 command.ExecuteNonQuery();
@@ -270,7 +270,7 @@ namespace provaider
             sql = "Select [contract].[mac],[contract].[login_kab],[contract].[password_kab],[contract].[personal_account],[contract].[wifi_login],[contract].[wifi_password],[tariff].[name] FROM [contract] JOIN [tariff] ON [contract].[id_tariff] = [tariff].[id]  where [contract].[id]=" + ids;
             SqlCommand cmd = new SqlCommand(sql, conn);
 
-            conn.ConnectionString = provaider.Properties.Resources.conn_string;
+            conn.ConnectionString = Form_login.sql_connect;
             conn.Open();
             
 

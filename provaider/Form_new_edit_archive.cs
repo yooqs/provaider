@@ -44,7 +44,7 @@ namespace provaider
 
                 using (SqlConnection conn = new SqlConnection())
                 {
-                    conn.ConnectionString = Properties.Resources.conn_string;
+                    conn.ConnectionString = Form_login.sql_connect;
                     conn.Open();
                     SqlCommand command = new SqlCommand("Select [name] FROM [products_categories] WHERE id=" + id, conn);
 
@@ -64,7 +64,7 @@ namespace provaider
         {
             if (status == 1)
             {
-                string connect = provaider.Properties.Resources.conn_string;
+                string connect = Form_login.sql_connect;
                 using (SqlConnection conn = new SqlConnection(connect))
                 {
                     conn.Open();   // открываем подключение
@@ -82,7 +82,7 @@ namespace provaider
             {
                 using (SqlConnection conn = new SqlConnection())
                 {
-                    conn.ConnectionString = Properties.Resources.conn_string;
+                    conn.ConnectionString = Form_login.sql_connect;
                     conn.Open();
                     SqlCommand command = new SqlCommand("UPDATE [products_categories] SET  name='" + textBox_city.Text + "' WHERE id=" + id, conn);
                     command.ExecuteNonQuery();

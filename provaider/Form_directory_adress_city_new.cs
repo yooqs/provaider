@@ -25,7 +25,7 @@ namespace provaider
 
         private void button4_Click(object sender, EventArgs e)
         {
-            string connect = provaider.Properties.Resources.conn_string;
+            string connect = Form_login.sql_connect;
             using (SqlConnection conn = new SqlConnection(connect))
             {
                 conn.Open();   // открываем подключение

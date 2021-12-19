@@ -44,7 +44,7 @@ namespace provaider
             
             
            
-            string string_connection = Properties.Resources.conn_string;
+            string string_connection = Form_login.sql_connect;
             using (SqlConnection conn = new SqlConnection(string_connection))
             {
                 conn.Open();
@@ -112,7 +112,7 @@ namespace provaider
         private void button_user_new_Click(object sender, EventArgs e)
         {
             
-            using (SqlConnection conn = new SqlConnection(provaider.Properties.Resources.conn_string))
+            using (SqlConnection conn = new SqlConnection(Form_login.sql_connect))
             {
                 //conn.Open();
 

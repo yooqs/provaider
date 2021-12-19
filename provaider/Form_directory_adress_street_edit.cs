@@ -24,7 +24,7 @@ namespace provaider
         {
             using (SqlConnection conn = new SqlConnection())
             {
-                conn.ConnectionString = Properties.Resources.conn_string;
+                conn.ConnectionString = Form_login.sql_connect;
                 conn.Open();
                 SqlCommand command = new SqlCommand("Select [name] FROM [street] WHERE id=" + id, conn);
 
@@ -44,7 +44,7 @@ namespace provaider
             using (SqlConnection conn = new SqlConnection())
             {
                 //conn.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Дмитрий\Desktop\1234\basa.mdf;Integrated Security=True;Connect Timeout=30";
-                conn.ConnectionString = Properties.Resources.conn_string;
+                conn.ConnectionString = Form_login.sql_connect;
                 conn.Open();
                 SqlCommand command = new SqlCommand("UPDATE [street] SET  name='" + textBox_street.Text + "' WHERE id=" + id, conn);
                 command.ExecuteNonQuery();

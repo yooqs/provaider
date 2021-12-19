@@ -82,5 +82,17 @@ namespace provaider.Properties {
                 this["Connect_flag"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Local_flag {
+            get {
+                return ((bool)(this["Local_flag"]));
+            }
+            set {
+                this["Local_flag"] = value;
+            }
+        }
     }
 }

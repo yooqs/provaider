@@ -39,7 +39,7 @@ namespace provaider
                 clear();
                 update_table_tariff = false;
 
-                string connect = provaider.Properties.Resources.conn_string;
+                string connect = Form_login.sql_connect;
                 using (SqlConnection conn = new SqlConnection(connect))
                 {
                     await conn.OpenAsync();   // открываем подключение
@@ -68,7 +68,7 @@ namespace provaider
                 clear();
                 update_table_post = false;
 
-                string connect = provaider.Properties.Resources.conn_string;
+                string connect = Form_login.sql_connect;
                 using (SqlConnection conn = new SqlConnection(connect))
                 {
                     await conn.OpenAsync();   // открываем подключение
@@ -97,7 +97,7 @@ namespace provaider
                 clear();
                 //update_table_unit = false;
 
-                string connect = provaider.Properties.Resources.conn_string;
+                string connect = Form_login.sql_connect;
                 using (SqlConnection conn = new SqlConnection(connect))
                 {
                     string sqlstring;
@@ -131,7 +131,7 @@ namespace provaider
         private void textbox_name_load(ComboBox combo_name, ComboBox combo_category)
         {
 
-            string string_connection = Properties.Resources.conn_string;
+            string string_connection = Form_login.sql_connect;
             using (SqlConnection conn = new SqlConnection(string_connection))
             {
                 conn.Open();
@@ -168,7 +168,7 @@ namespace provaider
         private void textbox_category_load(ComboBox comboBox)
         {
 
-            string string_connection = Properties.Resources.conn_string;
+            string string_connection = Form_login.sql_connect;
             using (SqlConnection conn = new SqlConnection(string_connection))
             {
                 conn.Open();
@@ -200,7 +200,7 @@ namespace provaider
                 clear();
                 update_table_unit = false;
 
-                string connect = provaider.Properties.Resources.conn_string;
+                string connect = Form_login.sql_connect;
                 using (SqlConnection conn = new SqlConnection(connect))
                 {
                     await conn.OpenAsync();   // открываем подключение
@@ -228,7 +228,7 @@ namespace provaider
                 clear();
                 update_table_category = false;
 
-                string connect = provaider.Properties.Resources.conn_string;
+                string connect = Form_login.sql_connect;
                 using (SqlConnection conn = new SqlConnection(connect))
                 {
                     await conn.OpenAsync();   // открываем подключение
@@ -256,7 +256,7 @@ namespace provaider
                 clear();
                 update_table_city = false;
 
-                string connect = provaider.Properties.Resources.conn_string;
+                string connect = Form_login.sql_connect;
                 using (SqlConnection conn = new SqlConnection(connect))
                 {
                     await conn.OpenAsync();   // открываем подключение
@@ -286,7 +286,7 @@ namespace provaider
 
                 update_table_city = false;
 
-                string connect = provaider.Properties.Resources.conn_string;
+                string connect = Form_login.sql_connect;
                 using (SqlConnection conn = new SqlConnection(connect))
                 {
                     conn.Open();   // открываем подключение
@@ -312,7 +312,7 @@ namespace provaider
             {
                 update_table_city = false;
                 dataGridView1.Rows.Clear();
-                string connect = provaider.Properties.Resources.conn_string;
+                string connect = Form_login.sql_connect;
                 using (SqlConnection conn = new SqlConnection(connect))
                 {
                     await conn.OpenAsync();   // открываем подключение
@@ -336,7 +336,7 @@ namespace provaider
             {
                 update_table_street = false;
                 dataGridView2.Rows.Clear();
-                string connect = provaider.Properties.Resources.conn_string;
+                string connect = Form_login.sql_connect;
                 using (SqlConnection conn = new SqlConnection(connect))
                 {
                     await conn.OpenAsync();   // открываем подключение
@@ -369,7 +369,7 @@ namespace provaider
 
 
             // table_type_loadAsync();
-            string connect = provaider.Properties.Resources.conn_string + ";MultipleActiveResultSets = True";
+            string connect = Form_login.sql_connect + ";MultipleActiveResultSets = True";
             using (SqlConnection conn = new SqlConnection(connect))
             {
                 conn.Open();   // открываем подключение

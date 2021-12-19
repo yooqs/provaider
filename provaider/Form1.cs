@@ -16,10 +16,19 @@ namespace provaider
         public Form_login()
         {
             InitializeComponent();
+            if (provaider.Properties.Settings.Default.Local_flag == true)
+            {
+                sql_connect = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\basa.mdf;Integrated Security=True;Connect Timeout=30";
+            }
+            else
+            {
+                sql_connect = Form_login.sql_connect;
+            }
         }
         Point LastPoint;
         string ssg = provaider.Properties.Resources.conn_string;
-        public static string sql_connect=provaider.Properties.Settings.Default.Connect_string_db;
+        public static string sql_connect;
+        
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -173,6 +182,18 @@ namespace provaider
             Form_setting_load form_Setting = new Form_setting_load();
             form_Setting.StartPosition = FormStartPosition.CenterScreen;
             form_Setting.ShowDialog();
+        }
+
+        private void Form_login_Activated(object sender, EventArgs e)
+        {
+            if (provaider.Properties.Settings.Default.Local_flag == true)
+            {
+                sql_connect = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\provaider_basa.mdf;Integrated Security=True;Connect Timeout=30";
+            }
+            else
+            {
+                sql_connect = Form_login.sql_connect;
+            }
         }
     }
 }

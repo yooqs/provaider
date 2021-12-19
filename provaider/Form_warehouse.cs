@@ -23,7 +23,7 @@ namespace provaider
 
         private void table_load(DataGridView dataGrid,ComboBox combo_category)
         {
-            string string_connection = Properties.Resources.conn_string;
+            string string_connection = Form_login.sql_connect;
             using (SqlConnection conn = new SqlConnection(string_connection))
             {
                 conn.Open();
@@ -65,7 +65,7 @@ namespace provaider
         private void textbox_name_load(ComboBox combo_name, ComboBox combo_category)
         {
             
-                string string_connection = Properties.Resources.conn_string;
+                string string_connection = Form_login.sql_connect;
                 using (SqlConnection conn = new SqlConnection(string_connection))
                 {
                     conn.Open();
@@ -102,7 +102,7 @@ namespace provaider
     private void textbox_category_load(ComboBox comboBox)
     {
         
-        string string_connection = Properties.Resources.conn_string;
+        string string_connection = Form_login.sql_connect;
         using (SqlConnection conn = new SqlConnection(string_connection))
         {
             conn.Open();
@@ -204,7 +204,7 @@ namespace provaider
             if (dialogResult == DialogResult.Yes)
             {
                 SqlConnection conn = new SqlConnection();
-                conn.ConnectionString = provaider.Properties.Resources.conn_string;
+                conn.ConnectionString = Form_login.sql_connect;
                 conn.Open();
 
                 SqlCommand command = new SqlCommand("DELETE FROM [products_warehouse] WHERE id='" + (string)dataGridView_employee.CurrentRow.Cells[0].Value + "'", conn);

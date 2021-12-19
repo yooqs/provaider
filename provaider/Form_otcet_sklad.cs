@@ -21,7 +21,7 @@ namespace provaider
         }
         private void table_load(DataGridView dataGrid, ComboBox combo_category)
         {
-            string string_connection = Properties.Resources.conn_string;
+            string string_connection = Form_login.sql_connect;
             using (SqlConnection conn = new SqlConnection(string_connection))
             {
                 conn.Open();
@@ -68,7 +68,7 @@ namespace provaider
         private void textbox_category_load(ComboBox comboBox)
         {
 
-            string string_connection = Properties.Resources.conn_string;
+            string string_connection = Form_login.sql_connect;
             using (SqlConnection conn = new SqlConnection(string_connection))
             {
                 conn.Open();

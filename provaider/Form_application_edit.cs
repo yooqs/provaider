@@ -213,7 +213,7 @@ namespace provaider
                 using (SqlConnection conn = new SqlConnection())
                 {
 
-                    conn.ConnectionString = provaider.Properties.Resources.conn_string;
+                    conn.ConnectionString = Form_login.sql_connect;
                     string sql_emp_app = "INSERT INTO [emp_app] ([id_app],[id_emp]) VALUES (" + id + "," + Convert.ToString(dataGridView1.Rows[0].Cells[0].Value) + ")";
                     for (int i = dataGridView1.Rows.Count - 1; i > 1; i--)
                     {
@@ -233,7 +233,7 @@ namespace provaider
             using (SqlConnection conn = new SqlConnection())
             {
 
-                conn.ConnectionString = provaider.Properties.Resources.conn_string;
+                conn.ConnectionString = Form_login.sql_connect;
 
 
                 string Sql = "INSERT INTO[products_purchase]([id_product],[id_applications],[price],[volume],[identifier],[id_sklad])  VALUES "; //(@id_products, @id_contract, @volume, @identifier, @price)

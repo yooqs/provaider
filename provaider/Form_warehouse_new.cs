@@ -28,7 +28,7 @@ namespace provaider
         private void Form_warehouse_new_Load(object sender, EventArgs e)
         {
             //заполнение вид услуг
-            string string_connection = Properties.Resources.conn_string;
+            string string_connection = Form_login.sql_connect;
             using (SqlConnection conn = new SqlConnection(string_connection))
             {
                 conn.Open();
@@ -102,7 +102,7 @@ namespace provaider
             if (comboBox_name.SelectedIndex > -1)
             {
                 //из списка
-                string string_connection = provaider.Properties.Resources.conn_string;
+                string string_connection = Form_login.sql_connect;
                 using (SqlConnection conn = new SqlConnection(string_connection))
                 {
                     conn.Open();
@@ -120,7 +120,7 @@ namespace provaider
             {
                 
                 //не из списка
-                string string_connection = provaider.Properties.Resources.conn_string;
+                string string_connection = Form_login.sql_connect;
                 using (SqlConnection conn = new SqlConnection(string_connection))
                 {
                     conn.Open();
@@ -169,7 +169,7 @@ namespace provaider
         {
             if (comboBox_name.SelectedIndex > -1)
             {
-                string string_connection = provaider.Properties.Resources.conn_string;
+                string string_connection = Form_login.sql_connect;
                 using (SqlConnection conn = new SqlConnection(string_connection))
                 {
                     int id = Convert.ToInt32(comboBox1.SelectedValue);
@@ -199,7 +199,7 @@ namespace provaider
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboBox_name.Text = "";
-            string string_connection = Properties.Resources.conn_string;
+            string string_connection = Form_login.sql_connect;
           
             using (SqlConnection conn = new SqlConnection(string_connection))
             {

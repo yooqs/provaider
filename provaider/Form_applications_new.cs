@@ -103,7 +103,7 @@ namespace provaider
             textBox2.Text= data_contract[11];
 
             //заполнение техников
-            string string_connection = provaider.Properties.Resources.conn_string;
+            string string_connection = Form_login.sql_connect;
             using (SqlConnection conn = new SqlConnection(string_connection))
             {
                 conn.Open();
@@ -212,7 +212,7 @@ namespace provaider
                 using (SqlConnection conn = new SqlConnection())
                 {
 
-                    conn.ConnectionString = provaider.Properties.Resources.conn_string;
+                    conn.ConnectionString = Form_login.sql_connect;
 
 
                     string Sql = "INSERT INTO[user_products]([id_products],[id_contract],[volume],[identifier],[price])  VALUES "; //(@id_products, @id_contract, @volume, @identifier, @price)
@@ -252,7 +252,7 @@ namespace provaider
                 using (SqlConnection conn = new SqlConnection())
                 {
 
-                    conn.ConnectionString = provaider.Properties.Resources.conn_string;
+                    conn.ConnectionString = Form_login.sql_connect;
 
 
 
@@ -277,7 +277,7 @@ namespace provaider
                 using (SqlConnection conn = new SqlConnection())
                 {
 
-                    conn.ConnectionString = provaider.Properties.Resources.conn_string;
+                    conn.ConnectionString = Form_login.sql_connect;
 
                     SqlCommand command = new SqlCommand("SELECT IDENT_CURRENT ('applications')", conn);
                     command.Connection.Open();
@@ -297,7 +297,7 @@ namespace provaider
                     using (SqlConnection conn = new SqlConnection())
                     {
 
-                        conn.ConnectionString = provaider.Properties.Resources.conn_string;
+                        conn.ConnectionString = Form_login.sql_connect;
 
 
                         string Sql = "INSERT INTO[products_purchase]([id_product],[id_applications],[price],[volume],[identifier],[id_sklad])  VALUES "; //(@id_products, @id_contract, @volume, @identifier, @price)
@@ -341,7 +341,7 @@ namespace provaider
                     using (SqlConnection conn = new SqlConnection())
                     {
 
-                        conn.ConnectionString = provaider.Properties.Resources.conn_string;
+                        conn.ConnectionString = Form_login.sql_connect;
                         sql_emp_app = "INSERT INTO [emp_app] ([id_app],[id_emp]) VALUES (" + data_contract[0] + "," + Convert.ToString(dataGridView1.Rows[0].Cells[0].Value) + ")";
                         for (int i = dataGridView1.Rows.Count - 1; i > 1; i--)
                         {
@@ -463,7 +463,7 @@ namespace provaider
 
         private void button16_Click(object sender, EventArgs e)
         {
-            string string_connection = provaider.Properties.Resources.conn_string;
+            string string_connection = Form_login.sql_connect;
             using (SqlConnection conn = new SqlConnection(string_connection))
             {
                 conn.Open();
@@ -495,7 +495,7 @@ namespace provaider
                 for (int i = dataGridView_employee.Rows.Count; i > 0; i--)
                 {
                     int int_del = Convert.ToInt32(dataGridView_employee.Rows[i - 1].Cells[5].Value);
-                    string string_connection = provaider.Properties.Resources.conn_string;
+                    string string_connection = Form_login.sql_connect;
                     using (SqlConnection conn = new SqlConnection(string_connection))
                     {
                         conn.Open();

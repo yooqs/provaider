@@ -28,7 +28,7 @@ namespace provaider
 
         public void type_load()
         {
-            string string_connection = provaider.Properties.Resources.conn_string;
+            string string_connection = Form_login.sql_connect;
             using (SqlConnection conn = new SqlConnection(string_connection))
             {
 
@@ -53,7 +53,7 @@ namespace provaider
             SqlConnection conn = new SqlConnection();
             SqlCommand cmd = new SqlCommand("SELECT [name] FROM [city] ", conn);
 
-            conn.ConnectionString = provaider.Properties.Resources.conn_string;
+            conn.ConnectionString = Form_login.sql_connect;
             conn.Open();
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
@@ -73,7 +73,7 @@ namespace provaider
             //получение id города
 
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = provaider.Properties.Resources.conn_string;
+            conn.ConnectionString = Form_login.sql_connect;
             await conn.OpenAsync();
             SqlCommand cmd = new SqlCommand("SELECT [id] FROM [city] WHERE [name]='" + comboBox_city.Text + "'", conn);
             SqlDataReader reader = await cmd.ExecuteReaderAsync();
@@ -99,7 +99,7 @@ namespace provaider
         public async void table_combobox_name_contract()
         {
             String sql = "SELECT DISTINCT [last_name],[first_name],[patronymic] FROM [contract]";
-            String str_conn = Properties.Resources.conn_string;
+            String str_conn = Form_login.sql_connect;
             using (SqlConnection conn = new SqlConnection(str_conn))
             {
                 conn.Open();
@@ -114,7 +114,7 @@ namespace provaider
         public async void table_combobox_name_employee()
         {
             String sql = "SELECT DISTINCT [last_name],[first_name],[patronymic] FROM [employee]";
-            String str_conn = Properties.Resources.conn_string;
+            String str_conn = Form_login.sql_connect;
             using (SqlConnection conn = new SqlConnection(str_conn))
             {
                 conn.Open();
@@ -169,7 +169,7 @@ namespace provaider
                 //   if (checkBox_passport_number.Checked) sql += " AND [passport_number] = " + textBox_passport_number.Text;
                 // if (checkBox_date_conclusion.Checked) sql += " AND [date_conclusion] = convert(varchar, convert(datetime, '" + date_conclusions.Text + "', 104), 121)";
                 SqlCommand cmd = new SqlCommand(sql, conn);
-                conn.ConnectionString = provaider.Properties.Resources.conn_string;
+                conn.ConnectionString = Form_login.sql_connect;
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 /* while (reader.Read())
@@ -305,7 +305,7 @@ namespace provaider
             if (dialogResult == DialogResult.Yes)
             {
                 SqlConnection conn = new SqlConnection();
-                conn.ConnectionString = provaider.Properties.Resources.conn_string;
+                conn.ConnectionString = Form_login.sql_connect;
                 conn.Open();
                 SqlCommand command = new SqlCommand("DELETE FROM [applications] WHERE id='" + (String)dataGridView1.CurrentRow.Cells[0].Value + "'", conn);
                 command.ExecuteNonQuery();

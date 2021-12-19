@@ -27,7 +27,7 @@ namespace provaider
         Boolean flag = false;
         private void Form_nomenclature_new_Load(object sender, EventArgs e)
         {
-            string string_connection = Properties.Resources.conn_string;
+            string string_connection = Form_login.sql_connect;
             using (SqlConnection conn = new SqlConnection(string_connection))
             {
                 conn.Open();
@@ -71,7 +71,7 @@ namespace provaider
 
         private void button_user_new_Click(object sender, EventArgs e)
         {
-            string string_connection = provaider.Properties.Resources.conn_string;
+            string string_connection = Form_login.sql_connect;
             using (SqlConnection conn = new SqlConnection(string_connection))
             {
                 conn.Open();
