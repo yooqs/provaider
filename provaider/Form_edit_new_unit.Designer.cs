@@ -77,7 +77,8 @@ namespace provaider
             this.Controls.Add(this.textBox_city);
             this.Controls.Add(this.label3);
             this.Name = "Form_edit_new_unit";
-            this.Text = "Form_edit_new_unit";
+            this.ShowIcon = false;
+            this.Text = "Изменить";
             this.Load += new System.EventHandler(this.Form_edit_new_unit_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

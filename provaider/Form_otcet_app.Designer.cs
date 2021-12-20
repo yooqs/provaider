@@ -360,7 +360,8 @@ namespace provaider
             this.Controls.Add(this.button_employee_edit);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form_otcet_app";
-            this.Text = "Form_otcet_app";
+            this.ShowIcon = false;
+            this.Text = "Отчет: заявки";
             this.Load += new System.EventHandler(this.Form_otcet_app_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);

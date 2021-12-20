@@ -135,7 +135,8 @@ namespace provaider
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Name = "Form_nomenclature_new";
-            this.Text = "Form_nomenclature_new";
+            this.ShowIcon = false;
+            this.Text = "Добавить";
             this.Load += new System.EventHandler(this.Form_nomenclature_new_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

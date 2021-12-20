@@ -536,12 +536,13 @@
             this.button_customers_new.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button_customers_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_customers_new.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_customers_new.Location = new System.Drawing.Point(463, 440);
+            this.button_customers_new.Location = new System.Drawing.Point(134, 437);
             this.button_customers_new.Name = "button_customers_new";
             this.button_customers_new.Size = new System.Drawing.Size(201, 39);
             this.button_customers_new.TabIndex = 230;
             this.button_customers_new.Text = "Печать";
             this.button_customers_new.UseVisualStyleBackColor = true;
+            this.button_customers_new.Visible = false;
             this.button_customers_new.Click += new System.EventHandler(this.button_customers_new_Click);
             // 
             // button1
@@ -566,7 +567,7 @@
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(244, 440);
+            this.button2.Location = new System.Drawing.Point(463, 440);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(201, 39);
             this.button2.TabIndex = 232;

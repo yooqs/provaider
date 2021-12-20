@@ -41,7 +41,6 @@ C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.For
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_tariff_edit.resources
 C:\Users\Дмитрий\source\repos\provaider\provaider\bin\Debug\EntityFramework.dll
 C:\Users\Дмитрий\source\repos\provaider\provaider\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Дмитрий\source\repos\provaider\provaider\bin\Debug\GMap.NET.WindowsForms.dll
 C:\Users\Дмитрий\source\repos\provaider\provaider\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Дмитрий\source\repos\provaider\provaider\bin\Debug\System.Data.SqlClient.dll
 C:\Users\Дмитрий\source\repos\provaider\provaider\bin\Debug\System.Data.SQLite.dll
@@ -66,3 +65,4 @@ C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.For
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_application_archive_open.resources
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_otcet_spisanie.resources
 C:\Users\Дмитрий\source\repos\provaider\provaider\obj\Debug\provaider.Form_otcet_app.resources
+C:\Users\Дмитрий\source\repos\provaider\provaider\bin\Debug\GMap.NET.WindowsForms.dll

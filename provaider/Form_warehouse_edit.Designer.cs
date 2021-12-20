@@ -186,7 +186,8 @@ namespace provaider
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Name = "Form_warehouse_edit";
-            this.Text = "Form_warehouse_edit";
+            this.ShowIcon = false;
+            this.Text = "Изменить";
             this.Load += new System.EventHandler(this.Form_warehouse_edit_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

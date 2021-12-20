@@ -29,6 +29,7 @@ namespace provaider
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(application_views));
             this.date_conclusion = new System.Windows.Forms.DateTimePicker();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -134,6 +135,7 @@ namespace provaider
             this.button6.TabIndex = 254;
             this.button6.Text = "Печать";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // dataGridView_employee
             // 
@@ -667,8 +669,9 @@ namespace provaider
             this.ClientSize = new System.Drawing.Size(518, 406);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "application_views";
-            this.Text = "application_views";
+            this.Text = "Просмотр заявки";
             this.Load += new System.EventHandler(this.application_views_Load);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();

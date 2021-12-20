@@ -139,7 +139,8 @@ namespace provaider
             this.Controls.Add(this.textBox_last_name);
             this.Controls.Add(this.label3);
             this.Name = "Form_setting_load";
-            this.Text = "Form_setting_load";
+            this.ShowIcon = false;
+            this.Text = "Изменить";
             this.Load += new System.EventHandler(this.Form_setting_load_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

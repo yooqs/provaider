@@ -29,6 +29,7 @@ namespace provaider
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_application_conf_edid));
             this.comboBox_name = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -162,8 +163,9 @@ namespace provaider
             this.Controls.Add(this.textBox_volume);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_application_conf_edid";
-            this.Text = "Form_application_conf_edid";
+            this.Text = "Изменить";
             this.Load += new System.EventHandler(this.Form_application_conf_edid_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

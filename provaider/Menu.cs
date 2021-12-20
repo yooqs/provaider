@@ -527,5 +527,12 @@ namespace provaider
             spisanie.StartPosition = FormStartPosition.CenterScreen;
             spisanie.Show();
         }
+
+        private void складToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_warehouse warehouse_form = new Form_warehouse();
+            warehouse_form.StartPosition = FormStartPosition.CenterScreen;
+            warehouse_form.Show();
+        }
     }
 }

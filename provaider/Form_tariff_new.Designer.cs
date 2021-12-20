@@ -100,7 +100,8 @@ namespace provaider
             this.Controls.Add(this.textBox_city);
             this.Controls.Add(this.label3);
             this.Name = "Form_tariff_new";
-            this.Text = "Form_tariff_new";
+            this.ShowIcon = false;
+            this.Text = "Добавить";
             this.ResumeLayout(false);
             this.PerformLayout();
 

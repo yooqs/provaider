@@ -29,6 +29,7 @@ namespace provaider
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_application_archive_open));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -64,7 +65,6 @@ namespace provaider
             this.label17 = new System.Windows.Forms.Label();
             this.date_receipt = new System.Windows.Forms.DateTimePicker();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button6 = new System.Windows.Forms.Button();
             this.dataGridView_employee = new System.Windows.Forms.DataGridView();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,10 +79,10 @@ namespace provaider
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label12 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column9 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Column9 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.button_customers_new = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -386,7 +386,7 @@ namespace provaider
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(510, 380);
+            this.tabPage2.Size = new System.Drawing.Size(504, 424);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Описание проблемы";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -470,31 +470,17 @@ namespace provaider
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.button6);
+            this.tabPage3.Controls.Add(this.button_customers_new);
             this.tabPage3.Controls.Add(this.dataGridView_employee);
             this.tabPage3.Controls.Add(this.label12);
             this.tabPage3.Controls.Add(this.dataGridView1);
             this.tabPage3.Controls.Add(this.label8);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(510, 380);
+            this.tabPage3.Size = new System.Drawing.Size(504, 424);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Техники и оборудование";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button6.Location = new System.Drawing.Point(174, 318);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(184, 43);
-            this.button6.TabIndex = 254;
-            this.button6.Text = "Печать";
-            this.button6.UseVisualStyleBackColor = true;
             // 
             // dataGridView_employee
             // 
@@ -521,7 +507,7 @@ namespace provaider
             this.dataGridView_employee.Location = new System.Drawing.Point(3, 129);
             this.dataGridView_employee.Name = "dataGridView_employee";
             this.dataGridView_employee.RowHeadersVisible = false;
-            this.dataGridView_employee.Size = new System.Drawing.Size(504, 167);
+            this.dataGridView_employee.Size = new System.Drawing.Size(504, 244);
             this.dataGridView_employee.TabIndex = 251;
             // 
             // Column3
@@ -616,32 +602,13 @@ namespace provaider
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ColumnHeadersVisible = false;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column9,
-            this.Column10});
+            this.Column9});
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ButtonShadow;
             this.dataGridView1.Location = new System.Drawing.Point(3, 25);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(504, 78);
             this.dataGridView1.TabIndex = 249;
-            // 
-            // Column9
-            // 
-            this.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column9.HeaderText = "Column9";
-            this.Column9.Name = "Column9";
-            this.Column9.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column9.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Column10
-            // 
-            this.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column10.HeaderText = "Column10";
-            this.Column10.MinimumWidth = 100;
-            this.Column10.Name = "Column10";
-            this.Column10.Text = "Удалить";
-            this.Column10.ToolTipText = "Удалить";
-            this.Column10.UseColumnTextForButtonValue = true;
             // 
             // label8
             // 
@@ -660,6 +627,29 @@ namespace provaider
             this.panel1.Size = new System.Drawing.Size(610, 2);
             this.panel1.TabIndex = 247;
             // 
+            // Column9
+            // 
+            this.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column9.HeaderText = "Column9";
+            this.Column9.Name = "Column9";
+            this.Column9.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column9.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // button_customers_new
+            // 
+            this.button_customers_new.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button_customers_new.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.button_customers_new.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            this.button_customers_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_customers_new.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_customers_new.Location = new System.Drawing.Point(163, 377);
+            this.button_customers_new.Name = "button_customers_new";
+            this.button_customers_new.Size = new System.Drawing.Size(201, 39);
+            this.button_customers_new.TabIndex = 252;
+            this.button_customers_new.Text = "Печать";
+            this.button_customers_new.UseVisualStyleBackColor = true;
+            this.button_customers_new.Click += new System.EventHandler(this.button_customers_new_Click);
+            // 
             // Form_application_archive_open
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -667,8 +657,9 @@ namespace provaider
             this.ClientSize = new System.Drawing.Size(512, 450);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_application_archive_open";
-            this.Text = "Form_application_archive_open";
+            this.Text = "Архив: просмотр";
             this.Load += new System.EventHandler(this.Form_application_archive_open_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -720,7 +711,6 @@ namespace provaider
         private System.Windows.Forms.Label label17;
         public System.Windows.Forms.DateTimePicker date_receipt;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.DataGridView dataGridView_employee;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
@@ -735,9 +725,9 @@ namespace provaider
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewButtonColumn Column10;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Column9;
+        private System.Windows.Forms.Button button_customers_new;
     }
 }

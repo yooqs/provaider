@@ -102,7 +102,8 @@ namespace provaider
             this.Controls.Add(this.textBox_city);
             this.Controls.Add(this.label3);
             this.Name = "Form_post_new";
-            this.Text = "Form_post_new";
+            this.ShowIcon = false;
+            this.Text = "Добавить";
             this.Load += new System.EventHandler(this.Form_post_new_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

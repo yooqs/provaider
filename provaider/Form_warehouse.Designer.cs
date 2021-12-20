@@ -247,7 +247,8 @@ namespace provaider
             this.Controls.Add(this.button_employee_new);
             this.Controls.Add(this.dataGridView_employee);
             this.Name = "Form_warehouse";
-            this.Text = "Form_warehouse";
+            this.ShowIcon = false;
+            this.Text = "Склад";
             this.Activated += new System.EventHandler(this.Form_warehouse_Activated);
             this.Deactivate += new System.EventHandler(this.Form_warehouse_Deactivate);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_warehouse_FormClosed);

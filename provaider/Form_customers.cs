@@ -299,9 +299,9 @@ namespace provaider
             try { 
             var WordApp = new Microsoft.Office.Interop.Word.Application();
             WordApp.Visible = false;
-               // string woo = Path.Combine(Application.StartupPath);
-               // woo = woo + @"\dogovor.dotx";
-                string woo = @"C:\Users\Дмитрий\Desktop\12\abonent.dotx";
+                string woo = Path.Combine(Application.StartupPath);
+                woo = woo + @"\abonent.dotx";
+               // string woo = @"C:\Users\Дмитрий\Desktop\12\abonent.dotx";
            //  woo = woo + @"\prikaz_na_otpusk.dotx";
             // var WordDocument = WordApp.Documents.Open(@"C:\Users\Дмитрий\Documents\sql_S\Basa_sql\Basa_sql\prikaz_na_otpusk.dotx");
             var WordDocument = WordApp.Documents.Open(woo);

@@ -247,7 +247,8 @@ namespace provaider
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Name = "Form_sklad";
-            this.Text = "Form_sklad";
+            this.ShowIcon = false;
+            this.Text = "Склад";
             this.ResumeLayout(false);
             this.PerformLayout();
 

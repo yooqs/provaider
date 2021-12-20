@@ -221,7 +221,8 @@ namespace provaider
             this.Controls.Add(this.button_employee_edit);
             this.Controls.Add(this.dataGridView_employee);
             this.Name = "Form_otcet_spisanie";
-            this.Text = "Form_otcet_spisanie";
+            this.ShowIcon = false;
+            this.Text = "Отчет: склад списание";
             this.Activated += new System.EventHandler(this.Form_otcet_spisanie_Activated);
             this.Load += new System.EventHandler(this.Form_otcet_spisanie_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_employee)).EndInit();

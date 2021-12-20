@@ -29,6 +29,7 @@ namespace provaider
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_maps));
             this.gMapControl1 = new GMap.NET.WindowsForms.GMapControl();
             this.panel1 = new System.Windows.Forms.Panel();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
@@ -352,8 +353,9 @@ namespace provaider
             this.Controls.Add(this.gMapControl1);
             this.Controls.Add(this.textBox_patronymic);
             this.Controls.Add(this.textBox_first_name);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_maps";
-            this.Text = "Form_maps";
+            this.Text = "Карта";
             this.Load += new System.EventHandler(this.Form_maps_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

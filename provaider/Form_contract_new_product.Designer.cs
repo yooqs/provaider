@@ -281,7 +281,8 @@ namespace provaider
             this.Controls.Add(this.button_employee_edit);
             this.Controls.Add(this.dataGridView_employee);
             this.Name = "Form_contract_new_product";
-            this.Text = "Form_contract_new_product";
+            this.ShowIcon = false;
+            this.Text = "Оборудование и материалы";
             this.Load += new System.EventHandler(this.Form_contract_new_product_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_employee)).EndInit();
             this.ResumeLayout(false);

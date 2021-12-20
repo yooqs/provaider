@@ -77,7 +77,8 @@ namespace provaider
             this.Controls.Add(this.textBox_city);
             this.Controls.Add(this.label3);
             this.Name = "Form_new_edit_archive";
-            this.Text = "Form_new_edit_archive";
+            this.ShowIcon = false;
+            this.Text = "Изменить";
             this.Load += new System.EventHandler(this.Form_new_edit_archive_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

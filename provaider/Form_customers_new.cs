@@ -320,7 +320,7 @@ namespace provaider
                         //заполнение таблицы сотруднки
                         SqlCommand command = new SqlCommand("INSERT INTO [applications] ([status],[type],[description],[date_receipt],[id_contract],[id_employee]) VALUES(@status, @type, @description, '"+ date1.ToString("dd-MM-yyyy HH:mm:ss")+"', @id_contract, @id_employee)", conn);
                         //@tariff, @mac,@login_kab, @password_kab, @personal_account, @wifi_login, @wifi_password
-                        command.Parameters.AddWithValue("@status", "Выполняется");
+                        command.Parameters.AddWithValue("@status", "Ожидание");
                         command.Parameters.AddWithValue("@type", 3);
                         command.Parameters.AddWithValue("@description", "Подключение к сети");
                         command.Parameters.AddWithValue("@id_contract", id_contract);
@@ -413,11 +413,11 @@ namespace provaider
 
                         }
                     }
-                   
+
 
 
                     //закрытие и обновление формы
-
+                    Form_menu.application_update = true;
                     Form_customers.Data_table_load = true;
                     this.Close();
 
@@ -514,12 +514,14 @@ namespace provaider
 
 
 
-
-                //https://nominatim.openstreetmap.org/search.php?q=Острогожск%20ленина%2035&limit=1&format=json
-                string zapros = "https://nominatim.openstreetmap.org/search.php?q={0}&limit=1&format=json";
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                //http://nominatim.openstreetmap.org/search.php?q=Острогожск%20ленина%2035&limit=1&format=json
+                string zapros = "http://nominatim.openstreetmap.org/search.php?q={0}&limit=1&format=json";
                 string url = string.Format(zapros, Uri.EscapeDataString("Воронежская область " + comboBox_city.Text + " " + comboBox_street.Text + " " + textBox_house.Text));
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 request.UserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36";
+                
                 WebResponse response = request.GetResponse();
                 Stream dataStream = response.GetResponseStream();
                 StreamReader reader = new StreamReader(dataStream);
@@ -530,10 +532,13 @@ namespace provaider
                 textBox1.Text = adress.lat + " " + adress.lon;
                 latitude = adress.lat;
                 longtude = adress.lon;
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 //https://graphhopper.com/api/1/route?point=50.858759,39.078589&point={adress.lat},{adress.lon}&profile=car&locale=ru&calc_points=false&key=c9c61c55-b10d-4a26-af02-f9e609466fcb
-                zapros = $"https://graphhopper.com/api/1/route?point=50.858759,39.078589&point={adress.lat},{adress.lon}&profile=car&locale=ru&calc_points=false&key=c9c61c55-b10d-4a26-af02-f9e609466fcb";
+                zapros = $"http://graphhopper.com/api/1/route?point=50.858759,39.078589&point={adress.lat},{adress.lon}&profile=car&locale=ru&calc_points=false&key=c9c61c55-b10d-4a26-af02-f9e609466fcb";
                 request = (HttpWebRequest)WebRequest.Create(zapros);
                 request.UserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36";
+             
                 response = request.GetResponse();
                 dataStream = response.GetResponseStream();
                 reader = new StreamReader(dataStream);

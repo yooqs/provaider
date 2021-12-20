@@ -203,7 +203,7 @@ namespace provaider
             form_Applications_New_Products_New.StartPosition = FormStartPosition.CenterScreen;
             form_Applications_New_Products_New.ShowDialog();
         }
-
+        string tariff, login;
         private void button6_Click(object sender, EventArgs e)
         {
             flag_closed = true;
@@ -358,20 +358,38 @@ namespace provaider
                     }
                 }
 
+           
+            using (SqlConnection conn = new SqlConnection(Form_login.sql_connect))
+            {
+                string sql = "Select  [tariff].[name],[contract].[login_kab]  From [contract] JOIN [applications] ON  [applications].[id_contract] = [contract].[id] JOIN [tariff] ON [contract].[id_tariff] = [tariff].[id] where [applications].[id] = " + data_contract[0];
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
 
+                    tariff = reader.GetValue(0).ToString().Trim();    //фамилия
+                    login = reader.GetValue(1).ToString().Trim();   //имя
+                                                                    //дата заключения договора  
+
+                }
+
+            }
             try
             {
                 var WordApp = new Microsoft.Office.Interop.Word.Application();
                 WordApp.Visible = false;
                 // string woo = Path.Combine(Application.StartupPath);
                 // woo = woo + @"\dogovor.dotx";
-                string woo = @"C:\Users\Дмитрий\Desktop\12\task.dotx";
+
+                string woo = Path.Combine(Application.StartupPath);
+                woo = woo + @"\task.dotx";
                 //  woo = woo + @"\prikaz_na_otpusk.dotx";
                 // var WordDocument = WordApp.Documents.Open(@"C:\Users\Дмитрий\Documents\sql_S\Basa_sql\Basa_sql\prikaz_na_otpusk.dotx");
                 var WordDocument = WordApp.Documents.Open(woo);
                 var range = WordDocument.Content;
                 range.Find.ClearFormatting();
-                range.Find.Execute(FindText: "{number}", ReplaceWith: data_contract[0]);
+                range.Find.Execute(FindText: "{number}", ReplaceWith: id);
                 range = WordDocument.Content;
                 range.Find.ClearFormatting();
                 range.Find.Execute(FindText: "{date}", ReplaceWith: date_receipt.Text);
@@ -380,16 +398,16 @@ namespace provaider
                 range.Find.Execute(FindText: "{adress}", ReplaceWith: textBox_adres.Text);
                 range.Find.ClearFormatting();
                 range = WordDocument.Content;
-                range.Find.Execute(FindText: "{fio}", ReplaceWith: data_contract[1]+" "+ data_contract[2]+" "+ data_contract[3]);
+                range.Find.Execute(FindText: "{fio}", ReplaceWith: textBox_last_name.Text + " " + textBox_first_name.Text + " " + textBox_patronymic.Text);
                 range.Find.ClearFormatting();
                 range = WordDocument.Content;
-                range.Find.Execute(FindText: "{login}", ReplaceWith: data_contract[14]);
+                range.Find.Execute(FindText: "{login}", ReplaceWith: login);
                 range.Find.ClearFormatting();
                 range = WordDocument.Content;
                 range.Find.Execute(FindText: "{telefon}", ReplaceWith: maskedTextBox1.Text);
                 range.Find.ClearFormatting();
                 range = WordDocument.Content;
-                range.Find.Execute(FindText: "{tarif}", ReplaceWith: data_contract[15]);
+                range.Find.Execute(FindText: "{tarif}", ReplaceWith: tariff);
                 range.Find.ClearFormatting();
                 range = WordDocument.Content;
                 range.Find.Execute(FindText: "{vid}", ReplaceWith: comboBox1.Text);
@@ -403,43 +421,41 @@ namespace provaider
                 range = WordDocument.Content;
                 range.Find.Execute(FindText: "{tex}", ReplaceWith: Convert.ToString(dataGridView1.Rows[0].Cells[0].Value));
                 range.Find.ClearFormatting();
-                range = WordDocument.Content;
-                range.Find.Execute(FindText: "{fio}", ReplaceWith: Form_menu.fios);
-                range = WordDocument.Content;
-                //  WordDocument.ExportAsFixedFormat(@"C:\Users\Дмитрий\Desktop\12\DocTo2.pdf", Microsoft.Office.Interop.Word.WdExportFormat.wdExportFormatPDF);
-                range.Find.ClearFormatting();
+
 
                 //   Microsoft.Office.Interop.Word._Document document;
 
                 //  Microsoft.Office.Interop.Word.Table _table = WordDocument.Tables[1];
                 //   WordDocument.Tables.Add(range, 2, 1, Type.Missing, Type.Missing);
                 // WordDocument.Tables[1].Cell(2, 1).Range.InsertAfter("v");   
-                Microsoft.Office.Interop.Word.Table table = WordDocument.Tables[2];
-                for (int i = 0; i < dataGridView_employee.RowCount; i++)
-               
-                {
-
-                    table.Rows.Add(Type.Missing); 
-                    table.Cell(i+2, 1).Range.Text = (string)dataGridView_employee[3, i].Value;
-                    table.Cell(i + 2, 2).Range.Text = (string)dataGridView_employee[2, i].Value;
-                    table.Cell(i + 2, 3).Range.Text = (string)dataGridView_employee[4, i].Value;
-                    table.Cell(i + 2, 4).Range.Text = (string)dataGridView_employee[6, i].Value;
-                    table.Cell(i + 2, 5).Range.Text = (string)dataGridView_employee[5, i].Value;
-                    table.Cell(i + 2, 6).Range.Text = (string)dataGridView_employee[7, i].Value;
-                }
-
                 Microsoft.Office.Interop.Word.Table table2 = WordDocument.Tables[1];
-                for (int i = 0; i < dataGridView1.RowCount-1; i++)
+                for (int i = 0; i < dataGridView1.RowCount - 1; i++)
 
                 {
                     DataGridViewComboBoxCell dgvcmbcell = dataGridView1[0, i] as DataGridViewComboBoxCell;
                     String text = dgvcmbcell.EditedFormattedValue.ToString();
                     table2.Rows.Add(Type.Missing);
                     table2.Cell(i + 1, 1).Range.Text = text;
-                   
+
                 }
-                
-             
+
+                Microsoft.Office.Interop.Word.Table table = WordDocument.Tables[2];
+                for (int i = 0; i < dataGridView_employee.RowCount; i++)
+
+                {
+
+                    table.Rows.Add(Type.Missing);
+                    table.Cell(i + 2, 1).Range.Text = (string)dataGridView_employee[3, i].Value;
+                    table.Cell(i + 2, 2).Range.Text = (string)dataGridView_employee[2, i].Value;
+                    table.Cell(i + 2, 3).Range.Text = (string)dataGridView_employee[4, i].Value;
+                    table.Cell(i + 2, 4).Range.Text = (string)dataGridView_employee[6, i].Value;
+                    table.Cell(i + 2, 5).Range.Text = (string)dataGridView_employee[5, i].Value;
+                    table.Cell(i + 2, 6).Range.Text = Convert.ToString(dataGridView_employee[7, i].Value);
+                }
+
+
+
+                WordApp.Visible = true;
                 // table.Cell(1, 1).Range.Text = "23344";
 
                 // table.Rows.Add();
@@ -454,7 +470,6 @@ namespace provaider
             {
                 MessageBox.Show("Произошла ошибка");
             }
-            //закрытие и обновление формы
 
             Form_menu.application_update = true;
                 this.Close();
